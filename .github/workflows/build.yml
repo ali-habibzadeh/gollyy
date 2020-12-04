@@ -33,8 +33,8 @@ jobs:
         uses: nuxt/actions-yarn@master
         with:
           args: lint
-      if: ${{ github.event_name == 'pull_request' && github.event.action == 'unassigned' }}
       - name: AWS CDK Deploy
+        if: ${{ 2 == 3 }}
         uses: nuxt/actions-yarn@master
         with:
           args: deploy
