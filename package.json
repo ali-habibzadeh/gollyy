@@ -6,6 +6,9 @@
   "repository": "https://github.com/ali-habibzadeh/gollyy.git",
   "author": "Ali Habibzadeh <ali.hci@icloud.com>",
   "license": "MIT",
+  "engines": {
+    "node": ">=12.0.0"
+  },
   "private": true,
   "scripts": {
     "lint": "eslint ./src --ext .js,.jsx,.ts,.tsx",
