@@ -12,24 +12,15 @@ jobs:
     steps:
       - uses: actions/checkout@v2
 
-      - name: Yarn Install
+      - name: Install dependencies
         uses: nuxt/actions-yarn@master
         with:
-          args: install
+          args: install --ignore-engines
 
-      - name: Yarn Build
+      - name: Build project
         uses: nuxt/actions-yarn@master
         with:
           args: build
-      # - name: AWS CDK Deploy
-      #   uses: nuxt/actions-yarn@master
-      #   with:
-      #     args: deploy
-      #   env:
-      #     AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY }}
-      #     AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET }}
-      #     AWS_REGION: us-east-1
-      #     REF: ${GITHUB_REF}
       - name: Run tests
         uses: nuxt/actions-yarn@master
         with:
@@ -38,3 +29,17 @@ jobs:
           AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY }}
           AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET }}
           AWS_REGION: us-east-1
+      - name: Run linter
+        uses: nuxt/actions-yarn@master
+        with:
+          args: lint
+      - name: AWS CDK Deploy
+        if: ${{ github.ref == 'refs/heads/main' && github.event_name == 'push' }}
+        uses: nuxt/actions-yarn@master
+        with:
+          args: deploy
+        env:
+          AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY }}
+          AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET }}
+          AWS_REGION: us-east-1
+          REF: ${GITHUB_REF}
