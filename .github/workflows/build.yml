@@ -11,13 +11,17 @@ jobs:
 
     steps:
       - uses: actions/checkout@v2
+      - uses: actions/setup-node@v2-beta
+      with:
+        node-version: '12'
+        check-latest: true
 
-      - name: Yarn Install
+      - name: yarn install
         uses: nuxt/actions-yarn@master
         with:
           args: install
 
-      - name: Yarn Build
+      - name: yarn build
         uses: nuxt/actions-yarn@master
         with:
           args: build
