@@ -34,7 +34,7 @@ jobs:
         with:
           args: lint
       - name: AWS CDK Deploy
-        if: ${{ 2 == 3 }}
+        if: ${{ github.ref == 'refs/heads/main' && github.event_name == 'push' }}
         uses: nuxt/actions-yarn@master
         with:
           args: deploy
