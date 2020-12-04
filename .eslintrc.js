@@ -9,4 +9,12 @@ module.exports = {
   rules: {
     "@typescript-eslint/quotes": ["off"],
   },
+  overrides: [
+    {
+      files: ["src/@infrastructure/**/*.ts"],
+      rules: {
+        "import/no-extraneous-dependencies": "off",
+      },
+    },
+  ],
 };
