@@ -1,4 +1,11 @@
-import { UserPool, VerificationEmailStyle, Mfa, UserPoolClient, AccountRecovery } from "@aws-cdk/aws-cognito";
+import {
+  UserPool,
+  VerificationEmailStyle,
+  Mfa,
+  UserPoolClient,
+  AccountRecovery,
+  UserPoolDomain,
+} from "@aws-cdk/aws-cognito";
 import { Construct, Duration } from "@aws-cdk/core";
 import { EnvVars } from "../../config/env-vars.enum";
 import { Handlers } from "../../handlers-list";
@@ -48,6 +55,13 @@ export default class AppUserPool {
   public userPoolClient = new UserPoolClient(this.scope, `${this.id}-userpool-client`, {
     userPool: this.userPool,
     generateSecret: false,
+  });
+
+  public domain = new UserPoolDomain(this.scope, `${this.id}-userpool-domain`, {
+    userPool: this.userPool,
+    cognitoDomain: {
+      domainPrefix: "gollyy",
+    },
   });
 
   public handler = new LambdaFactory(this.scope, Handlers.RegistrationHandler, {
