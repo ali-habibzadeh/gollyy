@@ -18,7 +18,7 @@ export class RegistrationService {
     return new Promise((resolve, reject) => {
       const attrs = [
         new CognitoUserAttribute({ Name: "email", Value: email }),
-        new CognitoUserAttribute({ Name: "phonne", Value: phone }),
+        new CognitoUserAttribute({ Name: "phone", Value: phone }),
       ];
       this.userPool.signUp(username, password, attrs, [], (err, result) =>
         err ? reject(JSON.stringify(err)) : resolve(result),
