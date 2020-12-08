@@ -20,7 +20,9 @@ export class RegistrationService {
         new CognitoUserAttribute({ Name: "email", Value: email }),
         new CognitoUserAttribute({ Name: "phonne", Value: phone }),
       ];
-      this.userPool.signUp(username, password, attrs, [], (err, result) => (err ? reject(err) : resolve(result)));
+      this.userPool.signUp(username, password, attrs, [], (err, result) =>
+        err ? reject(JSON.stringify(err)) : resolve(result),
+      );
     });
   }
 }
