@@ -1,0 +1,80 @@
+{
+  "version": "7.0.0",
+  "artifacts": {
+    "Tree": {
+      "type": "cdk:tree",
+      "properties": {
+        "file": "tree.json"
+      }
+    },
+    "gollyy-lottery": {
+      "type": "aws:cloudformation:stack",
+      "environment": "aws://unknown-account/unknown-region",
+      "properties": {
+        "templateFile": "gollyy-lottery.template.json"
+      },
+      "metadata": {
+        "/gollyy-lottery/region": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "region",
+            "trace": [
+              "new GollyyStack (/Users/alihabibzadeh/gollyy/dist/@infrastructure/index.js:7:29)",
+              "Object.<anonymous> (/Users/alihabibzadeh/gollyy/dist/@infrastructure/index.js:13:1)",
+              "Module._compile (internal/modules/cjs/loader.js:1176:30)",
+              "Object.Module._extensions..js (internal/modules/cjs/loader.js:1196:10)",
+              "Module.load (internal/modules/cjs/loader.js:1040:32)",
+              "Function.Module._load (internal/modules/cjs/loader.js:929:14)",
+              "Function.executeUserEntryPoint [as runMain] (internal/modules/run_main.js:71:12)",
+              "internal/main/run_main_module.js:17:47"
+            ]
+          }
+        ],
+        "/gollyy-lottery/CDKMetadata/Default": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "CDKMetadata",
+            "trace": [
+              "new MetadataResource (/Users/alihabibzadeh/gollyy/node_modules/@aws-cdk/core/lib/private/metadata-resource.js:22:30)",
+              "/Users/alihabibzadeh/gollyy/node_modules/@aws-cdk/core/lib/private/synthesis.js:127:9",
+              "visit (/Users/alihabibzadeh/gollyy/node_modules/@aws-cdk/core/lib/private/synthesis.js:181:9)",
+              "visit (/Users/alihabibzadeh/gollyy/node_modules/@aws-cdk/core/lib/private/synthesis.js:178:9)",
+              "injectMetadataResources (/Users/alihabibzadeh/gollyy/node_modules/@aws-cdk/core/lib/private/synthesis.js:116:5)",
+              "Object.synthesize (/Users/alihabibzadeh/gollyy/node_modules/@aws-cdk/core/lib/private/synthesis.js:16:5)",
+              "App.synth (/Users/alihabibzadeh/gollyy/node_modules/@aws-cdk/core/lib/stage.js:90:41)",
+              "Object.<anonymous> (/Users/alihabibzadeh/gollyy/dist/@infrastructure/index.js:14:5)",
+              "Module._compile (internal/modules/cjs/loader.js:1176:30)",
+              "Object.Module._extensions..js (internal/modules/cjs/loader.js:1196:10)",
+              "Module.load (internal/modules/cjs/loader.js:1040:32)",
+              "Function.Module._load (internal/modules/cjs/loader.js:929:14)",
+              "Function.executeUserEntryPoint [as runMain] (internal/modules/run_main.js:71:12)",
+              "internal/main/run_main_module.js:17:47"
+            ]
+          }
+        ],
+        "/gollyy-lottery/CDKMetadata/Condition": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "CDKMetadataAvailable",
+            "trace": [
+              "new MetadataResource (/Users/alihabibzadeh/gollyy/node_modules/@aws-cdk/core/lib/private/metadata-resource.js:30:35)",
+              "/Users/alihabibzadeh/gollyy/node_modules/@aws-cdk/core/lib/private/synthesis.js:127:9",
+              "visit (/Users/alihabibzadeh/gollyy/node_modules/@aws-cdk/core/lib/private/synthesis.js:181:9)",
+              "visit (/Users/alihabibzadeh/gollyy/node_modules/@aws-cdk/core/lib/private/synthesis.js:178:9)",
+              "injectMetadataResources (/Users/alihabibzadeh/gollyy/node_modules/@aws-cdk/core/lib/private/synthesis.js:116:5)",
+              "Object.synthesize (/Users/alihabibzadeh/gollyy/node_modules/@aws-cdk/core/lib/private/synthesis.js:16:5)",
+              "App.synth (/Users/alihabibzadeh/gollyy/node_modules/@aws-cdk/core/lib/stage.js:90:41)",
+              "Object.<anonymous> (/Users/alihabibzadeh/gollyy/dist/@infrastructure/index.js:14:5)",
+              "Module._compile (internal/modules/cjs/loader.js:1176:30)",
+              "Object.Module._extensions..js (internal/modules/cjs/loader.js:1196:10)",
+              "Module.load (internal/modules/cjs/loader.js:1040:32)",
+              "Function.Module._load (internal/modules/cjs/loader.js:929:14)",
+              "Function.executeUserEntryPoint [as runMain] (internal/modules/run_main.js:71:12)",
+              "internal/main/run_main_module.js:17:47"
+            ]
+          }
+        ]
+      }
+    }
+  }
+}
