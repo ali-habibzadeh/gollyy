@@ -20,7 +20,7 @@ export default class AppUserPool {
     smsMessage: "Hello {username}, Your temporary Gollyy password is {####}",
   };
 
-  private signInAliases = { username: true, email: true, phone: true };
+  private signInAliases = { username: true, email: true, phoneNumber: true };
 
   private passwordPolicy = {
     minLength: 12,
