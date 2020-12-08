@@ -1,13 +1,11 @@
-import { UserPool, VerificationEmailStyle, Mfa, UserPoolClient, UserPoolOperation } from "@aws-cdk/aws-cognito";
+import { UserPool, VerificationEmailStyle, Mfa, UserPoolClient, AccountRecovery } from "@aws-cdk/aws-cognito";
 import { Construct, Duration } from "@aws-cdk/core";
 import { EnvVars } from "../../config/env-vars.enum";
 import { Handlers } from "../../handlers-list";
 import { LambdaFactory } from "../@common/lambda.factory";
 
 export default class AppUserPool {
-  constructor(private scope: Construct, private id: string) {
-    this.addTriggers();
-  }
+  constructor(private scope: Construct, private id: string) {}
 
   private userVerification = {
     emailSubject: "Verify your email for our awesome app!",
@@ -19,7 +17,7 @@ export default class AppUserPool {
   private userInvitation = {
     emailSubject: "You are invited to join Gollyy!",
     emailBody: "Hello {username}, you have been invited to join Gollyy! Your temporary password is {####}",
-    smsMessage: "Your temporary Gollyy password is {####}",
+    smsMessage: "Hello {username}, Your temporary Gollyy password is {####}",
   };
 
   private signInAliases = { username: true, email: true, phone: true };
@@ -39,13 +37,10 @@ export default class AppUserPool {
     userVerification: this.userVerification,
     userInvitation: this.userInvitation,
     signInAliases: this.signInAliases,
+    accountRecovery: AccountRecovery.EMAIL_ONLY,
     mfa: Mfa.REQUIRED,
     mfaSecondFactor: { sms: true, otp: true },
     passwordPolicy: this.passwordPolicy,
-    emailSettings: {
-      from: "noreply@myawesomeapp.com",
-      replyTo: "support@myawesomeapp.com",
-    },
   });
 
   public userPoolClient = new UserPoolClient(this.scope, `${this.id}-userpool-client`, {
@@ -53,13 +48,8 @@ export default class AppUserPool {
     generateSecret: false,
   });
 
-  private addTriggers(): void {
-    this.userPool.addTrigger(
-      UserPoolOperation.PRE_SIGN_UP,
-      new LambdaFactory(this.scope, Handlers.RegistrationHandler, {
-        [EnvVars.userPoolId]: this.userPool.userPoolId,
-        [EnvVars.userPoolClientId]: this.userPoolClient.userPoolClientId,
-      }).getLambda(),
-    );
-  }
+  public handler = new LambdaFactory(this.scope, Handlers.RegistrationHandler, {
+    [EnvVars.userPoolId]: this.userPool.userPoolId,
+    [EnvVars.userPoolClientId]: this.userPoolClient.userPoolClientId,
+  }).getLambda();
 }
