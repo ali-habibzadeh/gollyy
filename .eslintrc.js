@@ -16,5 +16,11 @@ module.exports = {
         "import/no-extraneous-dependencies": "off",
       },
     },
+    {
+      files: ["src/**/*.ts"],
+      rules: {
+        "import/prefer-default-export": "off",
+      },
+    },
   ],
 };

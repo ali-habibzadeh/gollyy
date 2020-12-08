@@ -1,10 +1,14 @@
 import { App, Stack, CfnOutput } from "@aws-cdk/core";
 
-export default class GollyyStack extends Stack {
+import AppUserPool from "./registeration/user-pool";
+
+export default class AppStack extends Stack {
   public regionOutput = new CfnOutput(this, "region", { value: this.region });
+
+  public appUserPool = new AppUserPool(this, "AppUserPoolContainer");
 }
 
 const app = new App();
 // eslint-disable-next-line no-new
-new GollyyStack(app, "gollyy-lottery");
+new AppStack(app, "gollyy-lottery");
 app.synth();
