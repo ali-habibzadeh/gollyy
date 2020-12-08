@@ -20,8 +20,6 @@ export default class AppUserPool {
     smsMessage: "Hello {username}, Your temporary Gollyy password is {####}",
   };
 
-  private signInAliases = { username: true, email: true, phoneNumber: true };
-
   private passwordPolicy = {
     minLength: 12,
     requireLowercase: true,
@@ -36,11 +34,15 @@ export default class AppUserPool {
     selfSignUpEnabled: true,
     userVerification: this.userVerification,
     userInvitation: this.userInvitation,
-    signInAliases: this.signInAliases,
+    signInAliases: { username: true, email: true, phone: true },
     accountRecovery: AccountRecovery.EMAIL_ONLY,
     mfa: Mfa.REQUIRED,
     mfaSecondFactor: { sms: true, otp: true },
     passwordPolicy: this.passwordPolicy,
+    standardAttributes: {
+      email: { mutable: false, required: true },
+      phoneNumber: { mutable: false, required: true },
+    },
   });
 
   public userPoolClient = new UserPoolClient(this.scope, `${this.id}-userpool-client`, {

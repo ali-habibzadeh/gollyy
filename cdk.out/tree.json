@@ -114,6 +114,18 @@
                         "requireSymbols": true
                       }
                     },
+                    "schema": [
+                      {
+                        "name": "email",
+                        "mutable": false,
+                        "required": true
+                      },
+                      {
+                        "name": "phone_number",
+                        "mutable": false,
+                        "required": true
+                      }
+                    ],
                     "smsConfiguration": {
                       "externalId": "gollyylotteryAppUserPoolContaineruserpool520A9FF3",
                       "snsCallerArn": {
@@ -274,7 +286,7 @@
                   "aws:cdk:cloudformation:props": {
                     "code": {
                       "s3Bucket": {
-                        "Ref": "AssetParameters4d647fe6c504553581977cb4787ed59b7ccb3a4a64c16c2ce87331b5571fa1a7S3BucketB9A0936C"
+                        "Ref": "AssetParameters495ba0c3d3558630c9206ccc7e0168735a4f49d7424ba70b0d3d98e6f32391dcS3Bucket7D0971A9"
                       },
                       "s3Key": {
                         "Fn::Join": [
@@ -287,7 +299,7 @@
                                   "Fn::Split": [
                                     "||",
                                     {
-                                      "Ref": "AssetParameters4d647fe6c504553581977cb4787ed59b7ccb3a4a64c16c2ce87331b5571fa1a7S3VersionKeyEA5CBBD5"
+                                      "Ref": "AssetParameters495ba0c3d3558630c9206ccc7e0168735a4f49d7424ba70b0d3d98e6f32391dcS3VersionKeyDFDFAF95"
                                     }
                                   ]
                                 }
@@ -300,7 +312,7 @@
                                   "Fn::Split": [
                                     "||",
                                     {
-                                      "Ref": "AssetParameters4d647fe6c504553581977cb4787ed59b7ccb3a4a64c16c2ce87331b5571fa1a7S3VersionKeyEA5CBBD5"
+                                      "Ref": "AssetParameters495ba0c3d3558630c9206ccc7e0168735a4f49d7424ba70b0d3d98e6f32391dcS3VersionKeyDFDFAF95"
                                     }
                                   ]
                                 }
@@ -349,21 +361,21 @@
             "id": "AssetParameters",
             "path": "gollyy-lottery/AssetParameters",
             "children": {
-              "4d647fe6c504553581977cb4787ed59b7ccb3a4a64c16c2ce87331b5571fa1a7": {
-                "id": "4d647fe6c504553581977cb4787ed59b7ccb3a4a64c16c2ce87331b5571fa1a7",
-                "path": "gollyy-lottery/AssetParameters/4d647fe6c504553581977cb4787ed59b7ccb3a4a64c16c2ce87331b5571fa1a7",
+              "495ba0c3d3558630c9206ccc7e0168735a4f49d7424ba70b0d3d98e6f32391dc": {
+                "id": "495ba0c3d3558630c9206ccc7e0168735a4f49d7424ba70b0d3d98e6f32391dc",
+                "path": "gollyy-lottery/AssetParameters/495ba0c3d3558630c9206ccc7e0168735a4f49d7424ba70b0d3d98e6f32391dc",
                 "children": {
                   "S3Bucket": {
                     "id": "S3Bucket",
-                    "path": "gollyy-lottery/AssetParameters/4d647fe6c504553581977cb4787ed59b7ccb3a4a64c16c2ce87331b5571fa1a7/S3Bucket"
+                    "path": "gollyy-lottery/AssetParameters/495ba0c3d3558630c9206ccc7e0168735a4f49d7424ba70b0d3d98e6f32391dc/S3Bucket"
                   },
                   "S3VersionKey": {
                     "id": "S3VersionKey",
-                    "path": "gollyy-lottery/AssetParameters/4d647fe6c504553581977cb4787ed59b7ccb3a4a64c16c2ce87331b5571fa1a7/S3VersionKey"
+                    "path": "gollyy-lottery/AssetParameters/495ba0c3d3558630c9206ccc7e0168735a4f49d7424ba70b0d3d98e6f32391dc/S3VersionKey"
                   },
                   "ArtifactHash": {
                     "id": "ArtifactHash",
-                    "path": "gollyy-lottery/AssetParameters/4d647fe6c504553581977cb4787ed59b7ccb3a4a64c16c2ce87331b5571fa1a7/ArtifactHash"
+                    "path": "gollyy-lottery/AssetParameters/495ba0c3d3558630c9206ccc7e0168735a4f49d7424ba70b0d3d98e6f32391dc/ArtifactHash"
                   }
                 }
               }
