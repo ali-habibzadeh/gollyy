@@ -5,7 +5,7 @@ export interface SignUpParams {
   email: string;
   username: string;
   password: string;
-  phone: string;
+  phoneNumber: string;
 }
 
 export class RegistrationService {
@@ -14,11 +14,11 @@ export class RegistrationService {
     ClientId: appConfig.userPoolClientId,
   });
 
-  public async signUp({ email, username, password, phone }: SignUpParams): Promise<ISignUpResult | undefined> {
+  public async signUp({ email, username, password, phoneNumber }: SignUpParams): Promise<ISignUpResult | undefined> {
     return new Promise((resolve, reject) => {
       const attrs = [
         new CognitoUserAttribute({ Name: "email", Value: email }),
-        new CognitoUserAttribute({ Name: "phone", Value: phone }),
+        new CognitoUserAttribute({ Name: "phoneNumber", Value: phoneNumber }),
       ];
       this.userPool.signUp(username, password, attrs, [], (err, result) =>
         err ? reject(JSON.stringify(err)) : resolve(result),
