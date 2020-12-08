@@ -19,22 +19,13 @@ export class LambdaHandlerFactory {
   };
 
   public getHandlers(): ILambdaHandlers {
-    return this.entries.reduce(
-      (configs, [name, fn]) => ({
-        ...configs,
-        [name]: this.getHandler(fn),
-      }),
-      {},
-    );
+    return this.entries.reduce((configs, [name, fn]) => ({ ...configs, [name]: this.getHandler(fn) }), {});
   }
 
   private getHandler(fn: PublicFn): AWSLambda.Handler {
-    return async (event, context): Promise<unknown> => {
-      const results = await fn(event, context);
-      return {
-        ...this.defaultConfig,
-        body: JSON.stringify(results),
-      };
-    };
+    return async (event, context): Promise<unknown> => ({
+      ...this.defaultConfig,
+      body: JSON.stringify(await fn(event, context)),
+    });
   }
 }

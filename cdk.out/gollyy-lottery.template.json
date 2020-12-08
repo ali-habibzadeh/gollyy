@@ -91,6 +91,18 @@
             "TemporaryPasswordValidityDays": 3
           }
         },
+        "Schema": [
+          {
+            "Mutable": false,
+            "Name": "email",
+            "Required": true
+          },
+          {
+            "Mutable": false,
+            "Name": "phone_number",
+            "Required": true
+          }
+        ],
         "SmsConfiguration": {
           "ExternalId": "gollyylotteryAppUserPoolContaineruserpool520A9FF3",
           "SnsCallerArn": {
@@ -209,7 +221,7 @@
       "Properties": {
         "Code": {
           "S3Bucket": {
-            "Ref": "AssetParameters4d647fe6c504553581977cb4787ed59b7ccb3a4a64c16c2ce87331b5571fa1a7S3BucketB9A0936C"
+            "Ref": "AssetParameters495ba0c3d3558630c9206ccc7e0168735a4f49d7424ba70b0d3d98e6f32391dcS3Bucket7D0971A9"
           },
           "S3Key": {
             "Fn::Join": [
@@ -222,7 +234,7 @@
                       "Fn::Split": [
                         "||",
                         {
-                          "Ref": "AssetParameters4d647fe6c504553581977cb4787ed59b7ccb3a4a64c16c2ce87331b5571fa1a7S3VersionKeyEA5CBBD5"
+                          "Ref": "AssetParameters495ba0c3d3558630c9206ccc7e0168735a4f49d7424ba70b0d3d98e6f32391dcS3VersionKeyDFDFAF95"
                         }
                       ]
                     }
@@ -235,7 +247,7 @@
                       "Fn::Split": [
                         "||",
                         {
-                          "Ref": "AssetParameters4d647fe6c504553581977cb4787ed59b7ccb3a4a64c16c2ce87331b5571fa1a7S3VersionKeyEA5CBBD5"
+                          "Ref": "AssetParameters495ba0c3d3558630c9206ccc7e0168735a4f49d7424ba70b0d3d98e6f32391dcS3VersionKeyDFDFAF95"
                         }
                       ]
                     }
@@ -282,7 +294,7 @@
       ],
       "Metadata": {
         "aws:cdk:path": "gollyy-lottery/Id-RegistrationHandler/Resource",
-        "aws:asset:path": "asset.4d647fe6c504553581977cb4787ed59b7ccb3a4a64c16c2ce87331b5571fa1a7",
+        "aws:asset:path": "asset.495ba0c3d3558630c9206ccc7e0168735a4f49d7424ba70b0d3d98e6f32391dc",
         "aws:asset:property": "Code"
       }
     },
@@ -298,17 +310,17 @@
     }
   },
   "Parameters": {
-    "AssetParameters4d647fe6c504553581977cb4787ed59b7ccb3a4a64c16c2ce87331b5571fa1a7S3BucketB9A0936C": {
+    "AssetParameters495ba0c3d3558630c9206ccc7e0168735a4f49d7424ba70b0d3d98e6f32391dcS3Bucket7D0971A9": {
       "Type": "String",
-      "Description": "S3 bucket for asset \"4d647fe6c504553581977cb4787ed59b7ccb3a4a64c16c2ce87331b5571fa1a7\""
+      "Description": "S3 bucket for asset \"495ba0c3d3558630c9206ccc7e0168735a4f49d7424ba70b0d3d98e6f32391dc\""
     },
-    "AssetParameters4d647fe6c504553581977cb4787ed59b7ccb3a4a64c16c2ce87331b5571fa1a7S3VersionKeyEA5CBBD5": {
+    "AssetParameters495ba0c3d3558630c9206ccc7e0168735a4f49d7424ba70b0d3d98e6f32391dcS3VersionKeyDFDFAF95": {
       "Type": "String",
-      "Description": "S3 key for asset version \"4d647fe6c504553581977cb4787ed59b7ccb3a4a64c16c2ce87331b5571fa1a7\""
+      "Description": "S3 key for asset version \"495ba0c3d3558630c9206ccc7e0168735a4f49d7424ba70b0d3d98e6f32391dc\""
     },
-    "AssetParameters4d647fe6c504553581977cb4787ed59b7ccb3a4a64c16c2ce87331b5571fa1a7ArtifactHash36494809": {
+    "AssetParameters495ba0c3d3558630c9206ccc7e0168735a4f49d7424ba70b0d3d98e6f32391dcArtifactHashD585EFEF": {
       "Type": "String",
-      "Description": "Artifact hash for asset \"4d647fe6c504553581977cb4787ed59b7ccb3a4a64c16c2ce87331b5571fa1a7\""
+      "Description": "Artifact hash for asset \"495ba0c3d3558630c9206ccc7e0168735a4f49d7424ba70b0d3d98e6f32391dc\""
     }
   },
   "Conditions": {
