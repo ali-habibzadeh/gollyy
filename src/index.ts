@@ -1,9 +1,17 @@
-import { join } from "path";
+import "reflect-metadata";
+import AWS from "aws-sdk";
+import sourceMapSupport from "source-map-support";
+import { appConfig } from "./config/config.service";
+import { Handlers } from "./handlers-list";
+import { RegistrationService } from "./registration/registration.service";
+import { LambdaHandlerFactory, PublicFn } from "./@common/lambda-handler.factory";
 
-export default class Foo {
-  constructor(private num: number) {}
+sourceMapSupport.install();
 
-  public foo(): string {
-    return join(__dirname, this.num.toString());
-  }
-}
+AWS.config.update({ region: appConfig.region });
+
+const handlers: Record<Handlers, PublicFn> = {
+  [Handlers.RegistrationHandler]: e => new RegistrationService().signUp(e),
+};
+
+module.exports = new LambdaHandlerFactory(handlers).getHandlers();
