@@ -19,12 +19,13 @@ export class LambdaHandlerFactory {
   };
 
   public getHandlers(): ILambdaHandlers {
-    return this.entries.reduce((configs, [name, fn]) => {
-      return {
+    return this.entries.reduce(
+      (configs, [name, fn]) => ({
         ...configs,
         [name]: this.getHandler(fn),
-      };
-    }, {});
+      }),
+      {},
+    );
   }
 
   private getHandler(fn: PublicFn): AWSLambda.Handler {

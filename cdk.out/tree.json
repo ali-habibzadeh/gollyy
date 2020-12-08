@@ -1,0 +1,37 @@
+{
+  "version": "tree-0.1",
+  "tree": {
+    "id": "App",
+    "path": "",
+    "children": {
+      "Tree": {
+        "id": "Tree",
+        "path": "Tree"
+      },
+      "gollyy-lottery": {
+        "id": "gollyy-lottery",
+        "path": "gollyy-lottery",
+        "children": {
+          "region": {
+            "id": "region",
+            "path": "gollyy-lottery/region"
+          },
+          "CDKMetadata": {
+            "id": "CDKMetadata",
+            "path": "gollyy-lottery/CDKMetadata",
+            "children": {
+              "Default": {
+                "id": "Default",
+                "path": "gollyy-lottery/CDKMetadata/Default"
+              },
+              "Condition": {
+                "id": "Condition",
+                "path": "gollyy-lottery/CDKMetadata/Condition"
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
