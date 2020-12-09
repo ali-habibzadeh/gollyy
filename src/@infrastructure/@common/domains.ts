@@ -34,7 +34,7 @@ export class AppDomains {
   });
 
   public authDomain = new ARecord(this.scope, `${this.id}-auth-subdomain`, {
-    recordName: "auth-subdomain",
+    recordName: `auth.${infrasConfig.domainName}`,
     zone: this.hostedZone,
     target: RecordTarget.fromAlias(new UserPoolDomainTarget(this.userPoolDomain)),
   });
