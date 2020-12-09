@@ -1,3 +1,4 @@
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
 export type PublicFn = (e: any, c?: AWSLambda.Context) => Promise<unknown>;
 
 export interface ILambdaHandlerFactoryConfig {

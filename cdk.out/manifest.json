@@ -18,13 +18,13 @@
           {
             "type": "aws:cdk:asset",
             "data": {
-              "path": "asset.495ba0c3d3558630c9206ccc7e0168735a4f49d7424ba70b0d3d98e6f32391dc",
-              "id": "495ba0c3d3558630c9206ccc7e0168735a4f49d7424ba70b0d3d98e6f32391dc",
+              "path": "asset.701564586d4ab9d41a740dbf5b24cb4a0f72186d1d1a52d4e17e0ba0b46e81cc",
+              "id": "701564586d4ab9d41a740dbf5b24cb4a0f72186d1d1a52d4e17e0ba0b46e81cc",
               "packaging": "zip",
-              "sourceHash": "495ba0c3d3558630c9206ccc7e0168735a4f49d7424ba70b0d3d98e6f32391dc",
-              "s3BucketParameter": "AssetParameters495ba0c3d3558630c9206ccc7e0168735a4f49d7424ba70b0d3d98e6f32391dcS3Bucket7D0971A9",
-              "s3KeyParameter": "AssetParameters495ba0c3d3558630c9206ccc7e0168735a4f49d7424ba70b0d3d98e6f32391dcS3VersionKeyDFDFAF95",
-              "artifactHashParameter": "AssetParameters495ba0c3d3558630c9206ccc7e0168735a4f49d7424ba70b0d3d98e6f32391dcArtifactHashD585EFEF"
+              "sourceHash": "701564586d4ab9d41a740dbf5b24cb4a0f72186d1d1a52d4e17e0ba0b46e81cc",
+              "s3BucketParameter": "AssetParameters701564586d4ab9d41a740dbf5b24cb4a0f72186d1d1a52d4e17e0ba0b46e81ccS3Bucket09A48D93",
+              "s3KeyParameter": "AssetParameters701564586d4ab9d41a740dbf5b24cb4a0f72186d1d1a52d4e17e0ba0b46e81ccS3VersionKey5F22F707",
+              "artifactHashParameter": "AssetParameters701564586d4ab9d41a740dbf5b24cb4a0f72186d1d1a52d4e17e0ba0b46e81ccArtifactHash8650CBB8"
             },
             "trace": [
               "ConstructNode.addMetadata (/Users/alihabibzadeh/gollyy/node_modules/@aws-cdk/core/lib/construct-compat.js:395:62)",
@@ -36,9 +36,47 @@
               "AssetCode.bind (/Users/alihabibzadeh/gollyy/node_modules/@aws-cdk/aws-lambda/lib/code.js:225:26)",
               "new Function (/Users/alihabibzadeh/gollyy/node_modules/@aws-cdk/aws-lambda/lib/function.js:95:33)",
               "LambdaFactory.getLambda (/Users/alihabibzadeh/gollyy/dist/@infrastructure/@common/lambda.factory.js:40:16)",
-              "new AppUserPool (/Users/alihabibzadeh/gollyy/dist/@infrastructure/registeration/user-pool.js:53:12)",
-              "new AppStack (/Users/alihabibzadeh/gollyy/dist/@infrastructure/index.js:12:28)",
-              "Object.<anonymous> (/Users/alihabibzadeh/gollyy/dist/@infrastructure/index.js:18:1)",
+              "new AppUserPool (/Users/alihabibzadeh/gollyy/dist/@infrastructure/registeration/user-pool.js:72:12)",
+              "new AppStack (/Users/alihabibzadeh/gollyy/dist/@infrastructure/index.js:13:28)",
+              "Object.<anonymous> (/Users/alihabibzadeh/gollyy/dist/@infrastructure/index.js:20:1)",
+              "Module._compile (internal/modules/cjs/loader.js:1176:30)",
+              "Object.Module._extensions..js (internal/modules/cjs/loader.js:1196:10)",
+              "Module.load (internal/modules/cjs/loader.js:1040:32)",
+              "Function.Module._load (internal/modules/cjs/loader.js:929:14)",
+              "Function.executeUserEntryPoint [as runMain] (internal/modules/run_main.js:71:12)",
+              "internal/main/run_main_module.js:17:47"
+            ]
+          },
+          {
+            "type": "aws:cdk:asset",
+            "data": {
+              "path": "asset.4a3609ad912843e581892f37ae9d6fb0fa1648b547693aaa562b0119452b8956",
+              "id": "4a3609ad912843e581892f37ae9d6fb0fa1648b547693aaa562b0119452b8956",
+              "packaging": "zip",
+              "sourceHash": "4a3609ad912843e581892f37ae9d6fb0fa1648b547693aaa562b0119452b8956",
+              "s3BucketParameter": "AssetParameters4a3609ad912843e581892f37ae9d6fb0fa1648b547693aaa562b0119452b8956S3Bucket72B03BC9",
+              "s3KeyParameter": "AssetParameters4a3609ad912843e581892f37ae9d6fb0fa1648b547693aaa562b0119452b8956S3VersionKey520B7554",
+              "artifactHashParameter": "AssetParameters4a3609ad912843e581892f37ae9d6fb0fa1648b547693aaa562b0119452b8956ArtifactHashD15A2D11"
+            },
+            "trace": [
+              "ConstructNode.addMetadata (/Users/alihabibzadeh/gollyy/node_modules/@aws-cdk/core/lib/construct-compat.js:395:62)",
+              "LegacyStackSynthesizer.doAddFileAsset (/Users/alihabibzadeh/gollyy/node_modules/@aws-cdk/core/lib/stack-synthesizers/legacy.js:167:29)",
+              "LegacyStackSynthesizer.addFileAsset (/Users/alihabibzadeh/gollyy/node_modules/@aws-cdk/core/lib/stack-synthesizers/legacy.js:81:25)",
+              "AppStack.addFileAsset (/Users/alihabibzadeh/gollyy/node_modules/@aws-cdk/core/lib/stack.js:398:33)",
+              "LegacyStackSynthesizer.addFileAsset (/Users/alihabibzadeh/gollyy/node_modules/@aws-cdk/core/lib/stack-synthesizers/legacy.js:85:31)",
+              "new Asset (/Users/alihabibzadeh/gollyy/node_modules/@aws-cdk/aws-s3-assets/lib/asset.js:41:44)",
+              "AssetCode.bind (/Users/alihabibzadeh/gollyy/node_modules/@aws-cdk/aws-lambda/lib/code.js:225:26)",
+              "new Function (/Users/alihabibzadeh/gollyy/node_modules/@aws-cdk/aws-lambda/lib/function.js:95:33)",
+              "SingletonFunction.ensureLambda (/Users/alihabibzadeh/gollyy/node_modules/@aws-cdk/aws-lambda/lib/singleton-lambda.js:85:16)",
+              "new SingletonFunction (/Users/alihabibzadeh/gollyy/node_modules/@aws-cdk/aws-lambda/lib/singleton-lambda.js:24:36)",
+              "new AwsCustomResource (/Users/alihabibzadeh/gollyy/node_modules/@aws-cdk/custom-resources/lib/aws-custom-resource/aws-custom-resource.js:139:26)",
+              "UserPoolDomain.get cloudFrontDomainName [as cloudFrontDomainName] (/Users/alihabibzadeh/gollyy/node_modules/@aws-cdk/aws-cognito/lib/user-pool-domain.js:65:45)",
+              "UserPoolDomainTarget.bind (/Users/alihabibzadeh/gollyy/node_modules/@aws-cdk/aws-route53-targets/lib/userpool-domain.js:24:34)",
+              "new RecordSet (/Users/alihabibzadeh/gollyy/node_modules/@aws-cdk/aws-route53/lib/record-set.js:85:79)",
+              "new ARecord (/Users/alihabibzadeh/gollyy/node_modules/@aws-cdk/aws-route53/lib/record-set.js:112:9)",
+              "new AppDomains (/Users/alihabibzadeh/gollyy/dist/@infrastructure/@common/domains.js:37:27)",
+              "new AppStack (/Users/alihabibzadeh/gollyy/dist/@infrastructure/index.js:14:34)",
+              "Object.<anonymous> (/Users/alihabibzadeh/gollyy/dist/@infrastructure/index.js:20:1)",
               "Module._compile (internal/modules/cjs/loader.js:1176:30)",
               "Object.Module._extensions..js (internal/modules/cjs/loader.js:1196:10)",
               "Module.load (internal/modules/cjs/loader.js:1040:32)",
@@ -53,8 +91,8 @@
             "type": "aws:cdk:logicalId",
             "data": "region",
             "trace": [
-              "new AppStack (/Users/alihabibzadeh/gollyy/dist/@infrastructure/index.js:11:29)",
-              "Object.<anonymous> (/Users/alihabibzadeh/gollyy/dist/@infrastructure/index.js:18:1)",
+              "new AppStack (/Users/alihabibzadeh/gollyy/dist/@infrastructure/index.js:12:29)",
+              "Object.<anonymous> (/Users/alihabibzadeh/gollyy/dist/@infrastructure/index.js:20:1)",
               "Module._compile (internal/modules/cjs/loader.js:1176:30)",
               "Object.Module._extensions..js (internal/modules/cjs/loader.js:1196:10)",
               "Module.load (internal/modules/cjs/loader.js:1040:32)",
@@ -72,9 +110,9 @@
               "new Role (/Users/alihabibzadeh/gollyy/node_modules/@aws-cdk/aws-iam/lib/role.js:70:22)",
               "UserPool.smsConfiguration (/Users/alihabibzadeh/gollyy/node_modules/@aws-cdk/aws-cognito/lib/user-pool.js:423:79)",
               "new UserPool (/Users/alihabibzadeh/gollyy/node_modules/@aws-cdk/aws-cognito/lib/user-pool.js:243:36)",
-              "new AppUserPool (/Users/alihabibzadeh/gollyy/dist/@infrastructure/registeration/user-pool.js:31:25)",
-              "new AppStack (/Users/alihabibzadeh/gollyy/dist/@infrastructure/index.js:12:28)",
-              "Object.<anonymous> (/Users/alihabibzadeh/gollyy/dist/@infrastructure/index.js:18:1)",
+              "new AppUserPool (/Users/alihabibzadeh/gollyy/dist/@infrastructure/registeration/user-pool.js:50:25)",
+              "new AppStack (/Users/alihabibzadeh/gollyy/dist/@infrastructure/index.js:13:28)",
+              "Object.<anonymous> (/Users/alihabibzadeh/gollyy/dist/@infrastructure/index.js:20:1)",
               "Module._compile (internal/modules/cjs/loader.js:1176:30)",
               "Object.Module._extensions..js (internal/modules/cjs/loader.js:1196:10)",
               "Module.load (internal/modules/cjs/loader.js:1040:32)",
@@ -90,9 +128,9 @@
             "data": "AppUserPoolContaineruserpoolFFE6A0DC",
             "trace": [
               "new UserPool (/Users/alihabibzadeh/gollyy/node_modules/@aws-cdk/aws-cognito/lib/user-pool.js:237:26)",
-              "new AppUserPool (/Users/alihabibzadeh/gollyy/dist/@infrastructure/registeration/user-pool.js:31:25)",
-              "new AppStack (/Users/alihabibzadeh/gollyy/dist/@infrastructure/index.js:12:28)",
-              "Object.<anonymous> (/Users/alihabibzadeh/gollyy/dist/@infrastructure/index.js:18:1)",
+              "new AppUserPool (/Users/alihabibzadeh/gollyy/dist/@infrastructure/registeration/user-pool.js:50:25)",
+              "new AppStack (/Users/alihabibzadeh/gollyy/dist/@infrastructure/index.js:13:28)",
+              "Object.<anonymous> (/Users/alihabibzadeh/gollyy/dist/@infrastructure/index.js:20:1)",
               "Module._compile (internal/modules/cjs/loader.js:1176:30)",
               "Object.Module._extensions..js (internal/modules/cjs/loader.js:1196:10)",
               "Module.load (internal/modules/cjs/loader.js:1040:32)",
@@ -108,9 +146,9 @@
             "data": "AppUserPoolContaineruserpoolclientCD3101E3",
             "trace": [
               "new UserPoolClient (/Users/alihabibzadeh/gollyy/node_modules/@aws-cdk/aws-cognito/lib/user-pool-client.js:149:26)",
-              "new AppUserPool (/Users/alihabibzadeh/gollyy/dist/@infrastructure/registeration/user-pool.js:46:31)",
-              "new AppStack (/Users/alihabibzadeh/gollyy/dist/@infrastructure/index.js:12:28)",
-              "Object.<anonymous> (/Users/alihabibzadeh/gollyy/dist/@infrastructure/index.js:18:1)",
+              "new AppUserPool (/Users/alihabibzadeh/gollyy/dist/@infrastructure/registeration/user-pool.js:65:31)",
+              "new AppStack (/Users/alihabibzadeh/gollyy/dist/@infrastructure/index.js:13:28)",
+              "Object.<anonymous> (/Users/alihabibzadeh/gollyy/dist/@infrastructure/index.js:20:1)",
               "Module._compile (internal/modules/cjs/loader.js:1176:30)",
               "Object.Module._extensions..js (internal/modules/cjs/loader.js:1196:10)",
               "Module.load (internal/modules/cjs/loader.js:1040:32)",
@@ -128,9 +166,9 @@
               "new Role (/Users/alihabibzadeh/gollyy/node_modules/@aws-cdk/aws-iam/lib/role.js:70:22)",
               "new Function (/Users/alihabibzadeh/gollyy/node_modules/@aws-cdk/aws-lambda/lib/function.js:77:35)",
               "LambdaFactory.getLambda (/Users/alihabibzadeh/gollyy/dist/@infrastructure/@common/lambda.factory.js:40:16)",
-              "new AppUserPool (/Users/alihabibzadeh/gollyy/dist/@infrastructure/registeration/user-pool.js:53:12)",
-              "new AppStack (/Users/alihabibzadeh/gollyy/dist/@infrastructure/index.js:12:28)",
-              "Object.<anonymous> (/Users/alihabibzadeh/gollyy/dist/@infrastructure/index.js:18:1)",
+              "new AppUserPool (/Users/alihabibzadeh/gollyy/dist/@infrastructure/registeration/user-pool.js:72:12)",
+              "new AppStack (/Users/alihabibzadeh/gollyy/dist/@infrastructure/index.js:13:28)",
+              "Object.<anonymous> (/Users/alihabibzadeh/gollyy/dist/@infrastructure/index.js:20:1)",
               "Module._compile (internal/modules/cjs/loader.js:1176:30)",
               "Object.Module._extensions..js (internal/modules/cjs/loader.js:1196:10)",
               "Module.load (internal/modules/cjs/loader.js:1040:32)",
@@ -152,9 +190,9 @@
               "Function.buildTracingConfig (/Users/alihabibzadeh/gollyy/node_modules/@aws-cdk/aws-lambda/lib/function.js:568:14)",
               "new Function (/Users/alihabibzadeh/gollyy/node_modules/@aws-cdk/aws-lambda/lib/function.js:149:33)",
               "LambdaFactory.getLambda (/Users/alihabibzadeh/gollyy/dist/@infrastructure/@common/lambda.factory.js:40:16)",
-              "new AppUserPool (/Users/alihabibzadeh/gollyy/dist/@infrastructure/registeration/user-pool.js:53:12)",
-              "new AppStack (/Users/alihabibzadeh/gollyy/dist/@infrastructure/index.js:12:28)",
-              "Object.<anonymous> (/Users/alihabibzadeh/gollyy/dist/@infrastructure/index.js:18:1)",
+              "new AppUserPool (/Users/alihabibzadeh/gollyy/dist/@infrastructure/registeration/user-pool.js:72:12)",
+              "new AppStack (/Users/alihabibzadeh/gollyy/dist/@infrastructure/index.js:13:28)",
+              "Object.<anonymous> (/Users/alihabibzadeh/gollyy/dist/@infrastructure/index.js:20:1)",
               "Module._compile (internal/modules/cjs/loader.js:1176:30)",
               "Object.Module._extensions..js (internal/modules/cjs/loader.js:1196:10)",
               "Module.load (internal/modules/cjs/loader.js:1040:32)",
@@ -171,9 +209,9 @@
             "trace": [
               "new Function (/Users/alihabibzadeh/gollyy/node_modules/@aws-cdk/aws-lambda/lib/function.js:127:26)",
               "LambdaFactory.getLambda (/Users/alihabibzadeh/gollyy/dist/@infrastructure/@common/lambda.factory.js:40:16)",
-              "new AppUserPool (/Users/alihabibzadeh/gollyy/dist/@infrastructure/registeration/user-pool.js:53:12)",
-              "new AppStack (/Users/alihabibzadeh/gollyy/dist/@infrastructure/index.js:12:28)",
-              "Object.<anonymous> (/Users/alihabibzadeh/gollyy/dist/@infrastructure/index.js:18:1)",
+              "new AppUserPool (/Users/alihabibzadeh/gollyy/dist/@infrastructure/registeration/user-pool.js:72:12)",
+              "new AppStack (/Users/alihabibzadeh/gollyy/dist/@infrastructure/index.js:13:28)",
+              "Object.<anonymous> (/Users/alihabibzadeh/gollyy/dist/@infrastructure/index.js:20:1)",
               "Module._compile (internal/modules/cjs/loader.js:1176:30)",
               "Object.Module._extensions..js (internal/modules/cjs/loader.js:1196:10)",
               "Module.load (internal/modules/cjs/loader.js:1040:32)",
@@ -183,10 +221,10 @@
             ]
           }
         ],
-        "/gollyy-lottery/AssetParameters/495ba0c3d3558630c9206ccc7e0168735a4f49d7424ba70b0d3d98e6f32391dc/S3Bucket": [
+        "/gollyy-lottery/AssetParameters/701564586d4ab9d41a740dbf5b24cb4a0f72186d1d1a52d4e17e0ba0b46e81cc/S3Bucket": [
           {
             "type": "aws:cdk:logicalId",
-            "data": "AssetParameters495ba0c3d3558630c9206ccc7e0168735a4f49d7424ba70b0d3d98e6f32391dcS3Bucket7D0971A9",
+            "data": "AssetParameters701564586d4ab9d41a740dbf5b24cb4a0f72186d1d1a52d4e17e0ba0b46e81ccS3Bucket09A48D93",
             "trace": [
               "new FileAssetParameters (/Users/alihabibzadeh/gollyy/node_modules/@aws-cdk/core/lib/private/asset-parameters.js:12:36)",
               "LegacyStackSynthesizer.doAddFileAsset (/Users/alihabibzadeh/gollyy/node_modules/@aws-cdk/core/lib/stack-synthesizers/legacy.js:157:22)",
@@ -197,9 +235,9 @@
               "AssetCode.bind (/Users/alihabibzadeh/gollyy/node_modules/@aws-cdk/aws-lambda/lib/code.js:225:26)",
               "new Function (/Users/alihabibzadeh/gollyy/node_modules/@aws-cdk/aws-lambda/lib/function.js:95:33)",
               "LambdaFactory.getLambda (/Users/alihabibzadeh/gollyy/dist/@infrastructure/@common/lambda.factory.js:40:16)",
-              "new AppUserPool (/Users/alihabibzadeh/gollyy/dist/@infrastructure/registeration/user-pool.js:53:12)",
-              "new AppStack (/Users/alihabibzadeh/gollyy/dist/@infrastructure/index.js:12:28)",
-              "Object.<anonymous> (/Users/alihabibzadeh/gollyy/dist/@infrastructure/index.js:18:1)",
+              "new AppUserPool (/Users/alihabibzadeh/gollyy/dist/@infrastructure/registeration/user-pool.js:72:12)",
+              "new AppStack (/Users/alihabibzadeh/gollyy/dist/@infrastructure/index.js:13:28)",
+              "Object.<anonymous> (/Users/alihabibzadeh/gollyy/dist/@infrastructure/index.js:20:1)",
               "Module._compile (internal/modules/cjs/loader.js:1176:30)",
               "Object.Module._extensions..js (internal/modules/cjs/loader.js:1196:10)",
               "Module.load (internal/modules/cjs/loader.js:1040:32)",
@@ -209,10 +247,10 @@
             ]
           }
         ],
-        "/gollyy-lottery/AssetParameters/495ba0c3d3558630c9206ccc7e0168735a4f49d7424ba70b0d3d98e6f32391dc/S3VersionKey": [
+        "/gollyy-lottery/AssetParameters/701564586d4ab9d41a740dbf5b24cb4a0f72186d1d1a52d4e17e0ba0b46e81cc/S3VersionKey": [
           {
             "type": "aws:cdk:logicalId",
-            "data": "AssetParameters495ba0c3d3558630c9206ccc7e0168735a4f49d7424ba70b0d3d98e6f32391dcS3VersionKeyDFDFAF95",
+            "data": "AssetParameters701564586d4ab9d41a740dbf5b24cb4a0f72186d1d1a52d4e17e0ba0b46e81ccS3VersionKey5F22F707",
             "trace": [
               "new FileAssetParameters (/Users/alihabibzadeh/gollyy/node_modules/@aws-cdk/core/lib/private/asset-parameters.js:16:35)",
               "LegacyStackSynthesizer.doAddFileAsset (/Users/alihabibzadeh/gollyy/node_modules/@aws-cdk/core/lib/stack-synthesizers/legacy.js:157:22)",
@@ -223,9 +261,9 @@
               "AssetCode.bind (/Users/alihabibzadeh/gollyy/node_modules/@aws-cdk/aws-lambda/lib/code.js:225:26)",
               "new Function (/Users/alihabibzadeh/gollyy/node_modules/@aws-cdk/aws-lambda/lib/function.js:95:33)",
               "LambdaFactory.getLambda (/Users/alihabibzadeh/gollyy/dist/@infrastructure/@common/lambda.factory.js:40:16)",
-              "new AppUserPool (/Users/alihabibzadeh/gollyy/dist/@infrastructure/registeration/user-pool.js:53:12)",
-              "new AppStack (/Users/alihabibzadeh/gollyy/dist/@infrastructure/index.js:12:28)",
-              "Object.<anonymous> (/Users/alihabibzadeh/gollyy/dist/@infrastructure/index.js:18:1)",
+              "new AppUserPool (/Users/alihabibzadeh/gollyy/dist/@infrastructure/registeration/user-pool.js:72:12)",
+              "new AppStack (/Users/alihabibzadeh/gollyy/dist/@infrastructure/index.js:13:28)",
+              "Object.<anonymous> (/Users/alihabibzadeh/gollyy/dist/@infrastructure/index.js:20:1)",
               "Module._compile (internal/modules/cjs/loader.js:1176:30)",
               "Object.Module._extensions..js (internal/modules/cjs/loader.js:1196:10)",
               "Module.load (internal/modules/cjs/loader.js:1040:32)",
@@ -235,10 +273,10 @@
             ]
           }
         ],
-        "/gollyy-lottery/AssetParameters/495ba0c3d3558630c9206ccc7e0168735a4f49d7424ba70b0d3d98e6f32391dc/ArtifactHash": [
+        "/gollyy-lottery/AssetParameters/701564586d4ab9d41a740dbf5b24cb4a0f72186d1d1a52d4e17e0ba0b46e81cc/ArtifactHash": [
           {
             "type": "aws:cdk:logicalId",
-            "data": "AssetParameters495ba0c3d3558630c9206ccc7e0168735a4f49d7424ba70b0d3d98e6f32391dcArtifactHashD585EFEF",
+            "data": "AssetParameters701564586d4ab9d41a740dbf5b24cb4a0f72186d1d1a52d4e17e0ba0b46e81ccArtifactHash8650CBB8",
             "trace": [
               "new FileAssetParameters (/Users/alihabibzadeh/gollyy/node_modules/@aws-cdk/core/lib/private/asset-parameters.js:20:38)",
               "LegacyStackSynthesizer.doAddFileAsset (/Users/alihabibzadeh/gollyy/node_modules/@aws-cdk/core/lib/stack-synthesizers/legacy.js:157:22)",
@@ -249,9 +287,296 @@
               "AssetCode.bind (/Users/alihabibzadeh/gollyy/node_modules/@aws-cdk/aws-lambda/lib/code.js:225:26)",
               "new Function (/Users/alihabibzadeh/gollyy/node_modules/@aws-cdk/aws-lambda/lib/function.js:95:33)",
               "LambdaFactory.getLambda (/Users/alihabibzadeh/gollyy/dist/@infrastructure/@common/lambda.factory.js:40:16)",
-              "new AppUserPool (/Users/alihabibzadeh/gollyy/dist/@infrastructure/registeration/user-pool.js:53:12)",
-              "new AppStack (/Users/alihabibzadeh/gollyy/dist/@infrastructure/index.js:12:28)",
-              "Object.<anonymous> (/Users/alihabibzadeh/gollyy/dist/@infrastructure/index.js:18:1)",
+              "new AppUserPool (/Users/alihabibzadeh/gollyy/dist/@infrastructure/registeration/user-pool.js:72:12)",
+              "new AppStack (/Users/alihabibzadeh/gollyy/dist/@infrastructure/index.js:13:28)",
+              "Object.<anonymous> (/Users/alihabibzadeh/gollyy/dist/@infrastructure/index.js:20:1)",
+              "Module._compile (internal/modules/cjs/loader.js:1176:30)",
+              "Object.Module._extensions..js (internal/modules/cjs/loader.js:1196:10)",
+              "Module.load (internal/modules/cjs/loader.js:1040:32)",
+              "Function.Module._load (internal/modules/cjs/loader.js:929:14)",
+              "Function.executeUserEntryPoint [as runMain] (internal/modules/run_main.js:71:12)",
+              "internal/main/run_main_module.js:17:47"
+            ]
+          }
+        ],
+        "/gollyy-lottery/AssetParameters/4a3609ad912843e581892f37ae9d6fb0fa1648b547693aaa562b0119452b8956/S3Bucket": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "AssetParameters4a3609ad912843e581892f37ae9d6fb0fa1648b547693aaa562b0119452b8956S3Bucket72B03BC9",
+            "trace": [
+              "new FileAssetParameters (/Users/alihabibzadeh/gollyy/node_modules/@aws-cdk/core/lib/private/asset-parameters.js:12:36)",
+              "LegacyStackSynthesizer.doAddFileAsset (/Users/alihabibzadeh/gollyy/node_modules/@aws-cdk/core/lib/stack-synthesizers/legacy.js:157:22)",
+              "LegacyStackSynthesizer.addFileAsset (/Users/alihabibzadeh/gollyy/node_modules/@aws-cdk/core/lib/stack-synthesizers/legacy.js:81:25)",
+              "AppStack.addFileAsset (/Users/alihabibzadeh/gollyy/node_modules/@aws-cdk/core/lib/stack.js:398:33)",
+              "LegacyStackSynthesizer.addFileAsset (/Users/alihabibzadeh/gollyy/node_modules/@aws-cdk/core/lib/stack-synthesizers/legacy.js:85:31)",
+              "new Asset (/Users/alihabibzadeh/gollyy/node_modules/@aws-cdk/aws-s3-assets/lib/asset.js:41:44)",
+              "AssetCode.bind (/Users/alihabibzadeh/gollyy/node_modules/@aws-cdk/aws-lambda/lib/code.js:225:26)",
+              "new Function (/Users/alihabibzadeh/gollyy/node_modules/@aws-cdk/aws-lambda/lib/function.js:95:33)",
+              "SingletonFunction.ensureLambda (/Users/alihabibzadeh/gollyy/node_modules/@aws-cdk/aws-lambda/lib/singleton-lambda.js:85:16)",
+              "new SingletonFunction (/Users/alihabibzadeh/gollyy/node_modules/@aws-cdk/aws-lambda/lib/singleton-lambda.js:24:36)",
+              "new AwsCustomResource (/Users/alihabibzadeh/gollyy/node_modules/@aws-cdk/custom-resources/lib/aws-custom-resource/aws-custom-resource.js:139:26)",
+              "UserPoolDomain.get cloudFrontDomainName [as cloudFrontDomainName] (/Users/alihabibzadeh/gollyy/node_modules/@aws-cdk/aws-cognito/lib/user-pool-domain.js:65:45)",
+              "UserPoolDomainTarget.bind (/Users/alihabibzadeh/gollyy/node_modules/@aws-cdk/aws-route53-targets/lib/userpool-domain.js:24:34)",
+              "new RecordSet (/Users/alihabibzadeh/gollyy/node_modules/@aws-cdk/aws-route53/lib/record-set.js:85:79)",
+              "new ARecord (/Users/alihabibzadeh/gollyy/node_modules/@aws-cdk/aws-route53/lib/record-set.js:112:9)",
+              "new AppDomains (/Users/alihabibzadeh/gollyy/dist/@infrastructure/@common/domains.js:37:27)",
+              "new AppStack (/Users/alihabibzadeh/gollyy/dist/@infrastructure/index.js:14:34)",
+              "Object.<anonymous> (/Users/alihabibzadeh/gollyy/dist/@infrastructure/index.js:20:1)",
+              "Module._compile (internal/modules/cjs/loader.js:1176:30)",
+              "Object.Module._extensions..js (internal/modules/cjs/loader.js:1196:10)",
+              "Module.load (internal/modules/cjs/loader.js:1040:32)",
+              "Function.Module._load (internal/modules/cjs/loader.js:929:14)",
+              "Function.executeUserEntryPoint [as runMain] (internal/modules/run_main.js:71:12)",
+              "internal/main/run_main_module.js:17:47"
+            ]
+          }
+        ],
+        "/gollyy-lottery/AssetParameters/4a3609ad912843e581892f37ae9d6fb0fa1648b547693aaa562b0119452b8956/S3VersionKey": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "AssetParameters4a3609ad912843e581892f37ae9d6fb0fa1648b547693aaa562b0119452b8956S3VersionKey520B7554",
+            "trace": [
+              "new FileAssetParameters (/Users/alihabibzadeh/gollyy/node_modules/@aws-cdk/core/lib/private/asset-parameters.js:16:35)",
+              "LegacyStackSynthesizer.doAddFileAsset (/Users/alihabibzadeh/gollyy/node_modules/@aws-cdk/core/lib/stack-synthesizers/legacy.js:157:22)",
+              "LegacyStackSynthesizer.addFileAsset (/Users/alihabibzadeh/gollyy/node_modules/@aws-cdk/core/lib/stack-synthesizers/legacy.js:81:25)",
+              "AppStack.addFileAsset (/Users/alihabibzadeh/gollyy/node_modules/@aws-cdk/core/lib/stack.js:398:33)",
+              "LegacyStackSynthesizer.addFileAsset (/Users/alihabibzadeh/gollyy/node_modules/@aws-cdk/core/lib/stack-synthesizers/legacy.js:85:31)",
+              "new Asset (/Users/alihabibzadeh/gollyy/node_modules/@aws-cdk/aws-s3-assets/lib/asset.js:41:44)",
+              "AssetCode.bind (/Users/alihabibzadeh/gollyy/node_modules/@aws-cdk/aws-lambda/lib/code.js:225:26)",
+              "new Function (/Users/alihabibzadeh/gollyy/node_modules/@aws-cdk/aws-lambda/lib/function.js:95:33)",
+              "SingletonFunction.ensureLambda (/Users/alihabibzadeh/gollyy/node_modules/@aws-cdk/aws-lambda/lib/singleton-lambda.js:85:16)",
+              "new SingletonFunction (/Users/alihabibzadeh/gollyy/node_modules/@aws-cdk/aws-lambda/lib/singleton-lambda.js:24:36)",
+              "new AwsCustomResource (/Users/alihabibzadeh/gollyy/node_modules/@aws-cdk/custom-resources/lib/aws-custom-resource/aws-custom-resource.js:139:26)",
+              "UserPoolDomain.get cloudFrontDomainName [as cloudFrontDomainName] (/Users/alihabibzadeh/gollyy/node_modules/@aws-cdk/aws-cognito/lib/user-pool-domain.js:65:45)",
+              "UserPoolDomainTarget.bind (/Users/alihabibzadeh/gollyy/node_modules/@aws-cdk/aws-route53-targets/lib/userpool-domain.js:24:34)",
+              "new RecordSet (/Users/alihabibzadeh/gollyy/node_modules/@aws-cdk/aws-route53/lib/record-set.js:85:79)",
+              "new ARecord (/Users/alihabibzadeh/gollyy/node_modules/@aws-cdk/aws-route53/lib/record-set.js:112:9)",
+              "new AppDomains (/Users/alihabibzadeh/gollyy/dist/@infrastructure/@common/domains.js:37:27)",
+              "new AppStack (/Users/alihabibzadeh/gollyy/dist/@infrastructure/index.js:14:34)",
+              "Object.<anonymous> (/Users/alihabibzadeh/gollyy/dist/@infrastructure/index.js:20:1)",
+              "Module._compile (internal/modules/cjs/loader.js:1176:30)",
+              "Object.Module._extensions..js (internal/modules/cjs/loader.js:1196:10)",
+              "Module.load (internal/modules/cjs/loader.js:1040:32)",
+              "Function.Module._load (internal/modules/cjs/loader.js:929:14)",
+              "Function.executeUserEntryPoint [as runMain] (internal/modules/run_main.js:71:12)",
+              "internal/main/run_main_module.js:17:47"
+            ]
+          }
+        ],
+        "/gollyy-lottery/AssetParameters/4a3609ad912843e581892f37ae9d6fb0fa1648b547693aaa562b0119452b8956/ArtifactHash": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "AssetParameters4a3609ad912843e581892f37ae9d6fb0fa1648b547693aaa562b0119452b8956ArtifactHashD15A2D11",
+            "trace": [
+              "new FileAssetParameters (/Users/alihabibzadeh/gollyy/node_modules/@aws-cdk/core/lib/private/asset-parameters.js:20:38)",
+              "LegacyStackSynthesizer.doAddFileAsset (/Users/alihabibzadeh/gollyy/node_modules/@aws-cdk/core/lib/stack-synthesizers/legacy.js:157:22)",
+              "LegacyStackSynthesizer.addFileAsset (/Users/alihabibzadeh/gollyy/node_modules/@aws-cdk/core/lib/stack-synthesizers/legacy.js:81:25)",
+              "AppStack.addFileAsset (/Users/alihabibzadeh/gollyy/node_modules/@aws-cdk/core/lib/stack.js:398:33)",
+              "LegacyStackSynthesizer.addFileAsset (/Users/alihabibzadeh/gollyy/node_modules/@aws-cdk/core/lib/stack-synthesizers/legacy.js:85:31)",
+              "new Asset (/Users/alihabibzadeh/gollyy/node_modules/@aws-cdk/aws-s3-assets/lib/asset.js:41:44)",
+              "AssetCode.bind (/Users/alihabibzadeh/gollyy/node_modules/@aws-cdk/aws-lambda/lib/code.js:225:26)",
+              "new Function (/Users/alihabibzadeh/gollyy/node_modules/@aws-cdk/aws-lambda/lib/function.js:95:33)",
+              "SingletonFunction.ensureLambda (/Users/alihabibzadeh/gollyy/node_modules/@aws-cdk/aws-lambda/lib/singleton-lambda.js:85:16)",
+              "new SingletonFunction (/Users/alihabibzadeh/gollyy/node_modules/@aws-cdk/aws-lambda/lib/singleton-lambda.js:24:36)",
+              "new AwsCustomResource (/Users/alihabibzadeh/gollyy/node_modules/@aws-cdk/custom-resources/lib/aws-custom-resource/aws-custom-resource.js:139:26)",
+              "UserPoolDomain.get cloudFrontDomainName [as cloudFrontDomainName] (/Users/alihabibzadeh/gollyy/node_modules/@aws-cdk/aws-cognito/lib/user-pool-domain.js:65:45)",
+              "UserPoolDomainTarget.bind (/Users/alihabibzadeh/gollyy/node_modules/@aws-cdk/aws-route53-targets/lib/userpool-domain.js:24:34)",
+              "new RecordSet (/Users/alihabibzadeh/gollyy/node_modules/@aws-cdk/aws-route53/lib/record-set.js:85:79)",
+              "new ARecord (/Users/alihabibzadeh/gollyy/node_modules/@aws-cdk/aws-route53/lib/record-set.js:112:9)",
+              "new AppDomains (/Users/alihabibzadeh/gollyy/dist/@infrastructure/@common/domains.js:37:27)",
+              "new AppStack (/Users/alihabibzadeh/gollyy/dist/@infrastructure/index.js:14:34)",
+              "Object.<anonymous> (/Users/alihabibzadeh/gollyy/dist/@infrastructure/index.js:20:1)",
+              "Module._compile (internal/modules/cjs/loader.js:1176:30)",
+              "Object.Module._extensions..js (internal/modules/cjs/loader.js:1196:10)",
+              "Module.load (internal/modules/cjs/loader.js:1040:32)",
+              "Function.Module._load (internal/modules/cjs/loader.js:929:14)",
+              "Function.executeUserEntryPoint [as runMain] (internal/modules/run_main.js:71:12)",
+              "internal/main/run_main_module.js:17:47"
+            ]
+          }
+        ],
+        "/gollyy-lottery/AppDomains-hostedZone/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "AppDomainshostedZone2A70FB59",
+            "trace": [
+              "new HostedZone (/Users/alihabibzadeh/gollyy/node_modules/@aws-cdk/aws-route53/lib/hosted-zone.js:27:26)",
+              "new AppDomains (/Users/alihabibzadeh/gollyy/dist/@infrastructure/@common/domains.js:15:27)",
+              "new AppStack (/Users/alihabibzadeh/gollyy/dist/@infrastructure/index.js:14:34)",
+              "Object.<anonymous> (/Users/alihabibzadeh/gollyy/dist/@infrastructure/index.js:20:1)",
+              "Module._compile (internal/modules/cjs/loader.js:1176:30)",
+              "Object.Module._extensions..js (internal/modules/cjs/loader.js:1196:10)",
+              "Module.load (internal/modules/cjs/loader.js:1040:32)",
+              "Function.Module._load (internal/modules/cjs/loader.js:929:14)",
+              "Function.executeUserEntryPoint [as runMain] (internal/modules/run_main.js:71:12)",
+              "internal/main/run_main_module.js:17:47"
+            ]
+          }
+        ],
+        "/gollyy-lottery/AppDomains-certificate/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "AppDomainscertificate2DC247A2",
+            "trace": [
+              "new Certificate (/Users/alihabibzadeh/gollyy/node_modules/@aws-cdk/aws-certificatemanager/lib/certificate.js:99:22)",
+              "new AppDomains (/Users/alihabibzadeh/gollyy/dist/@infrastructure/@common/domains.js:18:28)",
+              "new AppStack (/Users/alihabibzadeh/gollyy/dist/@infrastructure/index.js:14:34)",
+              "Object.<anonymous> (/Users/alihabibzadeh/gollyy/dist/@infrastructure/index.js:20:1)",
+              "Module._compile (internal/modules/cjs/loader.js:1176:30)",
+              "Object.Module._extensions..js (internal/modules/cjs/loader.js:1196:10)",
+              "Module.load (internal/modules/cjs/loader.js:1040:32)",
+              "Function.Module._load (internal/modules/cjs/loader.js:929:14)",
+              "Function.executeUserEntryPoint [as runMain] (internal/modules/run_main.js:71:12)",
+              "internal/main/run_main_module.js:17:47"
+            ]
+          }
+        ],
+        "/gollyy-lottery/AppDomains-userpool-domain/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "AppDomainsuserpooldomain607DC828",
+            "trace": [
+              "new UserPoolDomain (/Users/alihabibzadeh/gollyy/node_modules/@aws-cdk/aws-cognito/lib/user-pool-domain.js:29:26)",
+              "new AppDomains (/Users/alihabibzadeh/gollyy/dist/@infrastructure/@common/domains.js:22:31)",
+              "new AppStack (/Users/alihabibzadeh/gollyy/dist/@infrastructure/index.js:14:34)",
+              "Object.<anonymous> (/Users/alihabibzadeh/gollyy/dist/@infrastructure/index.js:20:1)",
+              "Module._compile (internal/modules/cjs/loader.js:1176:30)",
+              "Object.Module._extensions..js (internal/modules/cjs/loader.js:1196:10)",
+              "Module.load (internal/modules/cjs/loader.js:1040:32)",
+              "Function.Module._load (internal/modules/cjs/loader.js:929:14)",
+              "Function.executeUserEntryPoint [as runMain] (internal/modules/run_main.js:71:12)",
+              "internal/main/run_main_module.js:17:47"
+            ]
+          }
+        ],
+        "/gollyy-lottery/AppDomains-userpool-domain/CloudFrontDomainName/CustomResourcePolicy/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "AppDomainsuserpooldomainCloudFrontDomainNameCustomResourcePolicyBCF8B019",
+            "trace": [
+              "new Policy (/Users/alihabibzadeh/gollyy/node_modules/@aws-cdk/aws-iam/lib/policy.js:53:26)",
+              "new AwsCustomResource (/Users/alihabibzadeh/gollyy/node_modules/@aws-cdk/custom-resources/lib/aws-custom-resource/aws-custom-resource.js:171:24)",
+              "UserPoolDomain.get cloudFrontDomainName [as cloudFrontDomainName] (/Users/alihabibzadeh/gollyy/node_modules/@aws-cdk/aws-cognito/lib/user-pool-domain.js:65:45)",
+              "UserPoolDomainTarget.bind (/Users/alihabibzadeh/gollyy/node_modules/@aws-cdk/aws-route53-targets/lib/userpool-domain.js:24:34)",
+              "new RecordSet (/Users/alihabibzadeh/gollyy/node_modules/@aws-cdk/aws-route53/lib/record-set.js:85:79)",
+              "new ARecord (/Users/alihabibzadeh/gollyy/node_modules/@aws-cdk/aws-route53/lib/record-set.js:112:9)",
+              "new AppDomains (/Users/alihabibzadeh/gollyy/dist/@infrastructure/@common/domains.js:37:27)",
+              "new AppStack (/Users/alihabibzadeh/gollyy/dist/@infrastructure/index.js:14:34)",
+              "Object.<anonymous> (/Users/alihabibzadeh/gollyy/dist/@infrastructure/index.js:20:1)",
+              "Module._compile (internal/modules/cjs/loader.js:1176:30)",
+              "Object.Module._extensions..js (internal/modules/cjs/loader.js:1196:10)",
+              "Module.load (internal/modules/cjs/loader.js:1040:32)",
+              "Function.Module._load (internal/modules/cjs/loader.js:929:14)",
+              "Function.executeUserEntryPoint [as runMain] (internal/modules/run_main.js:71:12)",
+              "internal/main/run_main_module.js:17:47"
+            ]
+          }
+        ],
+        "/gollyy-lottery/AppDomains-userpool-domain/CloudFrontDomainName/Resource/Default": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "AppDomainsuserpooldomainCloudFrontDomainName11EF2B57",
+            "trace": [
+              "new CustomResource (/Users/alihabibzadeh/gollyy/node_modules/@aws-cdk/core/lib/custom-resource.js:28:25)",
+              "new AwsCustomResource (/Users/alihabibzadeh/gollyy/node_modules/@aws-cdk/custom-resources/lib/aws-custom-resource/aws-custom-resource.js:178:31)",
+              "UserPoolDomain.get cloudFrontDomainName [as cloudFrontDomainName] (/Users/alihabibzadeh/gollyy/node_modules/@aws-cdk/aws-cognito/lib/user-pool-domain.js:65:45)",
+              "UserPoolDomainTarget.bind (/Users/alihabibzadeh/gollyy/node_modules/@aws-cdk/aws-route53-targets/lib/userpool-domain.js:24:34)",
+              "new RecordSet (/Users/alihabibzadeh/gollyy/node_modules/@aws-cdk/aws-route53/lib/record-set.js:85:79)",
+              "new ARecord (/Users/alihabibzadeh/gollyy/node_modules/@aws-cdk/aws-route53/lib/record-set.js:112:9)",
+              "new AppDomains (/Users/alihabibzadeh/gollyy/dist/@infrastructure/@common/domains.js:37:27)",
+              "new AppStack (/Users/alihabibzadeh/gollyy/dist/@infrastructure/index.js:14:34)",
+              "Object.<anonymous> (/Users/alihabibzadeh/gollyy/dist/@infrastructure/index.js:20:1)",
+              "Module._compile (internal/modules/cjs/loader.js:1176:30)",
+              "Object.Module._extensions..js (internal/modules/cjs/loader.js:1196:10)",
+              "Module.load (internal/modules/cjs/loader.js:1040:32)",
+              "Function.Module._load (internal/modules/cjs/loader.js:929:14)",
+              "Function.executeUserEntryPoint [as runMain] (internal/modules/run_main.js:71:12)",
+              "internal/main/run_main_module.js:17:47"
+            ]
+          }
+        ],
+        "/gollyy-lottery/AppDomains-auth-subdomain/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "AppDomainsauthsubdomainFEC60EC9",
+            "trace": [
+              "new RecordSet (/Users/alihabibzadeh/gollyy/node_modules/@aws-cdk/aws-route53/lib/record-set.js:80:27)",
+              "new ARecord (/Users/alihabibzadeh/gollyy/node_modules/@aws-cdk/aws-route53/lib/record-set.js:112:9)",
+              "new AppDomains (/Users/alihabibzadeh/gollyy/dist/@infrastructure/@common/domains.js:37:27)",
+              "new AppStack (/Users/alihabibzadeh/gollyy/dist/@infrastructure/index.js:14:34)",
+              "Object.<anonymous> (/Users/alihabibzadeh/gollyy/dist/@infrastructure/index.js:20:1)",
+              "Module._compile (internal/modules/cjs/loader.js:1176:30)",
+              "Object.Module._extensions..js (internal/modules/cjs/loader.js:1196:10)",
+              "Module.load (internal/modules/cjs/loader.js:1040:32)",
+              "Function.Module._load (internal/modules/cjs/loader.js:929:14)",
+              "Function.executeUserEntryPoint [as runMain] (internal/modules/run_main.js:71:12)",
+              "internal/main/run_main_module.js:17:47"
+            ]
+          }
+        ],
+        "/gollyy-lottery/AWS679f53fac002430cb0da5b7982bd2287/ServiceRole/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "AWS679f53fac002430cb0da5b7982bd2287ServiceRoleC1EA0FF2",
+            "trace": [
+              "new Role (/Users/alihabibzadeh/gollyy/node_modules/@aws-cdk/aws-iam/lib/role.js:70:22)",
+              "new Function (/Users/alihabibzadeh/gollyy/node_modules/@aws-cdk/aws-lambda/lib/function.js:77:35)",
+              "SingletonFunction.ensureLambda (/Users/alihabibzadeh/gollyy/node_modules/@aws-cdk/aws-lambda/lib/singleton-lambda.js:85:16)",
+              "new SingletonFunction (/Users/alihabibzadeh/gollyy/node_modules/@aws-cdk/aws-lambda/lib/singleton-lambda.js:24:36)",
+              "new AwsCustomResource (/Users/alihabibzadeh/gollyy/node_modules/@aws-cdk/custom-resources/lib/aws-custom-resource/aws-custom-resource.js:139:26)",
+              "UserPoolDomain.get cloudFrontDomainName [as cloudFrontDomainName] (/Users/alihabibzadeh/gollyy/node_modules/@aws-cdk/aws-cognito/lib/user-pool-domain.js:65:45)",
+              "UserPoolDomainTarget.bind (/Users/alihabibzadeh/gollyy/node_modules/@aws-cdk/aws-route53-targets/lib/userpool-domain.js:24:34)",
+              "new RecordSet (/Users/alihabibzadeh/gollyy/node_modules/@aws-cdk/aws-route53/lib/record-set.js:85:79)",
+              "new ARecord (/Users/alihabibzadeh/gollyy/node_modules/@aws-cdk/aws-route53/lib/record-set.js:112:9)",
+              "new AppDomains (/Users/alihabibzadeh/gollyy/dist/@infrastructure/@common/domains.js:37:27)",
+              "new AppStack (/Users/alihabibzadeh/gollyy/dist/@infrastructure/index.js:14:34)",
+              "Object.<anonymous> (/Users/alihabibzadeh/gollyy/dist/@infrastructure/index.js:20:1)",
+              "Module._compile (internal/modules/cjs/loader.js:1176:30)",
+              "Object.Module._extensions..js (internal/modules/cjs/loader.js:1196:10)",
+              "Module.load (internal/modules/cjs/loader.js:1040:32)",
+              "Function.Module._load (internal/modules/cjs/loader.js:929:14)",
+              "Function.executeUserEntryPoint [as runMain] (internal/modules/run_main.js:71:12)",
+              "internal/main/run_main_module.js:17:47"
+            ]
+          }
+        ],
+        "/gollyy-lottery/AWS679f53fac002430cb0da5b7982bd2287/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "AWS679f53fac002430cb0da5b7982bd22872D164C4C",
+            "trace": [
+              "new Function (/Users/alihabibzadeh/gollyy/node_modules/@aws-cdk/aws-lambda/lib/function.js:127:26)",
+              "SingletonFunction.ensureLambda (/Users/alihabibzadeh/gollyy/node_modules/@aws-cdk/aws-lambda/lib/singleton-lambda.js:85:16)",
+              "new SingletonFunction (/Users/alihabibzadeh/gollyy/node_modules/@aws-cdk/aws-lambda/lib/singleton-lambda.js:24:36)",
+              "new AwsCustomResource (/Users/alihabibzadeh/gollyy/node_modules/@aws-cdk/custom-resources/lib/aws-custom-resource/aws-custom-resource.js:139:26)",
+              "UserPoolDomain.get cloudFrontDomainName [as cloudFrontDomainName] (/Users/alihabibzadeh/gollyy/node_modules/@aws-cdk/aws-cognito/lib/user-pool-domain.js:65:45)",
+              "UserPoolDomainTarget.bind (/Users/alihabibzadeh/gollyy/node_modules/@aws-cdk/aws-route53-targets/lib/userpool-domain.js:24:34)",
+              "new RecordSet (/Users/alihabibzadeh/gollyy/node_modules/@aws-cdk/aws-route53/lib/record-set.js:85:79)",
+              "new ARecord (/Users/alihabibzadeh/gollyy/node_modules/@aws-cdk/aws-route53/lib/record-set.js:112:9)",
+              "new AppDomains (/Users/alihabibzadeh/gollyy/dist/@infrastructure/@common/domains.js:37:27)",
+              "new AppStack (/Users/alihabibzadeh/gollyy/dist/@infrastructure/index.js:14:34)",
+              "Object.<anonymous> (/Users/alihabibzadeh/gollyy/dist/@infrastructure/index.js:20:1)",
+              "Module._compile (internal/modules/cjs/loader.js:1176:30)",
+              "Object.Module._extensions..js (internal/modules/cjs/loader.js:1196:10)",
+              "Module.load (internal/modules/cjs/loader.js:1040:32)",
+              "Function.Module._load (internal/modules/cjs/loader.js:929:14)",
+              "Function.executeUserEntryPoint [as runMain] (internal/modules/run_main.js:71:12)",
+              "internal/main/run_main_module.js:17:47"
+            ]
+          }
+        ],
+        "/gollyy-lottery/AWSCloudFrontPartitionHostedZoneIdMap": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "AWSCloudFrontPartitionHostedZoneIdMap",
+            "trace": [
+              "Function.getHostedZoneId (/Users/alihabibzadeh/gollyy/node_modules/@aws-cdk/aws-route53-targets/lib/cloudfront-target.js:27:105)",
+              "UserPoolDomainTarget.bind (/Users/alihabibzadeh/gollyy/node_modules/@aws-cdk/aws-route53-targets/lib/userpool-domain.js:25:64)",
+              "new RecordSet (/Users/alihabibzadeh/gollyy/node_modules/@aws-cdk/aws-route53/lib/record-set.js:85:79)",
+              "new ARecord (/Users/alihabibzadeh/gollyy/node_modules/@aws-cdk/aws-route53/lib/record-set.js:112:9)",
+              "new AppDomains (/Users/alihabibzadeh/gollyy/dist/@infrastructure/@common/domains.js:37:27)",
+              "new AppStack (/Users/alihabibzadeh/gollyy/dist/@infrastructure/index.js:14:34)",
+              "Object.<anonymous> (/Users/alihabibzadeh/gollyy/dist/@infrastructure/index.js:20:1)",
               "Module._compile (internal/modules/cjs/loader.js:1176:30)",
               "Object.Module._extensions..js (internal/modules/cjs/loader.js:1196:10)",
               "Module.load (internal/modules/cjs/loader.js:1040:32)",
@@ -273,7 +598,7 @@
               "injectMetadataResources (/Users/alihabibzadeh/gollyy/node_modules/@aws-cdk/core/lib/private/synthesis.js:116:5)",
               "Object.synthesize (/Users/alihabibzadeh/gollyy/node_modules/@aws-cdk/core/lib/private/synthesis.js:16:5)",
               "App.synth (/Users/alihabibzadeh/gollyy/node_modules/@aws-cdk/core/lib/stage.js:98:41)",
-              "Object.<anonymous> (/Users/alihabibzadeh/gollyy/dist/@infrastructure/index.js:19:5)",
+              "Object.<anonymous> (/Users/alihabibzadeh/gollyy/dist/@infrastructure/index.js:21:5)",
               "Module._compile (internal/modules/cjs/loader.js:1176:30)",
               "Object.Module._extensions..js (internal/modules/cjs/loader.js:1196:10)",
               "Module.load (internal/modules/cjs/loader.js:1040:32)",
@@ -295,7 +620,7 @@
               "injectMetadataResources (/Users/alihabibzadeh/gollyy/node_modules/@aws-cdk/core/lib/private/synthesis.js:116:5)",
               "Object.synthesize (/Users/alihabibzadeh/gollyy/node_modules/@aws-cdk/core/lib/private/synthesis.js:16:5)",
               "App.synth (/Users/alihabibzadeh/gollyy/node_modules/@aws-cdk/core/lib/stage.js:98:41)",
-              "Object.<anonymous> (/Users/alihabibzadeh/gollyy/dist/@infrastructure/index.js:19:5)",
+              "Object.<anonymous> (/Users/alihabibzadeh/gollyy/dist/@infrastructure/index.js:21:5)",
               "Module._compile (internal/modules/cjs/loader.js:1176:30)",
               "Object.Module._extensions..js (internal/modules/cjs/loader.js:1196:10)",
               "Module.load (internal/modules/cjs/loader.js:1040:32)",
