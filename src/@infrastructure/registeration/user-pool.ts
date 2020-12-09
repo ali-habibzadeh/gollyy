@@ -3,6 +3,7 @@ import { Construct, Duration } from "@aws-cdk/core";
 import { EnvVars } from "../../config/env-vars.enum";
 import { Handlers } from "../../handlers-list";
 import { LambdaFactory } from "../@common/lambda.factory";
+import { AuthDomain } from "./auth-domain";
 
 export default class AppUserPool {
   constructor(private scope: Construct, private id: string) {}
@@ -49,6 +50,8 @@ export default class AppUserPool {
     userPool: this.userPool,
     generateSecret: false,
   });
+
+  public authDomain = new AuthDomain(this.scope, "AuthDomain", this.userPool);
 
   public handler = new LambdaFactory(this.scope, Handlers.RegistrationHandler, {
     [EnvVars.userPoolId]: this.userPool.userPoolId,

@@ -17,8 +17,9 @@
     "postbuild": "yarn copyall && cd dist && npm install --only=production && node-prune",
     "watch": "tsc -w",
     "test": "jest --config=jest.config.js",
-    "deploy": "yarn build && cdk deploy --require-approval never --outputs-file outputs.json",
-    "destroy": "cdk destroy -f",
+    "deploy": "yarn build && cdk deploy GollyyLottery --require-approval never --outputs-file outputs.json",
+    "deploy-static": "yarn build && cdk deploy GollyyLotteryStatic",
+    "destroy": "cdk destroy GollyyLottery -f",
     "synth": "cdk synth"
   },
   "devDependencies": {
