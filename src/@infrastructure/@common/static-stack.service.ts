@@ -1,24 +1,27 @@
-// import { Construct, Fn, Stack } from "@aws-cdk/core";
-import { Construct } from "@aws-cdk/core";
+import { Fn, Construct } from "@aws-cdk/core";
+
 import { HostedZone, IHostedZone } from "@aws-cdk/aws-route53";
-// import { IVpc, Vpc } from "@aws-cdk/aws-ec2";
+import { IVpc, Vpc } from "@aws-cdk/aws-ec2";
 import { infrasConfig } from "./config";
 
 export class StaticStackService {
-  //   public static getVpcId(scope: Construct): IVpc {
-  //     const vpcId = Fn.importValue(`GollyyLotteryStatic.vpcId`);
-  //     return Vpc.fromLookup(scope, `${scope.node.id}-vpcId`, { vpcId });
-  //   }
+  public static getVpc(scope: Construct, id: string): IVpc {
+    return Vpc.fromLookup(scope, `${id}-vpcId`, { vpcId: "vpc-0460738964bbcfd78" });
+  }
 
   public static getRootHostedZoneId(scope: Construct): IHostedZone {
-    return HostedZone.fromLookup(scope, `${scope.node.id}-rootHostedZoneId`, {
-      domainName: infrasConfig.domainName,
+    const hostedZoneId = Fn.importValue("rootHostedZoneId");
+    return HostedZone.fromHostedZoneAttributes(scope, `${scope.node.id}-rootHostedZoneId`, {
+      hostedZoneId,
+      zoneName: infrasConfig.domainName,
     });
   }
 
   public static getAuthHostedZoneId(scope: Construct): IHostedZone {
-    return HostedZone.fromLookup(scope, `${scope.node.id}-authHostedZoneId`, {
-      domainName: `auth.${infrasConfig.domainName}`,
+    const hostedZoneId = Fn.importValue("authHostedZoneId");
+    return HostedZone.fromHostedZoneAttributes(scope, `${scope.node.id}-authHostedZoneId`, {
+      hostedZoneId,
+      zoneName: `auth.${infrasConfig.domainName}`,
     });
   }
 }

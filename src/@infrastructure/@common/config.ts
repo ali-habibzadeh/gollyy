@@ -1,4 +1,8 @@
+const brandName = "gollyy";
+const domainName = <const>`${brandName}.com`;
+
 export const infrasConfig = <const>{
-  brandName: "gollyy",
-  domainName: "gollyy.com",
+  brandName,
+  domainName,
+  authDomainName: `auth.${domainName}`,
 };

@@ -1,18 +1,21 @@
+import { DnsValidatedCertificate } from "@aws-cdk/aws-certificatemanager";
 import * as Cognito from "@aws-cdk/aws-cognito";
-import { Construct, Duration } from "@aws-cdk/core";
+import { UserPoolDomain } from "@aws-cdk/aws-cognito";
+import { Construct, Duration, Stack } from "@aws-cdk/core";
 import { EnvVars } from "../../config/env-vars.enum";
 import { Handlers } from "../../handlers-list";
+import { infrasConfig } from "../@common/config";
 import { LambdaFactory } from "../@common/lambda.factory";
-import { AuthDomain } from "./auth-domain";
+import { StaticStackService } from "../@common/static-stack.service";
 
 export default class AppUserPool {
   constructor(private scope: Construct, private id: string) {}
 
   private userVerification = {
     emailSubject: "Verify your email for Gollyy!",
-    emailBody: "Hello {username}, Your Gollyy verification code is {####}",
+    emailBody: "🤞 Hi! Your Gollyy verification code is {####}",
     emailStyle: Cognito.VerificationEmailStyle.CODE,
-    smsMessage: "Hello {username}, Your Gollyy verification code is {####}",
+    smsMessage: "🤞 Hi! Your Gollyy verification code is {####}",
   };
 
   private userInvitation = {
@@ -44,6 +47,32 @@ export default class AppUserPool {
       email: { mutable: true, required: true },
       phoneNumber: { mutable: true, required: true },
     },
+    emailSettings: {
+      replyTo: "support@gollyy.com",
+    },
+  });
+
+  private authHostedZone = StaticStackService.getAuthHostedZoneId(this.scope);
+
+  private authCert = new DnsValidatedCertificate(this.scope, `${this.id}-auth-domain-certificate`, {
+    domainName: infrasConfig.authDomainName,
+    hostedZone: this.authHostedZone,
+  });
+
+  public userPoolDomain = new UserPoolDomain(this.scope, `${this.id}-userpool-domain`, {
+    userPool: this.userPool,
+    customDomain: {
+      certificate: {
+        certificateArn: this.authCert.certificateArn,
+        env: {
+          account: Stack.of(this.scope).account,
+          region: Stack.of(this.scope).region,
+        },
+        node: this.scope.node,
+        stack: Stack.of(this.scope),
+      },
+      domainName: infrasConfig.authDomainName,
+    },
   });
 
   public userPoolClient = new Cognito.UserPoolClient(this.scope, `${this.id}-userpool-client`, {
@@ -51,10 +80,12 @@ export default class AppUserPool {
     generateSecret: false,
   });
 
-  public authDomain = new AuthDomain(this.scope, "AuthDomain", this.userPool);
+  private ConigtoHandlers = [Handlers.SignupHandler];
 
-  public handler = new LambdaFactory(this.scope, Handlers.RegistrationHandler, {
-    [EnvVars.userPoolId]: this.userPool.userPoolId,
-    [EnvVars.userPoolClientId]: this.userPoolClient.userPoolClientId,
-  }).getLambda();
+  public handlers = this.ConigtoHandlers.map(handler =>
+    new LambdaFactory(this.scope, handler, {
+      [EnvVars.userPoolId]: this.userPool.userPoolId,
+      [EnvVars.userPoolClientId]: this.userPoolClient.userPoolClientId,
+    }).getLambda(),
+  );
 }

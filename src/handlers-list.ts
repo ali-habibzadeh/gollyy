@@ -1,3 +1,4 @@
 export enum Handlers {
-  RegistrationHandler = "RegistrationHandler",
+  SignupHandler = "SignupHandler",
+  ConfirmRegistrationHandler = "ConfirmRegistrationHandler",
 }

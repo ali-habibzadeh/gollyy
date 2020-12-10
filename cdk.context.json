@@ -1,8 +1,45 @@
 {
-  "@aws-cdk/core:enableStackNameDuplicates": "true",
-  "aws-cdk:enableDiffNoFail": "true",
-  "hosted-zone:account=319025433305:domainName=auth.gollyy.com:region=us-east-1": {
-    "Id": "/hostedzone/Z0230464I6STOAK49INB",
-    "Name": "auth.gollyy.com."
+  "vpc-provider:account=319025433305:filter.vpc-id=vpc-0460738964bbcfd78:region=us-east-1:returnAsymmetricSubnets=true": {
+    "vpcId": "vpc-0460738964bbcfd78",
+    "vpcCidrBlock": "10.0.0.0/16",
+    "availabilityZones": [],
+    "subnetGroups": [
+      {
+        "name": "Private",
+        "type": "Private",
+        "subnets": [
+          {
+            "subnetId": "subnet-00cbf0cde72a60e1d",
+            "cidr": "10.0.128.0/18",
+            "availabilityZone": "us-east-1a",
+            "routeTableId": "rtb-0bbc9f924294fa240"
+          },
+          {
+            "subnetId": "subnet-03b71073d999b5183",
+            "cidr": "10.0.192.0/18",
+            "availabilityZone": "us-east-1b",
+            "routeTableId": "rtb-0b5532e00b369cca3"
+          }
+        ]
+      },
+      {
+        "name": "Public",
+        "type": "Public",
+        "subnets": [
+          {
+            "subnetId": "subnet-0837f51eea7cf7244",
+            "cidr": "10.0.0.0/18",
+            "availabilityZone": "us-east-1a",
+            "routeTableId": "rtb-04415c3a78e4e409c"
+          },
+          {
+            "subnetId": "subnet-0740a0e13655ef372",
+            "cidr": "10.0.64.0/18",
+            "availabilityZone": "us-east-1b",
+            "routeTableId": "rtb-003c3a76f83494e7a"
+          }
+        ]
+      }
+    ]
   }
 }

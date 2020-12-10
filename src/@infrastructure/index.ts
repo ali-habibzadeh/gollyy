@@ -5,9 +5,9 @@ import AppUserPool from "./registeration/user-pool";
 import AppStaticStack from "./static-stack";
 
 export default class AppStack extends Stack {
-  public regionOutput = new CfnOutput(this, "region", { value: this.region });
-
   public appUserPool = new AppUserPool(this, "AppUserPoolContainer");
+
+  public regionOutput = new CfnOutput(this, "region", { value: this.region });
 }
 
 const app = new App();
