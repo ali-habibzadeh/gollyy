@@ -72,7 +72,7 @@ export default class AppUserPool {
     generateSecret: false,
   });
 
-  private ConigtoHandlers = [Handlers.SignupHandler];
+  private ConigtoHandlers = [Handlers.SignupHandler, Handlers.ConfirmRegistrationHandler];
 
   public handlers = this.ConigtoHandlers.map(handler =>
     new LambdaFactory(this.scope, handler, {
