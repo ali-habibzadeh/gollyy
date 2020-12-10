@@ -1,11 +1,16 @@
-import { CognitoUserPool, CognitoUserAttribute, ISignUpResult } from "amazon-cognito-identity-js";
+import { CognitoUserPool, CognitoUserAttribute, ISignUpResult, CognitoUser } from "amazon-cognito-identity-js";
 import { appConfig } from "../config/config.service";
 
-export interface SignUpParams {
+interface SignUpParams {
   email: string;
   username: string;
   password: string;
   phone: string;
+}
+
+interface ConfirmationParams {
+  username: string;
+  code: string;
 }
 
 export class RegistrationService {
@@ -23,6 +28,13 @@ export class RegistrationService {
       this.userPool.signUp(username, password, attrs, [], (err, result) =>
         err ? reject(JSON.stringify(err)) : resolve(result),
       );
+    });
+  }
+
+  public async confirmRegistration({ username, code }: ConfirmationParams): Promise<unknown> {
+    return new Promise((resolve, reject) => {
+      const user = new CognitoUser({ Pool: this.userPool, Username: username });
+      user.confirmRegistration(code, true, (err, result) => (err ? reject(JSON.stringify(err)) : resolve(result)));
     });
   }
 }
