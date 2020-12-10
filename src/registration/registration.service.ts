@@ -14,10 +14,7 @@ interface ConfirmationParams {
 }
 
 export class RegistrationService {
-  private userPool = new CognitoUserPool({
-    UserPoolId: appConfig.userPoolId,
-    ClientId: appConfig.userPoolClientId,
-  });
+  private userPool = new CognitoUserPool({ UserPoolId: appConfig.userPoolId, ClientId: appConfig.userPoolClientId });
 
   public async signUp({ email, username, password, phone }: SignUpParams): Promise<ISignUpResult | undefined> {
     return new Promise((resolve, reject) => {

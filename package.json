@@ -32,9 +32,9 @@
     "@aws-cdk/aws-route53": "^1.77.0",
     "@aws-cdk/aws-route53-targets": "^1.77.0",
     "@aws-cdk/core": "^1.77.0",
-    "@types/aws-lambda": "^8.10.64",
+    "@types/aws-lambda": "^8.10.66",
     "@types/convict": "^5.2.1",
-    "@types/jest": "^26.0.17",
+    "@types/jest": "^26.0.18",
     "@types/source-map-support": "^0.5.3",
     "@typescript-eslint/eslint-plugin": "^4.9.1",
     "@typescript-eslint/parser": "^4.9.1",
@@ -54,7 +54,7 @@
   },
   "dependencies": {
     "amazon-cognito-identity-js": "^4.5.5",
-    "aws-sdk": "^2.805.0",
+    "aws-sdk": "^2.807.0",
     "convict": "^6.0.0",
     "reflect-metadata": "^0.1.13",
     "source-map-support": "^0.5.19"

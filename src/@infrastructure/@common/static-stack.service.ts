@@ -17,6 +17,10 @@ export class StaticStackService {
     });
   }
 
+  public static getAuthDomainCertificateArn(): string {
+    return Fn.importValue("authDomainCertificateArn");
+  }
+
   public static getAuthHostedZoneId(scope: Construct): IHostedZone {
     const hostedZoneId = Fn.importValue("authHostedZoneId");
     return HostedZone.fromHostedZoneAttributes(scope, `${scope.node.id}-authHostedZoneId`, {
