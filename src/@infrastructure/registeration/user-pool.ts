@@ -13,9 +13,9 @@ export default class AppUserPool {
 
   private userVerification = {
     emailSubject: "Verify your email for Gollyy!",
-    emailBody: "🤞 Hi! Your Gollyy verification code is {####}",
+    emailBody: "Your Gollyy verification code is {####}",
     emailStyle: Cognito.VerificationEmailStyle.CODE,
-    smsMessage: "🤞 Hi! Your Gollyy verification code is {####}",
+    smsMessage: "Your Gollyy verification code is {####}",
   };
 
   private userInvitation = {
