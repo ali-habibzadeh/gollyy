@@ -1,4 +1,3 @@
-import { DnsValidatedCertificate } from "@aws-cdk/aws-certificatemanager";
 import * as Cognito from "@aws-cdk/aws-cognito";
 import { UserPoolDomain } from "@aws-cdk/aws-cognito";
 import { Construct, Duration, Stack } from "@aws-cdk/core";
@@ -52,18 +51,11 @@ export default class AppUserPool {
     },
   });
 
-  private authHostedZone = StaticStackService.getAuthHostedZoneId(this.scope);
-
-  private authCert = new DnsValidatedCertificate(this.scope, `${this.id}-auth-domain-certificate`, {
-    domainName: infrasConfig.authDomainName,
-    hostedZone: this.authHostedZone,
-  });
-
   public userPoolDomain = new UserPoolDomain(this.scope, `${this.id}-userpool-domain`, {
     userPool: this.userPool,
     customDomain: {
       certificate: {
-        certificateArn: this.authCert.certificateArn,
+        certificateArn: StaticStackService.getAuthDomainCertificateArn(),
         env: {
           account: Stack.of(this.scope).account,
           region: Stack.of(this.scope).region,

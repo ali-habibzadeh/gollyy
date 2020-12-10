@@ -1,5 +1,6 @@
+import { DnsValidatedCertificate } from "@aws-cdk/aws-certificatemanager";
 import { Vpc } from "@aws-cdk/aws-ec2";
-import { HostedZone, ZoneDelegationRecord } from "@aws-cdk/aws-route53";
+import { HostedZone } from "@aws-cdk/aws-route53";
 import { CfnOutput, Stack } from "@aws-cdk/core";
 import { infrasConfig } from "./@common/config";
 
@@ -10,10 +11,14 @@ export default class AppStaticStack extends Stack {
 
   public authHostedZone = new HostedZone(this, `authZone`, { zoneName: infrasConfig.authDomainName });
 
-  public authDnsRecord = new ZoneDelegationRecord(this, "authDnsRecord", {
-    nameServers: this.authHostedZone.hostedZoneNameServers ?? [""],
-    zone: this.rootHostedZone,
-    recordName: infrasConfig.authDomainName,
+  public authCert = new DnsValidatedCertificate(this, `authDomainCertificate`, {
+    domainName: infrasConfig.authDomainName,
+    hostedZone: this.authHostedZone,
+  });
+
+  public authDomainCertificateArn = new CfnOutput(this, "authDomainCertificateArn", {
+    value: this.authCert.certificateArn,
+    exportName: "authDomainCertificateArn",
   });
 
   public vpcId = new CfnOutput(this, "vpcId", {
