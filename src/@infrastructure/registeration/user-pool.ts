@@ -70,13 +70,14 @@ export default class AppUserPool {
   });
 
   private ConigtoHandlers = [
-    Handlers.SignupHandler,
-    Handlers.ConfirmSignUpHandler,
-    Handlers.ResendSignUpHandler,
-    Handlers.AuthenticateUser,
+    Handlers.signUp,
+    Handlers.confirmSignUp,
+    Handlers.resendSignUp,
+    Handlers.signIn,
+    Handlers.confirmSignIn,
   ];
 
-  private handlers = this.ConigtoHandlers.map(handler =>
+  private cognitoLambdas = this.ConigtoHandlers.map(handler =>
     new LambdaFactory(this.scope, handler, {
       [EnvVars.userPoolId]: this.userPool.userPoolId,
       [EnvVars.userPoolClientId]: this.userPoolClient.userPoolClientId,

@@ -20,7 +20,7 @@ export class RegistrationService {
     return this.auth.resendSignUp(username);
   }
 
-  public async authenticateUser({ username, password }: AuthenticateParams): Promise<CognitoUser> {
+  public async signIn({ username, password }: AuthenticateParams): Promise<CognitoUser> {
     const user = await this.auth.signIn(username, password);
     return user;
   }

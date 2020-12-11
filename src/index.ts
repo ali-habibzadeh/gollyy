@@ -14,10 +14,11 @@ sourceMapSupport.install();
 AWS.config.update({ region: appConfig.region });
 
 const handlers: Record<Handlers, PublicFn> = {
-  [Handlers.SignupHandler]: e => new RegistrationService().signUp(e),
-  [Handlers.ConfirmSignUpHandler]: e => new RegistrationService().confirmSignUp(e),
-  [Handlers.ResendSignUpHandler]: e => new RegistrationService().resendSignUp(e),
-  [Handlers.AuthenticateUser]: e => new RegistrationService().authenticateUser(e),
+  [Handlers.signUp]: e => new RegistrationService().signUp(e),
+  [Handlers.confirmSignUp]: e => new RegistrationService().confirmSignUp(e),
+  [Handlers.resendSignUp]: e => new RegistrationService().resendSignUp(e),
+  [Handlers.signIn]: e => new RegistrationService().signIn(e),
+  [Handlers.confirmSignIn]: e => new RegistrationService().confirmSignIn(e),
 };
 
 module.exports = new LambdaHandlerFactory(handlers).getHandlers();
