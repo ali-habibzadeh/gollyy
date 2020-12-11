@@ -1,6 +1,6 @@
 import * as Cognito from "@aws-cdk/aws-cognito";
-import { UserPoolDomain } from "@aws-cdk/aws-cognito";
 import { Construct, Duration, Stack } from "@aws-cdk/core";
+
 import { EnvVars } from "../../config/env-vars.enum";
 import { Handlers } from "../../handlers-list";
 import { infrasConfig } from "../@common/config";
@@ -19,8 +19,8 @@ export default class AppUserPool {
 
   private userInvitation = {
     emailSubject: "You are invited to join Gollyy!",
-    emailBody: "You have been invited to join Gollyy! Your temporary password is {####}",
-    smsMessage: "Your temporary Gollyy password is {####}",
+    emailBody: "Hi {username}, You have been invited to join Gollyy! Your temporary password is {####}",
+    smsMessage: "Hi {username}, Your temporary Gollyy password is {####}",
   };
 
   private passwordPolicy = {
@@ -51,7 +51,7 @@ export default class AppUserPool {
     },
   });
 
-  private userPoolDomain = new UserPoolDomain(this.scope, `${this.id}-userpool-domain`, {
+  private userPoolDomain = new Cognito.UserPoolDomain(this.scope, `${this.id}-userpool-domain`, {
     userPool: this.userPool,
     customDomain: {
       certificate: {
