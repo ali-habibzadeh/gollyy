@@ -13,6 +13,8 @@ AWS.config.update({ region: appConfig.region });
 const handlers: Record<Handlers, PublicFn> = {
   [Handlers.SignupHandler]: e => new RegistrationService().signUp(e),
   [Handlers.ConfirmRegistrationHandler]: e => new RegistrationService().confirmRegistration(e),
+  [Handlers.ResendConfirmationCode]: e => new RegistrationService().resendConfirmationCode(e),
+  [Handlers.AuthenticateUser]: e => new RegistrationService().authenticateUser(e),
 };
 
 module.exports = new LambdaHandlerFactory(handlers).getHandlers();
