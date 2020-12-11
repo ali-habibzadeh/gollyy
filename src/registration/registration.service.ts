@@ -26,6 +26,6 @@ export class RegistrationService {
   }
 
   public async confirmSignIn({ user, code }: ConfirmSignInParams): Promise<CognitoUser> {
-    return this.auth.confirmSignIn(user, code, "SMS_MFA");
+    return this.auth.confirmSignIn(user, code);
   }
 }
