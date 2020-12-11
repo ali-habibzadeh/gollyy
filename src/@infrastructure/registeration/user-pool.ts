@@ -19,8 +19,8 @@ export default class AppUserPool {
 
   private userInvitation = {
     emailSubject: "You are invited to join Gollyy!",
-    emailBody: "Hello {username}, you have been invited to join Gollyy! Your temporary password is {####}",
-    smsMessage: "Hello {username}, Your temporary Gollyy password is {####}",
+    emailBody: "You have been invited to join Gollyy! Your temporary password is {####}",
+    smsMessage: "Your temporary Gollyy password is {####}",
   };
 
   private passwordPolicy = {
@@ -32,7 +32,7 @@ export default class AppUserPool {
     tempPasswordValidity: Duration.days(3),
   };
 
-  public userPool = new Cognito.UserPool(this.scope, `${this.id}-userpool`, {
+  private userPool = new Cognito.UserPool(this.scope, `${this.id}-userpool`, {
     userPoolName: "AppUserPool",
     selfSignUpEnabled: true,
     userVerification: this.userVerification,
@@ -51,15 +51,12 @@ export default class AppUserPool {
     },
   });
 
-  public userPoolDomain = new UserPoolDomain(this.scope, `${this.id}-userpool-domain`, {
+  private userPoolDomain = new UserPoolDomain(this.scope, `${this.id}-userpool-domain`, {
     userPool: this.userPool,
     customDomain: {
       certificate: {
         certificateArn: StaticStackService.getAuthDomainCertificateArn(),
-        env: {
-          account: Stack.of(this.scope).account,
-          region: Stack.of(this.scope).region,
-        },
+        env: { account: Stack.of(this.scope).account, region: Stack.of(this.scope).region },
         node: this.scope.node,
         stack: Stack.of(this.scope),
       },
@@ -67,14 +64,19 @@ export default class AppUserPool {
     },
   });
 
-  public userPoolClient = new Cognito.UserPoolClient(this.scope, `${this.id}-userpool-client`, {
+  private userPoolClient = new Cognito.UserPoolClient(this.scope, `${this.id}-userpool-client`, {
     userPool: this.userPool,
     generateSecret: false,
   });
 
-  private ConigtoHandlers = [Handlers.SignupHandler, Handlers.ConfirmRegistrationHandler];
+  private ConigtoHandlers = [
+    Handlers.SignupHandler,
+    Handlers.ConfirmRegistrationHandler,
+    Handlers.ResendConfirmationCode,
+    Handlers.AuthenticateUser,
+  ];
 
-  public handlers = this.ConigtoHandlers.map(handler =>
+  private handlers = this.ConigtoHandlers.map(handler =>
     new LambdaFactory(this.scope, handler, {
       [EnvVars.userPoolId]: this.userPool.userPoolId,
       [EnvVars.userPoolClientId]: this.userPoolClient.userPoolClientId,
