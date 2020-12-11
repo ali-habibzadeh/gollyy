@@ -1,7 +1,7 @@
 import * as Cognito from "@aws-cdk/aws-cognito";
 import { Construct, Duration, Stack } from "@aws-cdk/core";
 
-import { EnvVars } from "../../config/env-vars.enum";
+import { EnvVars } from "../../config/app-config/env-vars.enum";
 import { Handlers } from "../../handlers-list";
 import { infrasConfig } from "../@common/config";
 import { LambdaFactory } from "../@common/lambda.factory";
@@ -71,8 +71,8 @@ export default class AppUserPool {
 
   private ConigtoHandlers = [
     Handlers.SignupHandler,
-    Handlers.ConfirmRegistrationHandler,
-    Handlers.ResendConfirmationCode,
+    Handlers.ConfirmSignUpHandler,
+    Handlers.ResendSignUpHandler,
     Handlers.AuthenticateUser,
   ];
 
