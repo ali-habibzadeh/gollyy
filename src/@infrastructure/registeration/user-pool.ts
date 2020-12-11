@@ -1,7 +1,7 @@
 import * as Cognito from "@aws-cdk/aws-cognito";
 import { Construct, Duration, Stack } from "@aws-cdk/core";
 
-import { EnvVars } from "../../config/env-vars.enum";
+import { EnvVars } from "../../config/app-config/env-vars.enum";
 import { Handlers } from "../../handlers-list";
 import { infrasConfig } from "../@common/config";
 import { LambdaFactory } from "../@common/lambda.factory";
@@ -70,13 +70,14 @@ export default class AppUserPool {
   });
 
   private ConigtoHandlers = [
-    Handlers.SignupHandler,
-    Handlers.ConfirmRegistrationHandler,
-    Handlers.ResendConfirmationCode,
-    Handlers.AuthenticateUser,
+    Handlers.signUp,
+    Handlers.confirmSignUp,
+    Handlers.resendSignUp,
+    Handlers.signIn,
+    Handlers.confirmSignIn,
   ];
 
-  private handlers = this.ConigtoHandlers.map(handler =>
+  private cognitoLambdas = this.ConigtoHandlers.map(handler =>
     new LambdaFactory(this.scope, handler, {
       [EnvVars.userPoolId]: this.userPool.userPoolId,
       [EnvVars.userPoolClientId]: this.userPoolClient.userPoolClientId,

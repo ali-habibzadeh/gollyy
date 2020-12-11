@@ -54,6 +54,7 @@
   },
   "dependencies": {
     "amazon-cognito-identity-js": "^4.5.5",
+    "aws-amplify": "^3.3.12",
     "aws-sdk": "^2.807.0",
     "convict": "^6.0.0",
     "reflect-metadata": "^0.1.13",

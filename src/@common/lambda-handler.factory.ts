@@ -24,9 +24,18 @@ export class LambdaHandlerFactory {
   }
 
   private getHandler(fn: PublicFn): AWSLambda.Handler {
-    return async (event, context): Promise<unknown> => ({
-      ...this.defaultConfig,
-      body: JSON.stringify(await fn(event, context)),
-    });
+    return async (event, context): Promise<unknown> => {
+      try {
+        const body = await fn(event, context);
+        return {
+          ...this.defaultConfig,
+          body,
+        };
+      } catch (e) {
+        // eslint-disable-next-line no-console
+        console.log(JSON.stringify(e));
+        throw e;
+      }
+    };
   }
 }

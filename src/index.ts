@@ -1,20 +1,24 @@
 import "reflect-metadata";
+import "./config/amplify/amplify.config";
+
 import AWS from "aws-sdk";
 import sourceMapSupport from "source-map-support";
-import { appConfig } from "./config/config.service";
+
+import { LambdaHandlerFactory, PublicFn } from "./@common/lambda-handler.factory";
+import { appConfig } from "./config/app-config/config.service";
 import { Handlers } from "./handlers-list";
 import { RegistrationService } from "./registration/registration.service";
-import { LambdaHandlerFactory, PublicFn } from "./@common/lambda-handler.factory";
 
 sourceMapSupport.install();
 
 AWS.config.update({ region: appConfig.region });
 
 const handlers: Record<Handlers, PublicFn> = {
-  [Handlers.SignupHandler]: e => new RegistrationService().signUp(e),
-  [Handlers.ConfirmRegistrationHandler]: e => new RegistrationService().confirmRegistration(e),
-  [Handlers.ResendConfirmationCode]: e => new RegistrationService().resendConfirmationCode(e),
-  [Handlers.AuthenticateUser]: e => new RegistrationService().authenticateUser(e),
+  [Handlers.signUp]: e => new RegistrationService().signUp(e),
+  [Handlers.confirmSignUp]: e => new RegistrationService().confirmSignUp(e),
+  [Handlers.resendSignUp]: e => new RegistrationService().resendSignUp(e),
+  [Handlers.signIn]: e => new RegistrationService().signIn(e),
+  [Handlers.confirmSignIn]: e => new RegistrationService().confirmSignIn(e),
 };
 
 module.exports = new LambdaHandlerFactory(handlers).getHandlers();

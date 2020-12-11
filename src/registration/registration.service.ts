@@ -1,48 +1,31 @@
-import { AuthenticationDetails, CognitoUser, CognitoUserAttribute, CognitoUserPool, ISignUpResult } from "amazon-cognito-identity-js";
+import { CognitoUser } from "amazon-cognito-identity-js";
+import { Auth } from "aws-amplify";
 
-import { appConfig } from "../config/config.service";
-import { AuthDetailsParams, AuthResponse, BaseUserParams, ConfirmationParams, SignUpParams } from "./registration.interface";
+import { AuthenticateParams, BaseUserParams, ConfirmSignInParams, ConfirmSignUpParams, SignUpParams } from "./registration.interface";
 
 export class RegistrationService {
-  private userPool = new CognitoUserPool({
-    UserPoolId: appConfig.userPoolId,
-    ClientId: appConfig.userPoolClientId,
-  });
+  private auth = Auth;
 
-  public async signUp({ email, username, password, phone }: SignUpParams): Promise<ISignUpResult | undefined> {
-    return new Promise((resolve, reject) => {
-      const attrs = [
-        new CognitoUserAttribute({ Name: "email", Value: email }),
-        new CognitoUserAttribute({ Name: "phone_number", Value: phone }),
-      ];
-      this.userPool.signUp(username, password, attrs, [], (err, result) =>
-        err ? reject(JSON.stringify(err)) : resolve(result),
-      );
-    });
+  public async signUp({ email, username, password, phone }: SignUpParams): Promise<CognitoUser> {
+    const attrs = { attributes: { email, phone_number: phone } };
+    const { user } = await this.auth.signUp({ username, password, ...attrs });
+    return user;
   }
 
-  public async confirmRegistration({ username, code }: ConfirmationParams): Promise<unknown> {
-    return new Promise((resolve, reject) => {
-      const user = new CognitoUser({ Pool: this.userPool, Username: username });
-      user.confirmRegistration(code, true, (err, result) => (err ? reject(JSON.stringify(err)) : resolve(result)));
-    });
+  public async confirmSignUp({ username, code }: ConfirmSignUpParams): Promise<void> {
+    return this.auth.confirmSignUp(username, code);
   }
 
-  public async resendConfirmationCode({ username }: BaseUserParams): Promise<unknown> {
-    return new Promise((resolve, reject) => {
-      const user = new CognitoUser({ Pool: this.userPool, Username: username });
-      user.resendConfirmationCode((err, result) => (err ? reject(JSON.stringify(err)) : resolve(result)));
-    });
+  public async resendSignUp({ username }: BaseUserParams): Promise<void> {
+    return this.auth.resendSignUp(username);
   }
 
-  public authenticateUser({ username, password }: AuthDetailsParams): Promise<AuthResponse> {
-    return new Promise((resolve, reject) => {
-      const details = new AuthenticationDetails({ Username: username, Password: password });
-      const user = new CognitoUser({ Pool: this.userPool, Username: username });
-      user.authenticateUser(details, {
-        onSuccess: (session, confirmed) => resolve({ session, confirmed }),
-        onFailure: reject,
-      });
-    });
+  public async signIn({ username, password }: AuthenticateParams): Promise<CognitoUser> {
+    const user = await this.auth.signIn(username, password);
+    return user;
+  }
+
+  public async confirmSignIn({ user, code }: ConfirmSignInParams): Promise<CognitoUser> {
+    return this.auth.confirmSignIn(user, code);
   }
 }

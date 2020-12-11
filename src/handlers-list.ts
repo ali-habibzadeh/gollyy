@@ -1,6 +1,7 @@
 export enum Handlers {
-  SignupHandler = "SignupHandler",
-  ConfirmRegistrationHandler = "ConfirmRegistrationHandler",
-  ResendConfirmationCode = "ResendConfirmationCode",
-  AuthenticateUser = "AuthenticateUser",
+  signUp = "signUp",
+  confirmSignUp = "confirmSignUp",
+  resendSignUp = "resendSignUp",
+  signIn = "signIn",
+  confirmSignIn = "confirmSignIn",
 }
