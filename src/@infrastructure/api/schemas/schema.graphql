@@ -1,0 +1,16 @@
+type Ticket @model {
+  id: String!
+  numbers: [Int]!
+}
+
+input TicketInput {
+  numbers: [Int]!
+}
+
+type Query {
+  getTickets: [Ticket]
+}
+
+type Mutation {
+  createTicket(numbers: TicketInput!): Ticket
+}

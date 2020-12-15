@@ -7,7 +7,11 @@ export interface BaseUserParams {
 export interface SignUpParams extends BaseUserParams {
   email: string;
   password: string;
-  phone: string;
+  phoneNumber: string;
+  givenName: string;
+  familyName: string;
+  address: string;
+  birthdate: string;
 }
 
 export interface ConfirmSignUpParams extends BaseUserParams {
