@@ -50,9 +50,7 @@ export default class Registration {
       address: { mutable: false, required: true },
       birthdate: { mutable: false, required: true },
     },
-    emailSettings: {
-      replyTo: "support@gollyy.com",
-    },
+    emailSettings: { replyTo: "support@gollyy.com" },
   });
 
   public userPoolDomain = new UserPoolDomain(this.scope, `${this.id}-userpool-domain`, {

@@ -1,6 +1,7 @@
 type Ticket @model {
   id: String!
   numbers: [Int]!
+  createdAt: AWSDateTime!
 }
 
 input TicketInput {

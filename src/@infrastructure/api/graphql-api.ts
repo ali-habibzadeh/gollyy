@@ -10,7 +10,9 @@ import { Handlers } from "../../handlers-list";
 import { LambdaFactory } from "../@common/lambda.factory";
 
 export default class GollyApi {
-  constructor(private scope: Construct, private id: string, private userPool: IUserPool) {}
+  constructor(private scope: Construct, private id: string, private userPool: IUserPool) {
+    this.ticketsTable.grantFullAccess(this.apiHandler);
+  }
 
   public api = new GraphqlApi(this.scope, "BusinessApi", {
     name: "GollyyBusinessApi",
