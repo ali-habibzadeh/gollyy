@@ -1,17 +1,12 @@
 type Ticket @model {
   id: String!
   numbers: [Int]!
-  createdAt: AWSDateTime!
-}
-
-input TicketInput {
-  numbers: [Int]!
-}
-
-type Query {
-  getTickets: [Ticket]
 }
 
 type Mutation {
-  createTicket(numbers: TicketInput!): Ticket
+  createTicket(numbers: [Int!]!): Ticket
+}
+
+type Query {
+  listTickets: [Ticket]
 }

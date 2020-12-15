@@ -28,6 +28,7 @@ export default class GollyApi {
 
   private ticketsTable = new Table(this.scope, "ticketsTable", {
     partitionKey: { name: "id", type: AttributeType.STRING },
+    timeToLiveAttribute: "ttl",
     billingMode: BillingMode.PAY_PER_REQUEST,
   });
 
@@ -37,7 +38,7 @@ export default class GollyApi {
 
   private ds = this.api.addLambdaDataSource("ticketsDatasource", this.apiHandler);
 
-  private ticketQuery = this.ds.createResolver({ typeName: "Query", fieldName: "getTickets" });
+  private ticketQuery = this.ds.createResolver({ typeName: "Query", fieldName: "listTickets" });
 
   private ticketMutation = this.ds.createResolver({ typeName: "Mutation", fieldName: "createTicket" });
 }

@@ -1,4 +1,4 @@
-import { DynamoStore, Model, PartitionKey } from "@shiftcoders/dynamo-easy";
+import { Model, PartitionKey } from "@shiftcoders/dynamo-easy";
 
 import { appConfig } from "../config/app-config/config.service";
 
@@ -8,8 +8,4 @@ export class Ticket {
   public id!: string;
 
   public numbers!: [number, number];
-
-  public createdAt!: Date;
 }
-
-export const ticketStore = new DynamoStore(Ticket);

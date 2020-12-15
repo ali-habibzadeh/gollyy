@@ -39,7 +39,7 @@ export default class Registration {
     userInvitation: this.userInvitation,
     signInAliases: { username: true, email: true, phone: true },
     accountRecovery: AccountRecovery.EMAIL_ONLY,
-    mfa: Mfa.REQUIRED,
+    mfa: Mfa.OPTIONAL,
     mfaSecondFactor: { sms: true, otp: true },
     passwordPolicy: this.passwordPolicy,
     standardAttributes: {

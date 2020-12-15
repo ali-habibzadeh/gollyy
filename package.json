@@ -55,11 +55,13 @@
   },
   "dependencies": {
     "@shiftcoders/dynamo-easy": "^7.1.0",
+    "@types/uuid": "^8.3.0",
     "amazon-cognito-identity-js": "4.5.5",
     "aws-amplify": "3.3.12",
     "aws-sdk": "2.809.0",
     "convict": "6.0.0",
     "reflect-metadata": "0.1.13",
-    "source-map-support": "0.5.19"
+    "source-map-support": "0.5.19",
+    "uuid": "^8.3.2"
   }
 }
