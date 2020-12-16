@@ -11,14 +11,7 @@ export class RegistrationService {
     const { user } = await this.auth.signUp({
       username,
       password,
-      attributes: {
-        email,
-        address,
-        birthdate,
-        phone_number: phoneNumber,
-        given_name: givenName,
-        family_name: familyName,
-      },
+      attributes: { email, address, birthdate, phone_number: phoneNumber, given_name: givenName, family_name: familyName },
     });
     return user;
   }
