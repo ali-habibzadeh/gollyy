@@ -6,6 +6,7 @@ import { AttributeType, BillingMode, Table } from "@aws-cdk/aws-dynamodb";
 import { Construct } from "@aws-cdk/core";
 
 import { EnvVars } from "../../config/app-config/env-vars.enum";
+import { ResolverFields } from "../../entities/resolver-fields.enum";
 import { Handlers } from "../../handlers-list";
 import { LambdaFactory } from "../@common/lambda.factory";
 
@@ -38,7 +39,7 @@ export default class GollyApi {
 
   private ds = this.api.addLambdaDataSource("ticketsDatasource", this.apiHandler);
 
-  private ticketQuery = this.ds.createResolver({ typeName: "Query", fieldName: "listTickets" });
+  private ticketQuery = this.ds.createResolver({ typeName: "Query", fieldName: ResolverFields.listTickets });
 
-  private ticketMutation = this.ds.createResolver({ typeName: "Mutation", fieldName: "createTicket" });
+  private ticketMutation = this.ds.createResolver({ typeName: "Mutation", fieldName: ResolverFields.createTicket });
 }

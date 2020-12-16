@@ -1,25 +1,14 @@
 import { AppSyncResolverEvent } from "aws-lambda";
-import { v4 } from "uuid";
 
-import { DynamoStore } from "@shiftcoders/dynamo-easy";
-
-import { Ticket } from "../tickets/ticket.model";
+import { iscreateTicketEvent, isListTicketsEvent } from "../entities/tickets/tickets.metadata";
+import TicketsRepository from "../entities/tickets/tickets.respository";
 
 export default class ApiService {
-  private ticketStore = new DynamoStore(Ticket);
+  private ticketRepo = new TicketsRepository();
 
-  public async respond(event: AppSyncResolverEvent<any>): Promise<unknown> {
-    // eslint-disable-next-line no-console
-    switch (event.info.fieldName) {
-      case "listTickets":
-        return this.ticketStore.scan().exec();
-      case "createTicket":
-        // eslint-disable-next-line no-case-declarations
-        const ticket = { numbers: event.arguments.numbers, id: v4() };
-        await this.ticketStore.put(ticket).exec();
-        return ticket;
-      default:
-        return null;
-    }
+  public async respond(event: AppSyncResolverEvent<unknown>): Promise<unknown> {
+    if (isListTicketsEvent(event)) return this.ticketRepo.list();
+    if (iscreateTicketEvent(event)) return this.ticketRepo.create(event.arguments.numbers);
+    return null;
   }
 }
