@@ -22,7 +22,7 @@ export default class GollyApi {
     authorizationConfig: {
       defaultAuthorization: {
         authorizationType: AuthorizationType.USER_POOL,
-        userPoolConfig: { userPool: this.userPool, defaultAction: UserPoolDefaultAction.ALLOW },
+        userPoolConfig: { userPool: this.userPool, defaultAction: UserPoolDefaultAction.DENY },
       },
     },
   });
