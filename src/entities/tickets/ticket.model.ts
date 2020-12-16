@@ -7,5 +7,7 @@ export class Ticket {
   @PartitionKey()
   public id!: string;
 
+  public username?: string;
+
   public numbers!: [number, number];
 }

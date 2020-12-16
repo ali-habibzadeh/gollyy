@@ -1,3 +1,4 @@
+import { AppSyncResolverEvent } from "aws-lambda";
 import { v4 } from "uuid";
 
 import { DynamoStore } from "@shiftcoders/dynamo-easy";
@@ -8,12 +9,12 @@ import { Ticket } from "./ticket.model";
 export default class TicketsRepository extends BaseRepository<Ticket> {
   protected store = new DynamoStore(Ticket);
 
-  public list(): Promise<Ticket[]> {
-    return this.store.scan().exec();
+  public list(event: AppSyncResolverEvent<Ticket>): Promise<Ticket[]> {
+    return this.store.scan().whereAttribute("username").eq(event.identity?.username).exec();
   }
 
-  public async create(numbers: [number, number]): Promise<Ticket> {
-    const ticket = { numbers, id: v4() };
+  public async create(event: AppSyncResolverEvent<Ticket>): Promise<Ticket> {
+    const ticket = { numbers: event.arguments.numbers, id: v4(), username: event.identity?.username };
     await this.store.put(ticket).exec();
     return ticket;
   }

@@ -7,8 +7,8 @@ export default class ApiService {
   private ticketRepo = new TicketsRepository();
 
   public async respond(event: AppSyncResolverEvent<unknown>): Promise<unknown> {
-    if (isListTicketsEvent(event)) return this.ticketRepo.list();
-    if (iscreateTicketEvent(event)) return this.ticketRepo.create(event.arguments.numbers);
+    if (isListTicketsEvent(event)) return this.ticketRepo.list(event);
+    if (iscreateTicketEvent(event)) return this.ticketRepo.create(event);
     return null;
   }
 }

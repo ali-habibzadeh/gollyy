@@ -12,7 +12,7 @@ import { LambdaFactory } from "../@common/lambda.factory";
 
 export default class GollyApi {
   constructor(private scope: Construct, private id: string, private userPool: IUserPool) {
-    this.ticketsTable.grantFullAccess(this.apiHandler);
+    this.configureTable();
   }
 
   public api = new GraphqlApi(this.scope, "BusinessApi", {
@@ -32,6 +32,10 @@ export default class GollyApi {
     timeToLiveAttribute: "ttl",
     billingMode: BillingMode.PAY_PER_REQUEST,
   });
+
+  private configureTable(): void {
+    this.ticketsTable.grantFullAccess(this.apiHandler);
+  }
 
   private apiHandler = new LambdaFactory(this.scope, Handlers.graphQlApi, {
     [EnvVars.ticketsTableName]: this.ticketsTable.tableName,
