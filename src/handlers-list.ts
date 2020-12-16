@@ -4,4 +4,5 @@ export enum Handlers {
   resendSignUp = "resendSignUp",
   signIn = "signIn",
   confirmSignIn = "confirmSignIn",
+  graphQlApi = "graphQlApi",
 }

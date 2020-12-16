@@ -6,9 +6,13 @@ import { AuthenticateParams, BaseUserParams, ConfirmSignInParams, ConfirmSignUpP
 export class RegistrationService {
   private auth = Auth;
 
-  public async signUp({ email, username, password, phone }: SignUpParams): Promise<CognitoUser> {
-    const attrs = { attributes: { email, phone_number: phone } };
-    const { user } = await this.auth.signUp({ username, password, ...attrs });
+  public async signUp(params: SignUpParams): Promise<CognitoUser> {
+    const { username, password, email, phoneNumber, givenName, familyName, address, birthdate } = params;
+    const { user } = await this.auth.signUp({
+      username,
+      password,
+      attributes: { email, address, birthdate, phone_number: phoneNumber, given_name: givenName, family_name: familyName },
+    });
     return user;
   }
 
@@ -27,5 +31,9 @@ export class RegistrationService {
 
   public async confirmSignIn({ user, code }: ConfirmSignInParams): Promise<CognitoUser> {
     return this.auth.confirmSignIn(user, code);
+  }
+
+  public async signOut(): Promise<unknown> {
+    return this.auth.signOut({ global: true });
   }
 }

@@ -14,28 +14,13 @@ export class LambdaHandlerFactory {
 
   constructor(private configs: ILambdaHandlerFactoryConfig) {}
 
-  private defaultConfig = {
-    statusCode: 200,
-    headers: { "Content-Type": "application/json" },
-  };
-
   public getHandlers(): ILambdaHandlers {
-    return this.entries.reduce((configs, [name, fn]) => ({ ...configs, [name]: this.getHandler(fn) }), {});
-  }
-
-  private getHandler(fn: PublicFn): AWSLambda.Handler {
-    return async (event, context): Promise<unknown> => {
-      try {
-        const body = await fn(event, context);
-        return {
-          ...this.defaultConfig,
-          body,
-        };
-      } catch (e) {
-        // eslint-disable-next-line no-console
-        console.log(JSON.stringify(e));
-        throw e;
-      }
-    };
+    return this.entries.reduce(
+      (configs, [name, fn]) => ({
+        ...configs,
+        [name]: (event, context) => fn(event, context),
+      }),
+      <ILambdaHandlers>{},
+    );
   }
 }

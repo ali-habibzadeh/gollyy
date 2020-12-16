@@ -3,4 +3,5 @@ export enum EnvVars {
   region = "region",
   userPoolId = "userPoolId",
   userPoolClientId = "userPoolClientId",
+  ticketsTableName = "ticketsTableName",
 }

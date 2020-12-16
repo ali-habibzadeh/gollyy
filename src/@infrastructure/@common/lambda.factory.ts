@@ -2,8 +2,8 @@ import * as path from "path";
 
 import { Code, Function as Fn, Runtime, Tracing } from "@aws-cdk/aws-lambda";
 import { Construct, Duration, Stack } from "@aws-cdk/core";
+
 import { Handlers } from "../../handlers-list";
-import { StaticStackService } from "./static-stack.service";
 
 export class LambdaFactory {
   private defaultSettings = {
@@ -21,7 +21,6 @@ export class LambdaFactory {
       ...this.defaultSettings,
       functionName: `FnName-${this.handler}`,
       handler: `index.${this.handler}`,
-      vpc: StaticStackService.getVpc(this.parent, this.handler),
       allowPublicSubnet: true,
       environment: {
         region: Stack.of(this.parent).region,

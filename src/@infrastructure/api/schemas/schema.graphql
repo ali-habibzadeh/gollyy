@@ -1,0 +1,12 @@
+type Ticket @model {
+  id: String!
+  numbers: [Int]!
+}
+
+type Mutation {
+  createTicket(numbers: [Int!]!): Ticket
+}
+
+type Query {
+  listTickets: [Ticket]
+}

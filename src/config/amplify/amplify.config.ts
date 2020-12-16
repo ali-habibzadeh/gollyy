@@ -2,10 +2,12 @@ import Amplify from "aws-amplify";
 
 import { appConfig } from "../app-config/config.service";
 
+const { region, userPoolId, userPoolClientId } = appConfig;
+
 Amplify.configure({
   Auth: {
-    region: appConfig.region,
-    userPoolId: appConfig.userPoolId,
-    userPoolWebClientId: appConfig.userPoolClientId,
+    region,
+    userPoolId,
+    userPoolWebClientId: userPoolClientId,
   },
 });
