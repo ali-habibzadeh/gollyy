@@ -1,4 +1,4 @@
-type Ticket @model {
+type Ticket @model @aws_auth {
   id: String!
   numbers: [Int]!
 }
