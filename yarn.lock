@@ -283,6 +283,15 @@
     "@aws-cdk/core" "1.78.0"
     constructs "^3.2.0"
 
+"@aws-cdk/aws-cloudwatch@^1.79.0":
+  version "1.79.0"
+  resolved "https://registry.yarnpkg.com/@aws-cdk/aws-cloudwatch/-/aws-cloudwatch-1.79.0.tgz#3bbeb41369d250470e87adc7e78d9f3d12a442ff"
+  integrity sha512-lbcrfUwI/9rvFCMyRa7g8DskqAXThDVrRM4SAdHAX/MCV5cBcb3GA1HzFfnILsq5RXPwoC4WT7hhxMibM4A0iA==
+  dependencies:
+    "@aws-cdk/aws-iam" "1.79.0"
+    "@aws-cdk/core" "1.79.0"
+    constructs "^3.2.0"
+
 "@aws-cdk/aws-codeguruprofiler@1.78.0":
   version "1.78.0"
   resolved "https://registry.yarnpkg.com/@aws-cdk/aws-codeguruprofiler/-/aws-codeguruprofiler-1.78.0.tgz#a9b48254d1f76d54af92c48546227bdf2fe5ab46"
@@ -415,6 +424,15 @@
   dependencies:
     "@aws-cdk/core" "1.78.0"
     "@aws-cdk/region-info" "1.78.0"
+    constructs "^3.2.0"
+
+"@aws-cdk/aws-iam@1.79.0":
+  version "1.79.0"
+  resolved "https://registry.yarnpkg.com/@aws-cdk/aws-iam/-/aws-iam-1.79.0.tgz#456f0cc824c6e248378fcddfecb49637d7656089"
+  integrity sha512-lGgmOpdE2f05vQ3oT3pWlybTNb/PQcqkbdiBfvBPRYrg5p3lCGBDFSI3bv7Bjvl7lHhFRnxHnRb4CJRAXcUQqw==
+  dependencies:
+    "@aws-cdk/core" "1.79.0"
+    "@aws-cdk/region-info" "1.79.0"
     constructs "^3.2.0"
 
 "@aws-cdk/aws-kms@1.78.0":
@@ -603,6 +621,14 @@
     jsonschema "^1.4.0"
     semver "^7.3.2"
 
+"@aws-cdk/cloud-assembly-schema@1.79.0":
+  version "1.79.0"
+  resolved "https://registry.yarnpkg.com/@aws-cdk/cloud-assembly-schema/-/cloud-assembly-schema-1.79.0.tgz#e089ed386f47b4e24e12e398b66d1df7894e5109"
+  integrity sha512-n2ARtOXIUq3FdJ1EBuHzsM0DQau6ZwHprPhpk1xc5bv21s7D5X5ECe06eC0K5xC5ZyfC13BDWu1f+xFh+krnYA==
+  dependencies:
+    jsonschema "^1.4.0"
+    semver "^7.3.2"
+
 "@aws-cdk/cloudformation-diff@1.78.0":
   version "1.78.0"
   resolved "https://registry.yarnpkg.com/@aws-cdk/cloudformation-diff/-/cloudformation-diff-1.78.0.tgz#ad4622a20fa9d60f5c5ee2e7322c0e5e26443bd9"
@@ -623,6 +649,20 @@
     "@aws-cdk/cloud-assembly-schema" "1.78.0"
     "@aws-cdk/cx-api" "1.78.0"
     "@aws-cdk/region-info" "1.78.0"
+    "@balena/dockerignore" "^1.0.2"
+    constructs "^3.2.0"
+    fs-extra "^9.0.1"
+    ignore "^5.1.8"
+    minimatch "^3.0.4"
+
+"@aws-cdk/core@1.79.0":
+  version "1.79.0"
+  resolved "https://registry.yarnpkg.com/@aws-cdk/core/-/core-1.79.0.tgz#164b2f01877259eeb1ba16617be103522ae934d6"
+  integrity sha512-I+2GbQfbPy6TewnGbviE1W8cUhgBEA1mQLYm5gBj/Rzix1tCyaNvfYsBU3ipg3jIATpHsg1CzUq0zrumUnmnTg==
+  dependencies:
+    "@aws-cdk/cloud-assembly-schema" "1.79.0"
+    "@aws-cdk/cx-api" "1.79.0"
+    "@aws-cdk/region-info" "1.79.0"
     "@balena/dockerignore" "^1.0.2"
     constructs "^3.2.0"
     fs-extra "^9.0.1"
@@ -650,10 +690,23 @@
     "@aws-cdk/cloud-assembly-schema" "1.78.0"
     semver "^7.3.2"
 
+"@aws-cdk/cx-api@1.79.0":
+  version "1.79.0"
+  resolved "https://registry.yarnpkg.com/@aws-cdk/cx-api/-/cx-api-1.79.0.tgz#c9770fdd9b14a64e7ef350aa020969902b8a182d"
+  integrity sha512-ymQOqHcPzYhrcQ4swMgw5JzAaOm+PehH1cepsxi/Wq2zNOXkyN9o6Hw6l+eDpezFvNIKFy4mMAo6FR9xRCUiow==
+  dependencies:
+    "@aws-cdk/cloud-assembly-schema" "1.79.0"
+    semver "^7.3.2"
+
 "@aws-cdk/region-info@1.78.0":
   version "1.78.0"
   resolved "https://registry.yarnpkg.com/@aws-cdk/region-info/-/region-info-1.78.0.tgz#bc65cbc3d1995bbc833aa34037b488d405820c98"
   integrity sha512-pTWJ5086SgDFOTQ84xJLwzSc2D8T8vLPdGpXgqZ5u14mBUEwb7lN8oUxNh+YvuxcpVjGl7yHxkOU7nVCsRn0iA==
+
+"@aws-cdk/region-info@1.79.0":
+  version "1.79.0"
+  resolved "https://registry.yarnpkg.com/@aws-cdk/region-info/-/region-info-1.79.0.tgz#2a47339ca2dd48b9ecae46e985c8c3dcb83de577"
+  integrity sha512-klnXCc1Cd/krE4VOXJ1Blvey8ucPRzuwgGacPsCV2ugMSlaJSbdGqKzTUNxcK2o8g9PaEuJ5lNjfwqqyvp571g==
 
 "@aws-cdk/yaml-cfn@1.78.0":
   version "1.78.0"
@@ -3490,6 +3543,11 @@ data-urls@^2.0.0:
     abab "^2.0.3"
     whatwg-mimetype "^2.3.0"
     whatwg-url "^8.0.0"
+
+dayjs@^1.9.7:
+  version "1.9.7"
+  resolved "https://registry.yarnpkg.com/dayjs/-/dayjs-1.9.7.tgz#4b260bb17dceed2d5f29038dfee03c65a6786fc0"
+  integrity sha512-IC877KBdMhBrCfBfJXHQlo0G8keZ0Opy7YIIq5QKtUbCuHMzim8S4PyiVK4YmihI3iOF9lhfUBW4AQWHTR5WHA==
 
 debug@4, debug@^4.0.1, debug@^4.1.0, debug@^4.1.1:
   version "4.3.1"

@@ -4,4 +4,7 @@ export enum EnvVars {
   userPoolId = "userPoolId",
   userPoolClientId = "userPoolClientId",
   ticketsTableName = "ticketsTableName",
+  drawsTableName = "drawsTableName",
+  dataRetentionDays = "dataRetentionDays",
+  ticketPrice = "ticketPrice",
 }

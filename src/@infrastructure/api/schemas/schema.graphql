@@ -1,10 +1,10 @@
 type Ticket @model @aws_auth {
   id: String!
-  numbers: [Int]!
+  numbers: [Int]
 }
 
 type Mutation {
-  createTicket(numbers: [Int!]!): Ticket
+  createTicket(numbers: [Int]): Ticket
 }
 
 type Query {
