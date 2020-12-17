@@ -9,5 +9,4 @@ export const appConfigSchema = {
   [EnvVars.drawsTableName]: { format: String, default: "", env: "drawsTableName" },
   [EnvVars.dataRetentionDays]: { format: Number, default: 7, env: "dataRetentionDays" },
   [EnvVars.ticketPrice]: { format: Number, default: 7, env: "ticketPrice" },
-  [EnvVars.ticketPicksCount]: { format: Number, default: 2, env: "ticketPicksCount" },
 };
