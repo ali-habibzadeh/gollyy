@@ -1,7 +1,3 @@
-import { tickersResolvers, TicketResolverFields } from "./tickets/tickets.metadata";
+import { ticketsResolvers } from "./tickets/tickets.metadata";
 
-export const ResolverFields = <const>{
-  ...TicketResolverFields,
-};
-
-export const allResolvers = [...tickersResolvers];
+export const allResolvers = [...ticketsResolvers];
