@@ -7,6 +7,17 @@ export enum TicketResolverFields {
   createTicket = "createTicket",
 }
 
+export const tickersResolvers = [
+  {
+    typeName: "Query",
+    fieldName: TicketResolverFields.listTickets,
+  },
+  {
+    typeName: "Mutation",
+    fieldName: TicketResolverFields.createTicket,
+  },
+];
+
 export function isListTicketsEvent(event: AppSyncResolverEvent<unknown>): event is AppSyncResolverEvent<Ticket> {
   return event.info.fieldName === TicketResolverFields.listTickets;
 }

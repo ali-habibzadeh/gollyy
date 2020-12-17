@@ -1,9 +1,12 @@
 import { AppSyncResolverEvent } from "aws-lambda";
+import { Dayjs } from "dayjs";
 import { v4 } from "uuid";
 
 import { DynamoStore } from "@shiftcoders/dynamo-easy";
 
 import BaseRepository from "../../@common/base-repository";
+import { generateLotteryNumbers } from "../../@common/number-generator";
+import { appConfig } from "../../config/app-config/config.service";
 import { Ticket } from "./ticket.model";
 
 export default class TicketsRepository extends BaseRepository<Ticket> {
@@ -14,8 +17,14 @@ export default class TicketsRepository extends BaseRepository<Ticket> {
   }
 
   public async create(event: AppSyncResolverEvent<Ticket>): Promise<Ticket> {
-    const ticket = { numbers: event.arguments.numbers, id: v4(), username: event.identity?.username };
-    await this.store.put(ticket).exec();
+    const ticket: Ticket = {
+      id: v4(),
+      numbers: event.arguments.numbers || generateLotteryNumbers(),
+      username: event.identity?.username,
+      drawDate: new Dayjs().format("DD-MM-YYYY"),
+      ttl: new Dayjs().add(appConfig.dataRetentionDays, "day").unix(),
+    };
+    await this.store.put({ ...ticket }).exec();
     return ticket;
   }
 }

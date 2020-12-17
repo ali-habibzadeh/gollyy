@@ -2,12 +2,10 @@ import { Model, PartitionKey } from "@shiftcoders/dynamo-easy";
 
 import { appConfig } from "../../config/app-config/config.service";
 
-@Model({ tableName: appConfig.ticketsTableName })
-export class Ticket {
+@Model({ tableName: appConfig.drawsTableName })
+export class Draw {
   @PartitionKey()
   public id!: string;
-
-  public username?: string;
 
   public numbers!: [number, number];
 

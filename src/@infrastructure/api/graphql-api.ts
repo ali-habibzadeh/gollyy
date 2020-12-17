@@ -2,17 +2,18 @@ import { join } from "path";
 
 import { AuthorizationType, GraphqlApi, Schema, UserPoolDefaultAction } from "@aws-cdk/aws-appsync";
 import { IUserPool } from "@aws-cdk/aws-cognito";
-import { AttributeType, BillingMode, Table } from "@aws-cdk/aws-dynamodb";
 import { Construct } from "@aws-cdk/core";
 
 import { EnvVars } from "../../config/app-config/env-vars.enum";
-import { ResolverFields } from "../../entities/resolver-fields.enum";
+import { allResolvers } from "../../entities/resolver-fields.enum";
 import { Handlers } from "../../handlers-list";
 import { LambdaFactory } from "../@common/lambda.factory";
+import EntityTables from "./entity-tables/entity-tables";
 
-export default class GollyApi {
-  constructor(private scope: Construct, private id: string, private userPool: IUserPool) {
-    this.configureTable();
+export default class GollyyApi {
+  constructor(private scope: Construct, private userPool: IUserPool) {
+    this.configureTables();
+    this.createAllResolvers();
   }
 
   public api = new GraphqlApi(this.scope, "BusinessApi", {
@@ -27,23 +28,21 @@ export default class GollyApi {
     },
   });
 
-  private ticketsTable = new Table(this.scope, "ticketsTable", {
-    partitionKey: { name: "id", type: AttributeType.STRING },
-    timeToLiveAttribute: "ttl",
-    billingMode: BillingMode.PAY_PER_REQUEST,
-  });
-
-  private configureTable(): void {
-    this.ticketsTable.grantFullAccess(this.apiHandler);
-  }
+  private entityTables = new EntityTables(this.scope);
 
   private apiHandler = new LambdaFactory(this.scope, Handlers.graphQlApi, {
-    [EnvVars.ticketsTableName]: this.ticketsTable.tableName,
+    [EnvVars.ticketsTableName]: this.entityTables.ticketsTable.tableName,
+    [EnvVars.drawsTableName]: this.entityTables.drawsTable.tableName,
   }).getLambda();
 
-  private ds = this.api.addLambdaDataSource("ticketsDatasource", this.apiHandler);
+  private configureTables(): void {
+    this.entityTables.ticketsTable.grantFullAccess(this.apiHandler);
+  }
 
-  private ticketQuery = this.ds.createResolver({ typeName: "Query", fieldName: ResolverFields.listTickets });
-
-  private ticketMutation = this.ds.createResolver({ typeName: "Mutation", fieldName: ResolverFields.createTicket });
+  private createAllResolvers(): void {
+    const ds = this.api.addLambdaDataSource("ticketsDatasource", this.apiHandler);
+    allResolvers.forEach(({ typeName, fieldName }) => {
+      ds.createResolver({ typeName, fieldName });
+    });
+  }
 }

@@ -6,4 +6,8 @@ export const appConfigSchema = {
   [EnvVars.userPoolId]: { format: String, default: "", env: "userPoolId" },
   [EnvVars.userPoolClientId]: { format: String, default: "", env: "userPoolClientId" },
   [EnvVars.ticketsTableName]: { format: String, default: "", env: "ticketsTableName" },
+  [EnvVars.drawsTableName]: { format: String, default: "", env: "drawsTableName" },
+  [EnvVars.dataRetentionDays]: { format: Number, default: 7, env: "dataRetentionDays" },
+  [EnvVars.ticketPrice]: { format: Number, default: 7, env: "ticketPrice" },
+  [EnvVars.ticketPicksCount]: { format: Number, default: 2, env: "ticketPicksCount" },
 };
