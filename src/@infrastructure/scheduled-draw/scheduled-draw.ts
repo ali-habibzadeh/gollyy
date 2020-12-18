@@ -7,7 +7,7 @@ export default class ScheduledDraw {
   constructor(private scope: Construct, private drawHandlers: Fn) {}
 
   public rule = new Rule(this.scope, "ScheduledDraw", {
-    schedule: Schedule.cron({ minute: "0", hour: "0", day: "*", weekDay: "*", month: "*", year: "*" }),
+    schedule: Schedule.cron({ minute: "0", hour: "0", day: "*", month: "*", year: "*" }),
     targets: [new LambdaFunction(this.drawHandlers)],
   });
 }
