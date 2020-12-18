@@ -10,7 +10,7 @@ export class LambdaFactory {
     runtime: Runtime.NODEJS_12_X,
     code: Code.fromAsset(path.join(__dirname.substring(0, __dirname.indexOf("dist") + 4))),
     memorySize: 2000,
-    timeout: Duration.minutes(3),
+    timeout: Duration.seconds(2),
     tracing: Tracing.ACTIVE,
   };
 
@@ -21,7 +21,7 @@ export class LambdaFactory {
       ...this.defaultSettings,
       functionName: `FnName-${this.handler}`,
       handler: `index.${this.handler}`,
-      allowPublicSubnet: true,
+      // allowPublicSubnet: true,
       environment: {
         region: Stack.of(this.parent).region,
         account: Stack.of(this.parent).account,

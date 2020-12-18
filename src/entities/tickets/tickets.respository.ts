@@ -2,7 +2,7 @@ import { AppSyncResolverEvent } from "aws-lambda";
 import dayjs from "dayjs";
 import { v4 } from "uuid";
 
-import { and, attribute, DynamoStore } from "@shiftcoders/dynamo-easy";
+import { and, attribute, DynamoStore, or } from "@shiftcoders/dynamo-easy";
 
 import BaseRepository from "../../@common/base-repository";
 import { generateLotteryNumbers } from "../../@common/number-generator";
@@ -14,13 +14,19 @@ export default class TicketsRepository extends BaseRepository<Ticket> {
   protected store = new DynamoStore(Ticket);
 
   public list(event: AppSyncResolverEvent<Ticket>): Promise<Ticket[]> {
-    return this.store.query().whereAttribute("username").eq(event.identity?.username).exec();
+    return this.store.scan().whereAttribute("username").eq(event.identity?.username).exec();
   }
 
   public listWinners(draw: Draw): Promise<Ticket[]> {
     return this.store
-      .query()
-      .where(and(attribute("drawDate").eq(draw.drawDate), attribute("numbers").eq(draw.numbers)))
+      .scan()
+      .where(
+        or(
+          and(attribute("drawDate").eq(draw.drawDate), attribute("numbers").eq(draw.numbers)),
+          and(attribute("drawDate").eq(draw.drawDate), attribute("numbers").contains(draw.numbers[0])),
+          and(attribute("drawDate").eq(draw.drawDate), attribute("numbers").contains(draw.numbers[1])),
+        ),
+      )
       .exec();
   }
 

@@ -8,7 +8,7 @@ import { LambdaHandlerFactory, PublicFn } from "./@common/lambda-handler.factory
 import ApiService from "./api/api.service";
 import { appConfig } from "./config/app-config/config.service";
 import { Handlers } from "./handlers-list";
-import LotteryService from "./lottery/lottery.service";
+import { LotteryService } from "./lottery/lottery.service";
 import { RegistrationService } from "./registration/registration.service";
 
 sourceMapSupport.install();

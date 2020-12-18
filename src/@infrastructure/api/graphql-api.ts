@@ -42,6 +42,7 @@ export default class GollyyApi {
   private configureTables(): void {
     this.entityTables.ticketsTable.grantFullAccess(this.apiHandler);
     this.entityTables.drawsTable.grantFullAccess(this.drawHandler);
+    this.entityTables.ticketsTable.grantFullAccess(this.drawHandler);
   }
 
   private createAllResolvers(): void {
