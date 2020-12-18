@@ -39,7 +39,7 @@ export default class Registration {
     userInvitation: this.userInvitation,
     signInAliases: { username: true, email: true, phone: true },
     accountRecovery: AccountRecovery.EMAIL_ONLY,
-    mfa: Mfa.OPTIONAL,
+    mfa: Mfa.REQUIRED,
     mfaSecondFactor: { sms: true, otp: true },
     passwordPolicy: this.passwordPolicy,
     standardAttributes: {
@@ -47,7 +47,6 @@ export default class Registration {
       phoneNumber: { mutable: true, required: true },
       givenName: { mutable: false, required: true },
       familyName: { mutable: false, required: true },
-      address: { mutable: false, required: true },
       birthdate: { mutable: false, required: true },
     },
     emailSettings: { replyTo: "support@gollyy.com" },
@@ -55,7 +54,7 @@ export default class Registration {
 
   public userPoolDomain = new UserPoolDomain(this.scope, `${this.id}-userpool-domain`, {
     userPool: this.userPool,
-    cognitoDomain: { domainPrefix: "reg" },
+    cognitoDomain: { domainPrefix: "gollyy" },
   });
 
   public userPoolClient = new UserPoolClient(this.scope, `${this.id}-userpool-client`, {

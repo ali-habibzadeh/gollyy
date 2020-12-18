@@ -1,4 +1,4 @@
-import { Dayjs } from "dayjs";
+import dayjs from "dayjs";
 import { v4 } from "uuid";
 
 import { DynamoStore } from "@shiftcoders/dynamo-easy";
@@ -19,8 +19,8 @@ export default class DrawsRepository extends BaseRepository<Draw> {
     const draw: Draw = {
       id: v4(),
       numbers: generateLotteryNumbers(),
-      drawDate: new Dayjs().format("DD-MM-YYYY"),
-      ttl: new Dayjs().add(appConfig.dataRetentionDays, "day").unix(),
+      drawDate: dayjs().format("DD-MM-YYYY"),
+      ttl: dayjs().add(appConfig.dataRetentionDays, "day").unix(),
     };
     await this.store.put({ ...draw }).exec();
     return draw;

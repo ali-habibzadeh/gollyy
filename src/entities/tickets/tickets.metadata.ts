@@ -2,12 +2,12 @@ import { AppSyncResolverEvent } from "aws-lambda";
 
 import { Ticket } from "./ticket.model";
 
-export enum TicketResolverFields {
+enum TicketResolverFields {
   listTickets = "listTickets",
   createTicket = "createTicket",
 }
 
-export const tickersResolvers = [
+export const ticketsResolvers = [
   {
     typeName: "Query",
     fieldName: TicketResolverFields.listTickets,

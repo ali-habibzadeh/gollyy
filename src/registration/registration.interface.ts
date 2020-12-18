@@ -10,7 +10,6 @@ export interface SignUpParams extends BaseUserParams {
   phoneNumber: string;
   givenName: string;
   familyName: string;
-  address: string;
   birthdate: string;
 }
 

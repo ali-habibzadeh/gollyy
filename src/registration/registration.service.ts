@@ -7,8 +7,8 @@ export class RegistrationService {
   private auth = Auth;
 
   public async signUp(params: SignUpParams): Promise<CognitoUser> {
-    const { username, password, email, phoneNumber, givenName, familyName, address, birthdate } = params;
-    const attrs = { email, address, birthdate, phone_number: phoneNumber, given_name: givenName, family_name: familyName };
+    const { username, password, email, phoneNumber, givenName, familyName, birthdate } = params;
+    const attrs = { email, birthdate, phone_number: phoneNumber, given_name: givenName, family_name: familyName };
     const { user } = await this.auth.signUp({ username, password, attributes: attrs });
     return user;
   }
