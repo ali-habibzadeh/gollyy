@@ -10,6 +10,6 @@ export class LotteryService {
   public async carryOutDraw(): Promise<Ticket[]> {
     const draw = await this.drawsRepository.create();
     const winners = this.ticketsRepository.listWinners(draw);
-    return winners;
+    return (await winners).Items;
   }
 }
