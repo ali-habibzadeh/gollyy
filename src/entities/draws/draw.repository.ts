@@ -12,7 +12,7 @@ export default class DrawsRepository extends BaseRepository<Draw> {
   protected store = new DynamoStore(Draw);
 
   public list(): Promise<Draw[]> {
-    return this.store.scan().exec();
+    return this.store.query().exec();
   }
 
   public async create(): Promise<Draw> {
