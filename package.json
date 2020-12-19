@@ -66,6 +66,7 @@
     "dayjs": "^1.9.7",
     "reflect-metadata": "0.1.13",
     "source-map-support": "0.5.19",
+    "stripe": "^8.129.0",
     "uuid": "^8.3.2"
   }
 }

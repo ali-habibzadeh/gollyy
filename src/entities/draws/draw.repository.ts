@@ -18,20 +18,19 @@ export default class DrawsRepository extends BaseRepository<Draw> {
   }
 
   public async create(): Promise<Draw> {
-    const existingDraw = await this.store.scan().whereAttribute("drawDate").eq(dayjs().format("DD-MM-YYYY")).exec();
-    if (existingDraw.length) {
-      return existingDraw[0];
-    }
-    const draw = this.getFreshDraw();
-    await this.store.put(this.getFreshDraw()).ifNotExists(true).exec();
+    const todaysDate = dayjs().format("DD-MM-YYYY");
+    const existingDraw = (await this.store.scan().whereAttribute("drawDate").eq(todaysDate).exec())[0];
+    if (existingDraw) return existingDraw;
+    const draw = this.getFreshDraw(todaysDate);
+    await this.store.put(draw).exec();
     return draw;
   }
 
-  private getFreshDraw(): Draw {
+  private getFreshDraw(drawDate: string): Draw {
     return {
       id: v4(),
       numbers: generateLotteryNumbers(),
-      drawDate: dayjs().format("DD-MM-YYYY"),
+      drawDate,
       ttl: dayjs().add(this.dataRetentionDays, "day").unix(),
     };
   }

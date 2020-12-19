@@ -10,6 +10,9 @@ export class LotteryService {
   public async carryOutDraw(): Promise<Ticket[]> {
     const draw = await this.drawsRepository.create();
     const winners = this.ticketsRepository.listWinners(draw);
+    // should i iterate and handle all OR
+    // transaction update winners, consume the stream for each matching
+    // and handle winnings there
     return (await winners).Items;
   }
 }

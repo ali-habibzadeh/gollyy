@@ -21,7 +21,6 @@ export class LambdaFactory {
       ...this.defaultSettings,
       functionName: `FnName-${this.handler}`,
       handler: `index.${this.handler}`,
-      // allowPublicSubnet: true,
       environment: {
         region: Stack.of(this.parent).region,
         account: Stack.of(this.parent).account,
