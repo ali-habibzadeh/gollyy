@@ -14,4 +14,6 @@ export class Ticket {
   public ttl!: number;
 
   public drawDate!: string;
+
+  public won?: boolean = false;
 }

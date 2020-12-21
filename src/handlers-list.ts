@@ -6,4 +6,5 @@ export enum Handlers {
   confirmSignIn = "confirmSignIn",
   graphQlApi = "graphQlApi",
   runDraw = "runDraw",
+  createPaymentIntent = "createPaymentIntent",
 }
