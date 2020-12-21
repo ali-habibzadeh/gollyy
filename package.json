@@ -30,6 +30,8 @@
     "@aws-cdk/aws-cognito": "1.79.0",
     "@aws-cdk/aws-dynamodb": "1.79.0",
     "@aws-cdk/aws-ec2": "1.79.0",
+    "@aws-cdk/aws-events": "^1.79.0",
+    "@aws-cdk/aws-events-targets": "^1.79.0",
     "@aws-cdk/aws-lambda": "1.79.0",
     "@aws-cdk/aws-route53": "1.79.0",
     "@aws-cdk/aws-route53-targets": "1.79.0",
@@ -64,6 +66,7 @@
     "dayjs": "^1.9.7",
     "reflect-metadata": "0.1.13",
     "source-map-support": "0.5.19",
+    "stripe": "^8.129.0",
     "uuid": "^8.3.2"
   }
 }

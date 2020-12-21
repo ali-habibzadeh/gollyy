@@ -9,4 +9,7 @@ export const appConfigSchema = {
   [EnvVars.drawsTableName]: { format: String, default: "", env: "drawsTableName" },
   [EnvVars.dataRetentionDays]: { format: Number, default: 7, env: "dataRetentionDays" },
   [EnvVars.ticketPrice]: { format: Number, default: 7, env: "ticketPrice" },
+  [EnvVars.ticketCurrency]: { format: String, default: "USD", env: "ticketCurrency" },
+  [EnvVars.stripePublishableKey]: { format: String, default: "", env: "STRIPE_PUBLISHABLE_KEY" },
+  [EnvVars.stripeSecretKey]: { format: String, default: "", env: "STRIPE_SECRET_KEY" },
 };

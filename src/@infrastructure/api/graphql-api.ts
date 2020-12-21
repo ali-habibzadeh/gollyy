@@ -1,6 +1,6 @@
 import { join } from "path";
 
-import { AuthorizationType, GraphqlApi, Schema, UserPoolDefaultAction } from "@aws-cdk/aws-appsync";
+import { AuthorizationType, GraphqlApi, Schema } from "@aws-cdk/aws-appsync";
 import { IUserPool } from "@aws-cdk/aws-cognito";
 import { Construct } from "@aws-cdk/core";
 
@@ -23,26 +23,30 @@ export default class GollyyApi {
     authorizationConfig: {
       defaultAuthorization: {
         authorizationType: AuthorizationType.USER_POOL,
-        userPoolConfig: { userPool: this.userPool, defaultAction: UserPoolDefaultAction.ALLOW },
+        userPoolConfig: { userPool: this.userPool },
       },
     },
   });
 
-  private entityTables = new EntityTables(this.scope);
+  public entityTables = new EntityTables(this.scope);
 
-  private apiHandler = new LambdaFactory(this.scope, Handlers.graphQlApi, {
+  public apiHandler = new LambdaFactory(this.scope, Handlers.graphQlApi, {
+    [EnvVars.ticketsTableName]: this.entityTables.ticketsTable.tableName,
+  }).getLambda();
+
+  public drawHandler = new LambdaFactory(this.scope, Handlers.runDraw, {
     [EnvVars.ticketsTableName]: this.entityTables.ticketsTable.tableName,
     [EnvVars.drawsTableName]: this.entityTables.drawsTable.tableName,
   }).getLambda();
 
   private configureTables(): void {
     this.entityTables.ticketsTable.grantFullAccess(this.apiHandler);
+    this.entityTables.drawsTable.grantFullAccess(this.drawHandler);
+    this.entityTables.ticketsTable.grantFullAccess(this.drawHandler);
   }
 
   private createAllResolvers(): void {
     const ds = this.api.addLambdaDataSource("ticketsDatasource", this.apiHandler);
-    allResolvers.forEach(({ typeName, fieldName }) => {
-      ds.createResolver({ typeName, fieldName });
-    });
+    allResolvers.forEach(({ typeName, fieldName }) => ds.createResolver({ typeName, fieldName }));
   }
 }

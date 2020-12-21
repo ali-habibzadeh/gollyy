@@ -7,4 +7,7 @@ export enum EnvVars {
   drawsTableName = "drawsTableName",
   dataRetentionDays = "dataRetentionDays",
   ticketPrice = "ticketPrice",
+  ticketCurrency = "ticketCurrency",
+  stripePublishableKey = "stripePublishableKey",
+  stripeSecretKey = "stripeSecretKey",
 }

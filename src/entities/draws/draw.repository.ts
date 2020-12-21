@@ -11,18 +11,27 @@ import { Draw } from "./draw.model";
 export default class DrawsRepository extends BaseRepository<Draw> {
   protected store = new DynamoStore(Draw);
 
+  private dataRetentionDays = appConfig.dataRetentionDays;
+
   public list(): Promise<Draw[]> {
-    return this.store.scan().exec();
+    return this.store.query().exec();
   }
 
   public async create(): Promise<Draw> {
-    const draw: Draw = {
+    const todaysDate = dayjs().format("DD-MM-YYYY");
+    const existingDraw = (await this.store.scan().whereAttribute("drawDate").eq(todaysDate).exec())[0];
+    if (existingDraw) return existingDraw;
+    const draw = this.getFreshDraw(todaysDate);
+    await this.store.put(draw).exec();
+    return draw;
+  }
+
+  private getFreshDraw(drawDate: string): Draw {
+    return {
       id: v4(),
       numbers: generateLotteryNumbers(),
-      drawDate: dayjs().format("DD-MM-YYYY"),
-      ttl: dayjs().add(appConfig.dataRetentionDays, "day").unix(),
+      drawDate,
+      ttl: dayjs().add(this.dataRetentionDays, "day").unix(),
     };
-    await this.store.put({ ...draw }).exec();
-    return draw;
   }
 }

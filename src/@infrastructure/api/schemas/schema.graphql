@@ -1,6 +1,7 @@
 type Ticket @model @aws_auth {
   id: String!
   numbers: [Int]
+  drawDate: String!
 }
 
 type Mutation {

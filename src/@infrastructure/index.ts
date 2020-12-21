@@ -2,13 +2,19 @@
 import { App, CfnOutput, Stack } from "@aws-cdk/core";
 
 import GollyyApi from "./api/graphql-api";
+import AppPayment from "./api/payment/payment";
 import Registration from "./registeration/registration";
+import ScheduledDraw from "./scheduled-draw/scheduled-draw";
 import AppStaticStack from "./static-stack";
 
 export default class AppStack extends Stack {
   public registration = new Registration(this, "AppUserPoolContainer");
 
   public api = new GollyyApi(this, this.registration.userPool);
+
+  public scheduledDraw = new ScheduledDraw(this, this.api.drawHandler);
+
+  public payment = new AppPayment(this);
 
   public regionOutput = new CfnOutput(this, "region", { value: this.region });
 }
