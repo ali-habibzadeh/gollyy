@@ -26,7 +26,7 @@ type Purchase @model @aws_auth {
 }
 
 type Mutation {
-  createTicket(numbers: [Int]): Purchase
+  createPurchase(numbers: [Int]): Purchase
 }
 
 type Query {
