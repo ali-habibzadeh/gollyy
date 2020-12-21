@@ -6,9 +6,9 @@ export default class PaymentService {
   private stripe = new Stripe(appConfig.stripeSecretKey, { apiVersion: "2020-08-27" });
 
   public createIntent(): Promise<Stripe.Response<Stripe.PaymentIntent>> {
-    const { ticketPrice: amount, ticketCurrency: currency } = appConfig;
+    const { ticketPrice, ticketCurrency: currency } = appConfig;
     return this.stripe.paymentIntents.create({
-      amount,
+      amount: ticketPrice * 100,
       currency,
       metadata: { uid: "testTicketPayment" },
     });
