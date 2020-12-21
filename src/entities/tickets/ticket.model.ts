@@ -15,5 +15,7 @@ export class Ticket {
 
   public drawDate!: string;
 
-  public won?: boolean = false;
+  public confirmed?: boolean = false;
+
+  public intent?: Stripe.Response<Stripe.PaymentIntent>;
 }

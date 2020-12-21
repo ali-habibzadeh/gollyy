@@ -5,7 +5,7 @@ import { IUserPool } from "@aws-cdk/aws-cognito";
 import { Construct } from "@aws-cdk/core";
 
 import { EnvVars } from "../../config/app-config/env-vars.enum";
-import { allResolvers } from "../../entities/resolver-fields.enum";
+import { allResolvers } from "../../entities/resolver-fields";
 import { Handlers } from "../../handlers-list";
 import { LambdaFactory } from "../@common/lambda.factory";
 import EntityTables from "./entity-tables/entity-tables";
@@ -32,6 +32,7 @@ export default class GollyyApi {
 
   public apiHandler = new LambdaFactory(this.scope, Handlers.graphQlApi, {
     [EnvVars.ticketsTableName]: this.entityTables.ticketsTable.tableName,
+    [EnvVars.stripeSecretKey]: this.scope.node.tryGetContext("stripeSecretKey"),
   }).getLambda();
 
   public drawHandler = new LambdaFactory(this.scope, Handlers.runDraw, {
