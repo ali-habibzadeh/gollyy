@@ -2,10 +2,26 @@ type Ticket @model @aws_auth {
   id: String!
   numbers: [Int]
   drawDate: String!
+  intent: Intent
+}
+
+type Charges {
+  object: String
+  url: String
+  data: [String]
+}
+
+type Intent {
+  id: String!
+  amount: Int!
+  currency: String!
+  status: String!
+  charges: Charges
+  client_secret: String!
 }
 
 type Mutation {
-  createTicket(numbers: [Int]): Ticket
+  purchaseTicket(numbers: [Int]): Purchase
 }
 
 type Query {

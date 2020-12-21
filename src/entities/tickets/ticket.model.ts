@@ -1,3 +1,5 @@
+import Stripe from "stripe";
+
 import { Model, PartitionKey } from "@shiftcoders/dynamo-easy";
 
 import { appConfig } from "../../config/app-config/config.service";
@@ -15,5 +17,7 @@ export class Ticket {
 
   public drawDate!: string;
 
-  public won?: boolean = false;
+  public confirmed?: boolean = false;
+
+  public intent?: Stripe.Response<Stripe.PaymentIntent>;
 }

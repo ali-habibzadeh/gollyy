@@ -7,6 +7,7 @@ import { and, attribute, DynamoStore, or, ScanResponse } from "@shiftcoders/dyna
 import BaseRepository from "../../@common/base-repository";
 import { generateLotteryNumbers } from "../../@common/number-generator";
 import { appConfig } from "../../config/app-config/config.service";
+import PaymentService from "../../payments/payment.service";
 import { Draw } from "../draws/draw.model";
 import { Ticket } from "./ticket.model";
 
@@ -39,6 +40,6 @@ export default class TicketsRepository extends BaseRepository<Ticket> {
       ttl: dayjs().add(appConfig.dataRetentionDays, "day").unix(),
     };
     await this.store.put({ ...ticket }).exec();
-    return ticket;
+    return { ...ticket, intent: await new PaymentService().create() };
   }
 }
