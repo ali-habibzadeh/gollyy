@@ -22,5 +22,8 @@ export default class AppStack extends Stack {
 const app = new App();
 new AppStaticStack(app, "GollyyLotteryStatic");
 new AppStack(app, "GollyyLottery", {
-  env: { account: process.env.CDK_DEFAULT_ACCOUNT, region: process.env.CDK_DEFAULT_REGION },
+  env: {
+    account: process.env.CDK_DEFAULT_ACCOUNT,
+    region: process.env.CDK_DEFAULT_REGION,
+  },
 });
