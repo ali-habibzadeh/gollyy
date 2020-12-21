@@ -21,7 +21,7 @@ type Intent {
 }
 
 type Mutation {
-  purchaseTicket(numbers: [Int]): Intent
+  createTicket(numbers: [Int]): Ticket
 }
 
 type Query {
