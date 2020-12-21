@@ -1,3 +1,5 @@
+import Stripe from "stripe";
+
 import { Model, PartitionKey } from "@shiftcoders/dynamo-easy";
 
 import { appConfig } from "../../config/app-config/config.service";
