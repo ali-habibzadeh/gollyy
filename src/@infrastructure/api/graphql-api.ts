@@ -42,12 +42,12 @@ export default class GollyyApi {
 
   private configureTables(): void {
     this.entityTables.ticketsTable.grantFullAccess(this.apiHandler);
-    this.entityTables.drawsTable.grantFullAccess(this.drawHandler);
     this.entityTables.ticketsTable.grantFullAccess(this.drawHandler);
+    this.entityTables.drawsTable.grantFullAccess(this.drawHandler);
   }
 
   private createAllResolvers(): void {
-    const ds = this.api.addLambdaDataSource("ticketsDatasource", this.apiHandler);
+    const ds = this.api.addLambdaDataSource("ResolversDataSource", this.apiHandler);
     allResolvers.forEach(({ typeName, fieldName }) => ds.createResolver({ typeName, fieldName }));
   }
 }
