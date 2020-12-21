@@ -7,6 +7,9 @@ export default class ApiService {
   private ticketRepo = new TicketsRepository();
 
   public async respond(event: AppSyncResolverEvent<unknown>): Promise<unknown> {
+    // eslint-disable-next-line no-console
+    console.log(JSON.stringify(event));
+
     if (isListTicketsEvent(event)) return this.ticketRepo.list(event);
     if (iscreateTicketEvent(event)) return this.ticketRepo.create(event);
     return null;
