@@ -2,7 +2,6 @@ type Ticket @model @aws_auth {
   id: String!
   numbers: [Int]
   drawDate: String!
-  intent: Intent
 }
 
 type Charges {
@@ -11,13 +10,19 @@ type Charges {
   data: [String]
 }
 
-type Intent {
+type PurchaseMetadata {
+  username: String
+  numbers: String
+}
+
+type Purchase @model @aws_auth {
   id: String!
   amount: Int!
   currency: String!
   status: String!
   charges: Charges
   client_secret: String!
+  metadata: PurchaseMetadata
 }
 
 type Mutation {
