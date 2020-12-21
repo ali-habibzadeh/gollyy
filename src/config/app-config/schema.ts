@@ -10,6 +10,6 @@ export const appConfigSchema = {
   [EnvVars.dataRetentionDays]: { format: Number, default: 7, env: "dataRetentionDays" },
   [EnvVars.ticketPrice]: { format: Number, default: 5, env: "ticketPrice" },
   [EnvVars.ticketCurrency]: { format: String, default: "GBP", env: "ticketCurrency" },
-  [EnvVars.stripePublishableKey]: { format: String, default: "", env: "STRIPE_PUBLISHABLE_KEY" },
-  [EnvVars.stripeSecretKey]: { format: String, default: "", env: "STRIPE_SECRET_KEY" },
+  [EnvVars.stripePublishableKey]: { format: String, default: "", env: "stripePublishableKey" },
+  [EnvVars.stripeSecretKey]: { format: String, default: "", env: "stripeSecretKey" },
 };
