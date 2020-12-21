@@ -8,6 +8,6 @@ export default class AppPayment {
   constructor(private scope: Construct) {}
 
   public apiHandler = new LambdaFactory(this.scope, Handlers.createPaymentIntent, {
-    [EnvVars.stripeSecretKey]: this.scope.node.tryGetContext("STRIPE_SECRET_KEY"),
+    [EnvVars.stripeSecretKey]: this.scope.node.tryGetContext("stripeSecretKey"),
   }).getLambda();
 }
