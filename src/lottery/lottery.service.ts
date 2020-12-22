@@ -2,7 +2,7 @@ import DrawsRepository from "../entities/draws/draw.repository";
 import { Ticket } from "../entities/tickets/ticket.model";
 import TicketsRepository from "../entities/tickets/tickets.respository";
 
-export class LotteryService {
+export default class LotteryService {
   private drawsRepository = new DrawsRepository();
 
   private ticketsRepository = new TicketsRepository();
