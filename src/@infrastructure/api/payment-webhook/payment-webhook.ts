@@ -19,10 +19,11 @@ export default class PaymentWebhook {
   public api = new LambdaRestApi(this.scope, `StripeWebhookApi`, {
     handler: this.paymentWebhookHandler,
     proxy: false,
+    binaryMediaTypes: ["application/json"],
   });
 
   private integration = new LambdaIntegration(this.paymentWebhookHandler, {
-    requestTemplates: { "application/json": '{ "rawBody": "$input.body" }' },
+    requestTemplates: { "application/json": '{ "rawBody": "$util.escapeJavaScript($util.base64Decode($input.body))" }' },
   });
 
   private defineApiMethods(): void {
