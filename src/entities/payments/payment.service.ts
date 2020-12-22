@@ -1,4 +1,4 @@
-import { AppSyncResolverEvent } from "aws-lambda";
+import { APIGatewayEvent, AppSyncResolverEvent } from "aws-lambda";
 import Stripe from "stripe";
 
 import { appConfig } from "../../config/app-config/config.service";
@@ -23,9 +23,15 @@ export default class PaymentService {
   }
 
   // eslint-disable-next-line class-methods-use-this
-  public async onStripeWebhook(event: AppSyncResolverEvent<Ticket>): Promise<void> {
+  public async onStripeWebhook(event: APIGatewayEvent): Promise<unknown> {
+    const sig = event.headers["stripe-signature"] ?? "";
+    const body = event.body?.toString() ?? "";
+    const e = this.stripe.webhooks.constructEvent(body, sig, appConfig.stripeSigningSecret);
     // eslint-disable-next-line no-console
-    return console.log(event);
+    console.log(e);
+    return {
+      statusCode: 200,
+    };
     // return this.ticketsRepository.create(event);
   }
 }

@@ -10,4 +10,5 @@ export enum EnvVars {
   ticketCurrency = "ticketCurrency",
   stripePublishableKey = "stripePublishableKey",
   stripeSecretKey = "stripeSecretKey",
+  stripeSigningSecret = "stripeSigningSecret",
 }
