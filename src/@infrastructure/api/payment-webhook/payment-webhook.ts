@@ -22,8 +22,9 @@ export default class PaymentWebhook {
   });
 
   private integration = new LambdaIntegration(this.paymentWebhookHandler, {
-    // eslint-disable-next-line no-template-curly-in-string
-    requestTemplates: { "application/json": '{ "rawBody": ${cdk.Fn.base64("$input.body")} }' },
+    requestTemplates: {
+      "application/json": JSON.stringify({ rawBody: "$input.body" }),
+    },
   });
 
   private defineApiMethods(): void {
