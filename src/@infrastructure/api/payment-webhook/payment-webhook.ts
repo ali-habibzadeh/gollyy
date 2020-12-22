@@ -23,7 +23,31 @@ export default class PaymentWebhook {
   });
 
   private integration = new LambdaIntegration(this.paymentWebhookHandler, {
-    requestTemplates: { "application/json": '{ "rawBody": "$util.escapeJavaScript($util.base64Decode($input.body))" }' },
+    requestTemplates: {
+      "application/json": `{
+      "body": $input.json('$'),
+      "rawBody": "$util.escapeJavaScript($util.base64Decode($input.body))",
+      "headers": {
+        #foreach($header in $input.params().header.keySet())
+        "$header": "$util.escapeJavaScript($input.params().header.get($header))" #if($foreach.hasNext),#end
+
+        #end
+      },
+      "method": "$context.httpMethod",
+      "params": {
+        #foreach($param in $input.params().path.keySet())
+        "$param": "$util.escapeJavaScript($input.params().path.get($param))" #if($foreach.hasNext),#end
+    
+        #end
+      },
+      "query": {
+        #foreach($queryParam in $input.params().querystring.keySet())
+        "$queryParam": "$util.escapeJavaScript($input.params().querystring.get($queryParam))" #if($foreach.hasNext),#end
+    
+        #end
+      }  
+    }`,
+    },
   });
 
   private defineApiMethods(): void {
