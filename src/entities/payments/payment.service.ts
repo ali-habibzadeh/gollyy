@@ -25,10 +25,9 @@ export default class PaymentService {
 
   // eslint-disable-next-line class-methods-use-this
   public async onStripeWebhook(event: APIGatewayEvent): Promise<unknown> {
-    const sig = event.headers["Stripe-Signature"] ?? "";
-    console.log("sig was", sig);
+    const signature = event.headers["Stripe-Signature"] ?? "";
     const body = event.body?.toString() ?? "";
-    const e = this.stripe.webhooks.constructEvent(body, sig, appConfig.stripeSigningSecret);
+    const e = this.stripe.webhooks.constructEvent(unescape(body), signature, appConfig.stripeSigningSecret);
     console.log(e);
     return {
       statusCode: 200,
