@@ -7,9 +7,10 @@ import sourceMapSupport from "source-map-support";
 import { LambdaHandlerFactory, PublicFn } from "./@common/lambda-handler.factory";
 import ApiService from "./api/api.service";
 import { appConfig } from "./config/app-config/config.service";
+import PaymentService from "./entities/payments/payment.service";
 import { Handlers } from "./handlers-list";
-import { LotteryService } from "./lottery/lottery.service";
-import { RegistrationService } from "./registration/registration.service";
+import LotteryService from "./lottery/lottery.service";
+import RegistrationService from "./registration/registration.service";
 
 sourceMapSupport.install();
 
@@ -23,6 +24,7 @@ const handlers: Record<Handlers, PublicFn> = {
   [Handlers.confirmSignIn]: e => new RegistrationService().confirmSignIn(e),
   [Handlers.graphQlApi]: e => new ApiService().respond(e),
   [Handlers.runDraw]: () => new LotteryService().carryOutDraw(),
+  [Handlers.paymentWebhook]: e => new PaymentService().onStripeWebhook(e),
 };
 
 module.exports = new LambdaHandlerFactory(handlers).getHandlers();

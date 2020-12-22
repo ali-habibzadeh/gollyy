@@ -3,8 +3,11 @@ import Stripe from "stripe";
 
 import { appConfig } from "../../config/app-config/config.service";
 import { Ticket } from "../tickets/ticket.model";
+import TicketsRepository from "../tickets/tickets.respository";
 
 export default class PaymentService {
+  private ticketsRepository = new TicketsRepository();
+
   private stripe = new Stripe(appConfig.stripeSecretKey, { apiVersion: "2020-08-27" });
 
   public create(event: AppSyncResolverEvent<Ticket>): Promise<Stripe.Response<Stripe.PaymentIntent>> {
@@ -17,5 +20,12 @@ export default class PaymentService {
         numbers: event.arguments.numbers.toString(),
       },
     });
+  }
+
+  // eslint-disable-next-line class-methods-use-this
+  public onStripeWebhook(event: AppSyncResolverEvent<Ticket>): void {
+    // eslint-disable-next-line no-console
+    console.log(event);
+    // return this.ticketsRepository.create(event);
   }
 }

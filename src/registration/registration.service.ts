@@ -3,7 +3,7 @@ import { Auth } from "aws-amplify";
 
 import { AuthenticateParams, BaseUserParams, ConfirmSignInParams, ConfirmSignUpParams, SignUpParams } from "./registration.interface";
 
-export class RegistrationService {
+export default class RegistrationService {
   private auth = Auth;
 
   public async signUp(params: SignUpParams): Promise<CognitoUser> {
