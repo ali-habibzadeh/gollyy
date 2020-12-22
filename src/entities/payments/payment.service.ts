@@ -1,3 +1,4 @@
+/* eslint-disable no-console */
 import { APIGatewayEvent, AppSyncResolverEvent } from "aws-lambda";
 import Stripe from "stripe";
 
@@ -25,13 +26,12 @@ export default class PaymentService {
   // eslint-disable-next-line class-methods-use-this
   public async onStripeWebhook(event: APIGatewayEvent): Promise<unknown> {
     const sig = event.headers["stripe-signature"] ?? "";
+    console.log("sig was", sig);
     const body = event.body?.toString() ?? "";
     const e = this.stripe.webhooks.constructEvent(body, sig, appConfig.stripeSigningSecret);
-    // eslint-disable-next-line no-console
     console.log(e);
     return {
       statusCode: 200,
     };
-    // return this.ticketsRepository.create(event);
   }
 }
