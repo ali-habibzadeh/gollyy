@@ -1,4 +1,4 @@
-import { LambdaRestApi } from "@aws-cdk/aws-apigateway";
+import { LambdaIntegration, LambdaRestApi } from "@aws-cdk/aws-apigateway";
 import { Table } from "@aws-cdk/aws-dynamodb";
 import { Construct } from "@aws-cdk/core";
 
@@ -19,6 +19,12 @@ export default class PaymentWebhook {
   public api = new LambdaRestApi(this.scope, `StripeWebhookApi`, {
     handler: this.paymentWebhookHandler,
     proxy: false,
+  });
+
+  private integration = new LambdaIntegration(this.paymentWebhookHandler, {
+    requestTemplates: {
+      body: "$input.body",
+    },
   });
 
   private defineApiMethods(): void {
