@@ -23,9 +23,9 @@ export default class PaymentService {
   }
 
   // eslint-disable-next-line class-methods-use-this
-  public onStripeWebhook(event: AppSyncResolverEvent<Ticket>): void {
+  public async onStripeWebhook(event: AppSyncResolverEvent<Ticket>): Promise<void> {
     // eslint-disable-next-line no-console
-    console.log(event);
+    return console.log(event);
     // return this.ticketsRepository.create(event);
   }
 }
