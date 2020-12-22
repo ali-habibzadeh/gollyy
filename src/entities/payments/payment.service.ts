@@ -28,7 +28,7 @@ export default class PaymentService {
     const signature = event.headers["Stripe-Signature"] ?? "";
     const body = event.body?.toString() ?? "";
     console.log("body from lambda", body);
-    const e = this.stripe.webhooks.constructEvent(unescape(body), signature, appConfig.stripeSigningSecret);
+    const e = this.stripe.webhooks.constructEvent(body, signature, appConfig.stripeSigningSecret);
     console.log(e);
     return {
       statusCode: 200,
