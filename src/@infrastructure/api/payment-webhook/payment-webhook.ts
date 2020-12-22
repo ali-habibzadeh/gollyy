@@ -26,6 +26,6 @@ export default class PaymentWebhook {
   });
 
   private defineApiMethods(): void {
-    this.api.root.addResource("stripe-webhook").addMethod("POST", undefined);
+    this.api.root.addResource("stripe-webhook").addMethod("POST", this.integration);
   }
 }
