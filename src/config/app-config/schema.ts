@@ -12,4 +12,5 @@ export const appConfigSchema = {
   [EnvVars.ticketCurrency]: { format: String, default: "GBP", env: "ticketCurrency" },
   [EnvVars.stripePublishableKey]: { format: String, default: "", env: "stripePublishableKey" },
   [EnvVars.stripeSecretKey]: { format: String, default: "", env: "stripeSecretKey" },
+  [EnvVars.stripeSigningSecret]: { format: String, default: "", env: "stripeSigningSecret" },
 };
