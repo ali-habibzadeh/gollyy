@@ -25,6 +25,7 @@ export default class PaymentWebhook {
     this.api.root.addResource("stripe-webhook").addMethod(
       "POST",
       new LambdaIntegration(this.paymentWebhookHandler, {
+        proxy: false,
         requestTemplates: { "application/json": '{ "rawbody": "$util.escapeJavaScript($input.body)" } }' },
         passthroughBehavior: PassthroughBehavior.NEVER,
       }),
