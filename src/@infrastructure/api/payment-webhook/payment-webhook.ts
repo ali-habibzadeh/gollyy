@@ -9,7 +9,7 @@ import { LambdaFactory } from "../../@common/lambda.factory";
 export default class PaymentWebhook {
   constructor(private scope: Construct, private ticketsTable: Table) {
     this.ticketsTable.grantFullAccess(this.paymentWebhookHandler);
-    this.defineApiMethods();
+    // this.defineApiMethods();
   }
 
   public paymentWebhookHandler = new LambdaFactory(this.scope, Handlers.paymentWebhook, {
@@ -20,7 +20,7 @@ export default class PaymentWebhook {
     handler: this.paymentWebhookHandler,
   });
 
-  private defineApiMethods(): void {
-    this.api.root.addResource("stripe-webhook").addMethod("POST");
-  }
+  // private defineApiMethods(): void {
+  //   this.api.root.addResource("stripe-webhook").addMethod("POST");
+  // }
 }
