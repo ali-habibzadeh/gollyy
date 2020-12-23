@@ -14,6 +14,7 @@ export default class PaymentWebhook {
 
   public paymentWebhookHandler = new LambdaFactory(this.scope, Handlers.paymentWebhook, {
     [EnvVars.ticketsTableName]: this.ticketsTable.tableName,
+    [EnvVars.stripeSigningSecret]: this.scope.node.tryGetContext(EnvVars.stripeSigningSecret),
   }).getLambda();
 
   public api = new LambdaRestApi(this.scope, `StripeWebhookApi`, {
