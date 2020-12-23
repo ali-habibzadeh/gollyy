@@ -24,7 +24,7 @@ const handlers: Record<Handlers, PublicFn> = {
   [Handlers.confirmSignIn]: e => new RegistrationService().confirmSignIn(e),
   [Handlers.graphQlApi]: e => new ApiService().respond(e),
   [Handlers.runDraw]: () => new LotteryService().carryOutDraw(),
-  [Handlers.paymentWebhook]: (e, c) => new PaymentService().onStripeWebhook(e, c),
+  [Handlers.paymentWebhook]: e => new PaymentService().onStripeWebhook(e),
 };
 
 module.exports = new LambdaHandlerFactory(handlers).getHandlers();
