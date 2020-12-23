@@ -7,7 +7,7 @@ import { Ticket } from "../tickets/ticket.model";
 import TicketsRepository from "../tickets/tickets.respository";
 
 interface APIGatewayEventWithRawBody extends APIGatewayEvent {
-  rawBody: string;
+  raw: string;
 }
 
 export default class PaymentService {
@@ -27,11 +27,11 @@ export default class PaymentService {
     });
   }
 
-  // eslint-disable-next-line class-methods-use-this
   public async onStripeWebhook(event: APIGatewayEventWithRawBody): Promise<unknown> {
     const signature = event.headers["Stripe-Signature"] ?? "";
     console.log("event was", event);
-    const e = this.stripe.webhooks.constructEvent(event.rawBody, signature, appConfig.stripeSigningSecret);
+    const rawBodyAsBuffer = Buffer.from(event.raw, "base64");
+    const e = this.stripe.webhooks.constructEvent(rawBodyAsBuffer, signature, appConfig.stripeSigningSecret);
     console.log(e);
     return {
       statusCode: 200,
