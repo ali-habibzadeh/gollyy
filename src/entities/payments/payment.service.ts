@@ -6,9 +6,9 @@ import { appConfig } from "../../config/app-config/config.service";
 import { Ticket } from "../tickets/ticket.model";
 import TicketsRepository from "../tickets/tickets.respository";
 
-interface APIGatewayEventWithRawBody extends APIGatewayEvent {
-  rawBody: string;
-}
+// interface APIGatewayEventWithRawBody extends APIGatewayEvent {
+//   rawBody: string;
+// }
 
 export default class PaymentService {
   private ticketsRepository = new TicketsRepository();
@@ -27,17 +27,17 @@ export default class PaymentService {
     });
   }
 
-  public async onStripeWebhook(event: APIGatewayEventWithRawBody): Promise<unknown> {
+  public async onStripeWebhook(event: APIGatewayEvent): Promise<unknown> {
     const signature = event.headers["Stripe-Signature"] ?? "";
-    if (!event.rawBody) {
+    if (!event.body) {
       throw new Error("No raw body found");
     }
-    const raw = Buffer.from(event.rawBody, "base64").toString("utf8");
-    console.log("rawBody was", event.rawBody);
+    // const raw = Buffer.from(event.body, "base64").toString("utf8");
+    console.log("rawBody was", event.body);
     console.log("signature", signature);
     console.log("appConfig.stripeSigningSecret", appConfig.stripeSigningSecret);
     try {
-      this.stripe.webhooks.constructEvent(raw, signature, appConfig.stripeSigningSecret);
+      this.stripe.webhooks.constructEvent(event.body, signature, appConfig.stripeSigningSecret);
       return {
         statusCode: 200,
         body: JSON.stringify({ received: true }),
