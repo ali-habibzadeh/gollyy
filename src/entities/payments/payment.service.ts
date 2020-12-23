@@ -30,8 +30,8 @@ export default class PaymentService {
   public async onStripeWebhook(event: APIGatewayEventWithRawBody): Promise<unknown> {
     const signature = event.headers["Stripe-Signature"] ?? "";
     console.log("event was", event);
-    const raw = Buffer.from(event.rawBody, "base64").toString("utf8");
-    const e = this.stripe.webhooks.constructEvent(raw, signature, appConfig.stripeSigningSecret);
+    // const raw = Buffer.from(event.rawBody, "base64").toString("utf8");
+    const e = this.stripe.webhooks.constructEvent(event.rawBody, signature, appConfig.stripeSigningSecret);
     console.log(e);
     return {
       statusCode: 200,
