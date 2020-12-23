@@ -32,7 +32,7 @@ export default class GollyyApi {
 
   public apiHandler = new LambdaFactory(this.scope, Handlers.graphQlApi, {
     [EnvVars.ticketsTableName]: this.entityTables.ticketsTable.tableName,
-    [EnvVars.stripeSecretKey]: this.scope.node.tryGetContext("stripeSecretKey"),
+    [EnvVars.stripeSecretKey]: this.scope.node.tryGetContext(EnvVars.stripeSecretKey),
   }).getLambda();
 
   public drawHandler = new LambdaFactory(this.scope, Handlers.runDraw, {
