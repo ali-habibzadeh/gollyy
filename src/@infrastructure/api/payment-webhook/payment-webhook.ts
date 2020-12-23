@@ -19,6 +19,7 @@ export default class PaymentWebhook {
   }).getLambda();
 
   public api = new LambdaRestApi(this.scope, `StripeWebhookApi`, {
+    proxy: false,
     handler: this.paymentWebhookHandler,
   });
 
