@@ -1,4 +1,4 @@
-import { LambdaIntegration, LambdaRestApi } from "@aws-cdk/aws-apigateway";
+import { LambdaIntegration, LambdaRestApi, PassthroughBehavior } from "@aws-cdk/aws-apigateway";
 import { Table } from "@aws-cdk/aws-dynamodb";
 import { Construct } from "@aws-cdk/core";
 
@@ -28,15 +28,16 @@ export default class PaymentWebhook {
         proxy: false,
         requestTemplates: {
           "application/json": `
-          '{"rawbody": "$input.body",
-              "headers": {
-                #foreach($param in $input.params().header.keySet())
-                "$param": "$util.escapeJavaScript($input.params().header.get($param))"
-                #if($foreach.hasNext),#end
-                #end
-            }}'
+          {"rawBody": "$util.base64Encode($input.body)",
+          "headers": {
+            #foreach($param in $input.params().header.keySet())
+            "$param": "$util.escapeJavaScript($input.params().header.get($param))"
+            #if($foreach.hasNext),#end
+            #end
+          }}
           `,
         },
+        passthroughBehavior: PassthroughBehavior.NEVER,
       }),
     );
   }
