@@ -22,11 +22,11 @@ export default class PaymentWebhook {
   });
 
   private integration = new LambdaIntegration(this.paymentWebhookHandler, {
-    requestTemplates: { "application/json": '{ "rawBody": $input.body } }' },
+    requestTemplates: { "application/json": '{ "rawbody": "$util.escapeJavaScript($input.body)" } }' },
     passthroughBehavior: PassthroughBehavior.NEVER,
   });
 
   private defineApiMethods(): void {
-    this.api.root.addResource("stripe-webhook").addMethod("POST", this.integration);
+    this.api.root.addResource("stripe-webhook", { defaultIntegration: this.integration }).addMethod("POST");
   }
 }
