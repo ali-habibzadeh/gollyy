@@ -45,3 +45,4 @@ jobs:
           REF: ${GITHUB_REF}
           stripePublishableKey: ${{ secrets.STRIPE_PUBLISHABLE_KEY }}
           stripeSecretKey: ${{ secrets.STRIPE_SECRET_KEY }}
+          stripeSigningSecret: ${{ secrets.STRIPE_SIGNING_SECRET }}

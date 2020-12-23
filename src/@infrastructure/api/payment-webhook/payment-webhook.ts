@@ -27,15 +27,13 @@ export default class PaymentWebhook {
       new LambdaIntegration(this.paymentWebhookHandler, {
         proxy: false,
         requestTemplates: {
-          "application/json": `
-          {"rawBody": "$util.base64Encode($input.body)",
+          "application/json": `{"rawBody": "$util.base64Encode($input.body)",
           "headers": {
             #foreach($param in $input.params().header.keySet())
             "$param": "$util.escapeJavaScript($input.params().header.get($param))"
             #if($foreach.hasNext),#end
             #end
-          }}
-          `,
+          }}`,
         },
         passthroughBehavior: PassthroughBehavior.NEVER,
       }),
