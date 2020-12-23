@@ -1,4 +1,4 @@
-import { LambdaRestApi } from "@aws-cdk/aws-apigateway";
+import { LambdaIntegration, LambdaRestApi, PassthroughBehavior } from "@aws-cdk/aws-apigateway";
 import { Table } from "@aws-cdk/aws-dynamodb";
 import { Construct } from "@aws-cdk/core";
 
@@ -22,6 +22,15 @@ export default class PaymentWebhook {
   });
 
   private defineApiMethods(): void {
-    this.api.root.addResource("stripe-webhook").addMethod("POST");
+    this.api.root.addResource("stripe-webhook").addMethod(
+      "POST",
+      new LambdaIntegration(this.paymentWebhookHandler, {
+        proxy: false,
+        requestTemplates: {
+          "application/json": `{ "rawbody": "$util.escapeJavaScript($input.body)" } }`,
+        },
+        passthroughBehavior: PassthroughBehavior.NEVER,
+      }),
+    );
   }
 }
