@@ -10,6 +10,7 @@ export default class PaymentWebhook {
   constructor(private scope: Construct, private ticketsTable: Table) {
     this.ticketsTable.grantFullAccess(this.paymentWebhookHandler);
     // this.defineApiMethods();
+    this.api.root.addResource("stripe-webhook").addMethod("POST");
   }
 
   public paymentWebhookHandler = new LambdaFactory(this.scope, Handlers.paymentWebhook, {
