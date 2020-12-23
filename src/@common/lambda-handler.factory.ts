@@ -16,10 +16,7 @@ export class LambdaHandlerFactory {
 
   public getHandlers(): ILambdaHandlers {
     return this.entries.reduce(
-      (configs, [name, fn]) => ({
-        ...configs,
-        [name]: (event, context) => fn(event, context),
-      }),
+      (configs, [name, fn]) => ({ ...configs, [name]: (event, context) => fn(event, context) }),
       <ILambdaHandlers>{},
     );
   }
