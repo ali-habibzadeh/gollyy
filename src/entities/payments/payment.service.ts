@@ -40,6 +40,7 @@ export default class PaymentService {
     console.log(e);
     return {
       statusCode: 200,
+      body: { received: true },
     };
   }
 }
