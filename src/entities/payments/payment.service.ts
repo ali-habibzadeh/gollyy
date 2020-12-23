@@ -43,9 +43,10 @@ export default class PaymentService {
         body: JSON.stringify({ received: true }),
       };
     } catch (e) {
+      console.log("error", JSON.stringify(e));
       return {
         statusCode: 400,
-        body: JSON.stringify({ received: false }),
+        body: JSON.stringify(e),
       };
     }
   }
