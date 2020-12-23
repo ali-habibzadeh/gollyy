@@ -36,11 +36,17 @@ export default class PaymentService {
     console.log("rawBody was", event.rawBody);
     console.log("signature", signature);
     console.log("appConfig.stripeSigningSecret", appConfig.stripeSigningSecret);
-    const e = this.stripe.webhooks.constructEvent(raw, signature, appConfig.stripeSigningSecret);
-    console.log(e);
-    return {
-      statusCode: 200,
-      body: JSON.stringify({ received: true }),
-    };
+    try {
+      this.stripe.webhooks.constructEvent(raw, signature, appConfig.stripeSigningSecret);
+      return {
+        statusCode: 200,
+        body: JSON.stringify({ received: true }),
+      };
+    } catch (e) {
+      return {
+        statusCode: 400,
+        body: JSON.stringify({ received: false }),
+      };
+    }
   }
 }
