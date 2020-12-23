@@ -1,5 +1,5 @@
 /* eslint-disable no-console */
-import { APIGatewayEvent, AppSyncResolverEvent, Context } from "aws-lambda";
+import { APIGatewayEvent, AppSyncResolverEvent } from "aws-lambda";
 import Stripe from "stripe";
 
 import { appConfig } from "../../config/app-config/config.service";
@@ -24,13 +24,11 @@ export default class PaymentService {
   }
 
   // eslint-disable-next-line class-methods-use-this
-  public async onStripeWebhook(event: APIGatewayEvent, context?: Context): Promise<unknown> {
-    const signature = event.headers["Stripe-Signature"] ?? "";
-    const body = event.body?.toString() ?? "";
-    console.log("event was", event, context);
-    console.log("body from lambda", body);
-    const e = this.stripe.webhooks.constructEvent(body, signature, appConfig.stripeSigningSecret);
-    console.log(e);
+  public async onStripeWebhook(event: APIGatewayEvent): Promise<unknown> {
+    // const signature = event.headers["Stripe-Signature"] ?? "";
+    console.log("event was", event);
+    // const e = this.stripe.webhooks.constructEvent(body, signature, appConfig.stripeSigningSecret);
+    // console.log(e);
     return {
       statusCode: 200,
     };
