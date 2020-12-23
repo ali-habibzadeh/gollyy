@@ -33,9 +33,6 @@ export default class PaymentService {
       throw new Error("No raw body found");
     }
     const raw = Buffer.from(event.rawBody, "base64").toString("utf8");
-    console.log("rawBody was", event.rawBody);
-    console.log("signature", signature);
-    console.log("appConfig.stripeSigningSecret", appConfig.stripeSigningSecret);
     const e = this.stripe.webhooks.constructEvent(raw, signature, appConfig.stripeSigningSecret);
     console.log(e);
     return {
