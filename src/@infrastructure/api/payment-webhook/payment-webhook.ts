@@ -26,7 +26,9 @@ export default class PaymentWebhook {
       "POST",
       new LambdaIntegration(this.paymentWebhookHandler, {
         proxy: false,
-        requestTemplates: { "application/json": '{ "rawbody": "$util.escapeJavaScript($input.body)" } }' },
+        requestTemplates: {
+          "application/json": `{ "rawbody": "$util.escapeJavaScript($input.body).replaceAll("\\'","'")" } }`,
+        },
         passthroughBehavior: PassthroughBehavior.NEVER,
       }),
     );
