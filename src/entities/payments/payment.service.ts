@@ -33,8 +33,8 @@ export default class PaymentService {
       throw new Error("No raw body found");
     }
     console.log("event was", event);
-    // const raw = Buffer.from(event.rawBody, "base64").toString("utf8");
-    const e = this.stripe.webhooks.constructEvent(event.rawBody, signature, appConfig.stripeSigningSecret);
+    const raw = Buffer.from(event.rawBody, "base64").toString("utf8");
+    const e = this.stripe.webhooks.constructEvent(raw, signature, appConfig.stripeSigningSecret);
     console.log(e);
     return {
       statusCode: 200,
