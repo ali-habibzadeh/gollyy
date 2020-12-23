@@ -16,17 +16,18 @@ export default class PaymentWebhook {
     [EnvVars.ticketsTableName]: this.ticketsTable.tableName,
   }).getLambda();
 
-  public api = new LambdaRestApi(this.scope, `StripeWebhookApi`, {
-    handler: this.paymentWebhookHandler,
-    proxy: false,
-  });
-
   private integration = new LambdaIntegration(this.paymentWebhookHandler, {
     requestTemplates: { "application/json": '{ "rawbody": "$util.escapeJavaScript($input.body)" } }' },
     passthroughBehavior: PassthroughBehavior.NEVER,
   });
 
+  public api = new LambdaRestApi(this.scope, `StripeWebhookApi`, {
+    handler: this.paymentWebhookHandler,
+    defaultIntegration: this.integration,
+    proxy: true,
+  });
+
   private defineApiMethods(): void {
-    this.api.root.addResource("stripe-webhook", { defaultIntegration: this.integration }).addMethod("POST");
+    this.api.root.addResource("stripe-webhook").addMethod("POST");
   }
 }
