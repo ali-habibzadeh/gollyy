@@ -1,4 +1,4 @@
-import { LambdaIntegration, LambdaRestApi, PassthroughBehavior } from "@aws-cdk/aws-apigateway";
+import { LambdaIntegration, LambdaRestApi } from "@aws-cdk/aws-apigateway";
 import { Table } from "@aws-cdk/aws-dynamodb";
 import { Construct } from "@aws-cdk/core";
 
@@ -18,27 +18,9 @@ export default class PaymentWebhook {
 
   public api = new LambdaRestApi(this.scope, `StripeWebhookApi`, {
     handler: this.paymentWebhookHandler,
-    proxy: false,
   });
 
   private defineApiMethods(): void {
-    this.api.root.addResource("stripe-webhook").addMethod(
-      "POST",
-      new LambdaIntegration(this.paymentWebhookHandler, {
-        proxy: false,
-        requestTemplates: {
-          "application/json": `
-          '{"rawBody": "$util.base64Encode($input.body)",
-              "headers": {
-                #foreach($param in $input.params().header.keySet())
-                "$param": "$util.escapeJavaScript($input.params().header.get($param))"
-                #if($foreach.hasNext),#end
-                #end
-            }}'
-          `,
-        },
-        passthroughBehavior: PassthroughBehavior.NEVER,
-      }),
-    );
+    this.api.root.addResource("stripe-webhook").addMethod("POST", new LambdaIntegration(this.paymentWebhookHandler));
   }
 }
