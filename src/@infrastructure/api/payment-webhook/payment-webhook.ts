@@ -22,9 +22,7 @@ export default class PaymentWebhook {
   });
 
   private integration = new LambdaIntegration(this.paymentWebhookHandler, {
-    requestTemplates: {
-      "application/json": JSON.stringify({ rawBody: "$input.body" }),
-    },
+    requestTemplates: { "application/json": '{ "rawBody": $input.body } }' },
   });
 
   private defineApiMethods(): void {
