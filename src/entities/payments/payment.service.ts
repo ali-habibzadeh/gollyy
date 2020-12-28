@@ -1,14 +1,9 @@
-/* eslint-disable no-console */
 import { APIGatewayEvent, AppSyncResolverEvent } from "aws-lambda";
 import Stripe from "stripe";
 
 import { appConfig } from "../../config/app-config/config.service";
 import { Ticket } from "../tickets/ticket.model";
 import TicketsRepository from "../tickets/tickets.respository";
-
-// interface APIGatewayEventWithRawBody extends APIGatewayEvent {
-//   rawBody: string;
-// }
 
 export default class PaymentService {
   private ticketsRepository = new TicketsRepository();
@@ -27,13 +22,13 @@ export default class PaymentService {
     });
   }
 
-  public async onStripeWebhook(event: APIGatewayEvent): Promise<unknown> {
+  public async onStripeWebhook(event: APIGatewayEvent): Promise<Stripe.Event.Data.Object> {
     const signature = event.headers["Stripe-Signature"] ?? "";
     const body = event.body ?? "";
-    this.stripe.webhooks.constructEvent(body, signature, appConfig.stripeSigningSecret);
+    const stripeEvent = this.stripe.webhooks.constructEvent(body, signature, appConfig.stripeSigningSecret);
     return {
       statusCode: 200,
-      body: JSON.stringify({ received: true }),
+      body: JSON.stringify(stripeEvent.data.object),
     };
   }
 }

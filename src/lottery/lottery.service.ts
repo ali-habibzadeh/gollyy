@@ -9,7 +9,7 @@ export default class LotteryService {
 
   public async carryOutDraw(): Promise<Ticket[]> {
     const draw = await this.drawsRepository.create();
-    const winners = this.ticketsRepository.listWinners(draw);
-    return (await winners).Items;
+    const winingTickets = await this.ticketsRepository.listWinners(draw);
+    return winingTickets;
   }
 }
