@@ -20,6 +20,7 @@ module.exports = {
       files: ["src/**/*.ts"],
       rules: {
         "import/prefer-default-export": "off",
+        "no-await-in-loop": "off",
       },
     },
   ],

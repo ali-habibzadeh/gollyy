@@ -8,5 +8,5 @@ enum PaymentResolverFields {
 
 export const paymentResolvers = <const>[{ typeName: "Mutation", fieldName: PaymentResolverFields.createPurchase }];
 
-export const iscreateTicketEvent = (event: AppSyncResolverEvent<unknown>): event is AppSyncResolverEvent<Ticket> =>
+export const isCreatePurchaseEvent = (event: AppSyncResolverEvent<unknown>): event is AppSyncResolverEvent<Ticket> =>
   event.info.fieldName === PaymentResolverFields.createPurchase;
